@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- material icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"rel="stylesheet">
+
+    <!-- stylesheet -->
+
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="gird.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/slider.css">
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="./images/HMP-logo.png" alt="">
+                    <!-- <h2 style="color: #8F8E93;font-size: 1.4rem;">Heath<span style="color:#023866">Matthews</span><span style="color:#FCCF02 ;">Physio</span></h2> -->
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp" style="padding-bottom: 15px;padding-left: 10px;">close</span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a href="#" class="active">
+                    <span class="material-icons-sharp">dashboard</span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">self_improvement</span>
+                    <h3>My Programs</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">fitness_center</span>
+                    <h3>HMP Programs</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-outlined">email</span>
+                    <h3>Messages</h3>
+                    <span class="message-count">3</span>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">stacked_line_chart</span>
+                    <h3>Progress Report</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-outlined">medical_information</span>
+                    <h3>Medical History</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">settings_suggest</span>
+                    <h3>Settings</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">support_agent</span>
+                    <h3>Contact Us</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">logout</span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+        <!-- END OF ASIDE -->
+
+        <main>
+            <h1 style="padding-top: 0.6rem; padding-bottom: 0.9rem; font-size: 2.8rem;">Dashboard</h1>
+
+            <!-- <div class="date">
+                <input type="date">
+            </div> -->
+
+            <div class="insights">
+                <div class="sales">
+                    <span class="material-icons-sharp">pool</span>
+                <div class="middle">
+                    <div class="left">
+                        <h3>Swimming Injury Prevention</h3>
+                        <h2 style="text-align: left;">Day 16 of 32</h2>
+                    </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx='38' cy='38' r='36'></circle>
+                            </svg>
+                            <div class="number">
+                                <p>50%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#"><small class="text-muted" >Continue Your Journey</small></a>
+                </div>
+                <!--  END OF SALES-->
+
+                
+                    <div class="expenses">
+                        <span class="material-icons-sharp">whatshot</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Core & Back</h3>
+                            <h2 style="text-align: left;">Day 22 of 63</h2>
+                        </div>
+                            <div class="progress">
+                                <svg>
+                                    <circle cx='38' cy='38' r='36'></circle>
+                                </svg>
+                            
+                                <div class="number">
+                                    <p>35%</p>
+                                </div>
+                            </div>
+                        </div>
+                    <a href="#"><small class="text-muted">Continue Your Journey</small></a>
+                    </div>
+                <!--  END OF EXPENSES-->
+
+                    
+                        <div class="income">
+                            <span class="material-icons-sharp">keyboard_capslock</span>
+                        <div class="middle">
+                            <div class="left">
+                                <h3>ACL Rehad Stage 1</h3>
+                                <h2 style="text-align: left;">Day 32 of 42</h2>
+                                </div>
+                                <div class="progress">
+                                    <svg>
+                                        <circle cx='38' cy='38' r='36'></circle>
+                                    </svg>
+                                    <div class="number">
+                                        <p>76%</p>
+                                    </div>
+                                </div>
+                            </div>
+                    <a href="#"><small class="text-muted">Continue Your Journey</small></a>
+                        </div>
+                <!--  END OF INCOME-->
+            </div>
+
+                <header>
+                  <div class="logo">
+                    <h1 style="margin-top: 25px; font-size: 2.4rem;">START YOUR REHAB JOURNEY</h1>
+                  </div>
+                </header>
+
+                <div class="slide-container swiper" style="padding-top: 20px;">
+                    <div class="slide-content">
+                        <div class="card-wrapper swiper-wrapper">
+                            <div class="card swiper-slide">
+                                <div class="image-content">
+                                    <span class="overlay"></span>
+        
+                                    <div class="card-image">
+                                        <img src="images/benjamin-wedemeyer-1rdB14ttWgQ-unsplash.jpg" alt="" class="card-img">
+                                    </div>
+                                </div>
+        
+                                <div class="card-content">
+                                    <h2 class="name">30 Minute Back Mobility Routine</h2>
+                                    <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+        
+                                    <button class="button">Add Program</button>
+                                </div>
+                            </div>
+                            <div class="card swiper-slide">
+                                <div class="image-content">
+                                    <span class="overlay"></span>
+        
+                                    <div class="card-image">
+                                        <img src="images/terry-shultz-p-t-EQ-53WaTNC4-unsplash.jpg" alt="" class="card-img">
+                                    </div>
+                                </div>
+        
+                                <div class="card-content">
+                                    <h2 class="name">Knee Fitness Program</h2>
+                                    <br>
+                                    <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.  </p>
+        
+                                    <button class="button">Add Program</button>
+                                </div>
+                            </div>
+                            <div class="card swiper-slide">
+                                <div class="image-content">
+                                    <span class="overlay"></span>
+        
+                                    <div class="card-image">
+                                        <img src="images/dulcey-lima-8Tx1FOj8xJc-unsplash.jpg" alt="" class="card-img">
+                                    </div>
+                                </div>
+        
+                                <div class="card-content">
+                                    <h2 class="name">Running Injury Prevention Program</h2>
+                                    <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+        
+                                    <button class="button">Add Program</button>
+                                </div>
+                            </div>
+                            <div class="card swiper-slide">
+                                <div class="image-content">
+                                    <span class="overlay"></span>
+        
+                                    <div class="card-image">
+                                        <img src="images/brian-matangelo--BUPaAMSOdE-unsplash.jpg" alt="" class="card-img">
+                                    </div>
+                                </div>
+                                
+                                <div class="card-content">
+                                    <h2 class="name">Swimming Injury Prevention Program</h2>
+                                    <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+        
+                                    <button class="button">Add Program</button>
+                                </div>
+                            </div>
+                            <div class="card swiper-slide">
+                                <div class="image-content">
+                                    <span class="overlay"></span>
+        
+                                    <div class="card-image">
+                                        <img src="images/alonso-reyes-0HlI76m4jxU-unsplash.jpg" alt="" class="card-img">
+                                    </div>
+                                </div>
+
+                                <div class="card-content">
+                                    <h2 class="name">Core & Back Fitness Program</h2>
+                                    <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+        
+                                    <button class="button">Add Program</button>
+                                </div>
+                            </div>
+                            <div class="card swiper-slide">
+                                <div class="image-content">
+                                    <span class="overlay"></span>
+        
+                                    <div class="card-image">
+                                        <img src="images/displeased-young-sportsman-have-painful-feelings-leg.jpg" alt="" class="card-img">
+                                    </div>
+                                </div>
+        
+                                <div class="card-content">
+                                    <h2 class="name">ACL Rehab Stage 1 - Recovery</h2>
+                                    <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+        
+                                    <button class="button">Add Program</button>
+                                </div>
+                            </div>
+                            <div class="card swiper-slide">
+                                <div class="image-content">
+                                    <span class="overlay"></span>
+        
+                                    <div class="card-image">
+                                        <img src="images/closeup-young-man-with-knee-injury.jpg" alt="" class="card-img">
+                                    </div>
+                                </div>
+
+                                <div class="card-content">
+                                    <h2 class="name">ACL Rehab Stage 2 - Building The Base</h2>
+                                    <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+        
+                                    <button class="button">Add Program</button>
+                                </div>
+                            </div>
+                            <div class="card swiper-slide">
+                                <div class="image-content">
+                                    <span class="overlay"></span>
+        
+                                    <div class="card-image">
+                                        <img src="images/semen-zhuravlev-_XxH_mV8dnk-unsplash.jpg" alt="" class="card-img">
+                                    </div>
+                                </div>
+
+                                <div class="card-content">
+                                    <h2 class="name">ACL Knee Rehab - Stage 3 (Strength & Power)</h2>
+                                    <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+        
+                                    <button class="button">Add Program</button>
+                                </div>
+                            </div>
+                            <div class="card swiper-slide">
+                                <div class="image-content">
+                                    <span class="overlay"></span>
+        
+                                    <div class="card-image">
+                                        <img src="images/pexels-cottonbro-4753996.jpg" alt="" class="card-img">
+                                    </div>
+                                </div>
+
+                                <div class="card-content">
+                                    <h2 class="name">Gym Program</h2>
+                                    <br>
+                                    <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+        
+                                    <button class="button">Add Program</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="swiper-button-next swiper-navBtn"></div>
+                    <div class="swiper-button-prev swiper-navBtn"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+</main>
+
+<!-- END OF MAIN -->
+
+<div class="right">
+    <div class="top">
+        <button id="menu-btn">
+            <span class="material-icons-sharp">menu</span>
+        </button>
+        <div class="theme-toggler">
+            <span class="material-icons-sharp active">light_mode</span>
+            <span class="material-icons-sharp">dark_mode</span>
+        </div>
+        <div class="profile">
+            <div class="info">
+                <p class="text-muted">Hey, <b>Azeem</b></p>
+                <small class="text-muted">Subscriber</small>
+            </div>
+            <div class="profile-photo">
+                <img src="./images/Azeem1.jpg" alt=""> 
+            </div>
+        </div>
+    </div>
+    <!-- END OF TOP -->
+    <div class="recent-updates">
+        <h2 style="text-align:left ;">Recent Updates</h2>
+        <div class="updates"> 
+            
+            <div class="update">
+                <div class="profile-photo">
+                    <img src="./images/Mike_Tyson.jpg" alt="">
+                </div>
+                <div class="message">
+                    <p class="text-muted"> <b>Health Coach</b> All the best :) </p>
+                    <small class="text-muted"> 28 Minutes Ago</small>
+                </div>
+            </div>
+
+            <div class="update">
+                <div class="profile-photo">
+                    <img src="./images/AZEEM (resized).jpg" alt="">
+                </div>
+                <div class="message">
+                    <p class="text-muted"> <b>HMP Team</b> Please feel free to reach out to us.</p>
+                    <small class="text-muted"> 4 Hours Ago</small>
+                </div>
+            </div>
+            
+            <div class="update">
+                <div class="profile-photo">
+                    <img src="./images/heath.jpg" alt="">
+                </div>
+                <div class="message">
+                    <p class="text-muted"> <b>Heath Matthew</b> You have taken the first step towards your rehabilitation and fitness journey.</p>
+                    <small class="text-muted"> 5 Days Ago</small>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- END OF RECENT UPDATES -->
+    <div class="sales-analytics">
+            <h2 style="text-align:left;">Active Programs</h2>
+
+        <a href="#"><div class="item online">
+            <div class="icon">
+                <span class="material-icons-sharp">pool</span>
+            </div>
+            <div class="right">
+                <div class="info">
+                    <h3>Swimming Injury <br> Prevention Program</h3>
+                </div>
+                <!-- <h5 class="success">+39%</h5> -->
+                <h3>Day 16</h3>
+            </div>
+        </div></a>
+
+        <a href="#"><div class="item offline">
+            <div class="icon">
+                <span class="material-icons-sharp">whatshot</span>
+            </div>
+            <div class="right">
+                <div class="info">
+                    <h3>Core & Back <br>Fitness Program</h3>
+                    <!-- <small class="text-muted">Last 24 Hours</small> -->
+                </div>
+                <!-- <h5 class="danger">-17%</h5> -->
+                <h3>Day 22</h3>
+            </div>
+        </div></a>
+
+        <a href="#"><div class="item customers">
+            <div class="icon">
+                <span class="material-icons-sharp">keyboard_capslock</span>
+            </div>
+            <div class="right">
+                <div class="info">
+                    <h3>ACL Rehab <br> Stage 1 - Recovery</h3>
+                    <!-- <small class="text-muted">Last 24 Hours</small> -->
+                </div>
+                <!-- <h5 class="success">+25%</h5> -->
+                <h3>Day 32</h3>
+            </div>
+        </div></a>
+
+        <a href=""><div class="item add-product">
+            <div>
+                <span class="material-icons-sharp">add</span>
+                <h3>Add Program</h3>
+            </div>
+        </div></a>
+
+    </div>
+    </div>
+</body>
+
+<!-- Swiper JS -->
+<script src="js/swiper-bundle.min.js"></script>
+
+<!-- JavaScript -->
+<script src="js/slider.js"></script>
+<script src="js/index.js"></script>
+    
+
+</html>
