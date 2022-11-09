@@ -42,12 +42,15 @@ const Sidebar = () => {
 
           return (
             <div
-              className={selected === index ? "menuItem active" : "menuItem"}
+              className={window.location.pathname === item.link ? "menuItem active" : "menuItem"}
               key={index}
-              onClick={() => setSelected(index)}
+              onClick={() => {
+                setSelected(item.key-1)
+                navigate("../"+item.link)
+              }}
             >
               <item.icon />
-              <Link to={"../"+url}>{item.heading}</Link>
+              <span>{item.heading}</span>
             </div>
           );
         })}

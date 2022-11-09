@@ -5,53 +5,46 @@ import "react-circular-progressbar/dist/styles.css";
 import { motion, AnimateSharedLayout } from "framer-motion";
 import { UilTimes } from "@iconscout/react-unicons";
 import Chart from "react-apexcharts";
-
+import {useNavigate, Link} from 'react-router-dom'
 // parent Card
 
 const Card = (props) => {
-  const [expanded, setExpanded] = useState(false);
+  
   return (
     <AnimateSharedLayout>
-      {expanded ? (
-        <ExpandedCard param={props} setExpanded={() => setExpanded(false)} />
-      ) : (
-        <CompactCard param={props} setExpanded={() => setExpanded(true)} />
-      )}
+        <CompactCard param={props}  />
+    
     </AnimateSharedLayout>
   );
 };
 
 // Compact Card
-function CompactCard({ param, setExpanded }) {
-  const Png = param.png;
+function CompactCard({ param }) {
+  const navigate = useNavigate();
   return (
     <motion.div
       className="CompactCard"
       style={{
-        background: param.color.backGround,
-        boxShadow: param.color.boxShadow,
+        background:"#f6f6f6",
+        boxShadow: "0px 5px 10px 0px orange",
       }}
       layoutId="expandableCard"
-      onClick={setExpanded}
+      onClick={()=>{navigate('../myprograms')}}
     >
       <div className="radialBar">
         <CircularProgressbar
           value={param.barValue}
           text={`${param.barValue}%`}
         />
-        <span>{param.title}</span>
       </div>
-      <div className="detail">
-        <Png />
-        <span>${param.value}</span>
-        <span>Last 24 hours</span>
-      </div>
+        <span className="card-title">{param.title}</span>
+        <Link className="card-continue-journey">Continue Journey -></Link>
     </motion.div>
   );
 }
 
 // Expanded Card
-function ExpandedCard({ param, setExpanded }) {
+{/*function ExpandedCard({ param, setExpanded }) {
   const data = {
     options: {
       chart: {
@@ -122,6 +115,8 @@ function ExpandedCard({ param, setExpanded }) {
       <span>Last 24 hours</span>
     </motion.div>
   );
+
+}*/
 }
 
 export default Card;

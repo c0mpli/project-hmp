@@ -2,7 +2,13 @@
     /* padding-top: 1rem; */
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+}
+.maindash-heading-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 @media screen and (max-width: 1200px) {

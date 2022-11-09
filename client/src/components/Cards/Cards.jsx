@@ -6,6 +6,7 @@ import Card from "../Card/Card";
 
 const Cards = () => {
   return (
+    <>
     <div className="Cards">
       {cardsData.map((card, id) => {
         return (
@@ -15,13 +16,16 @@ const Cards = () => {
               color={card.color}
               barValue={card.barValue}
               value={card.value}
-              png={card.png}
-              series={card.series}
             />
           </div>
         );
       })}
     </div>
+    <div className="card-button">
+
+      <button>VIEW ALL -> </button>
+    </div>
+    </>
   );
 };
 

@@ -5,13 +5,29 @@
 .parentContainer{
   width: 100%;
 }
-
+.card-button{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+.card-button button{
+  background: #FFFFFF;
+border: 1px solid #FA8128;
+border-radius: 20px;
+cursor: pointer;
+height: 2rem;
+width: 8rem;
+color: #FA8128;
+font-weight: 700;
+}
 @media screen and (max-width: 1200px) {
   .Cards{
     flex-direction: column;
   }
   .parentContainer{
-    height: 9rem;
+    
   }
 }
 

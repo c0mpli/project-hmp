@@ -75,14 +75,14 @@
   content: "";
   width: 8px;
   height: 100%;
-  background: var(--pink);
+  background: var(--beforeActiveItem);
   margin-right: calc(1rem - 8px);
 }
 
 
 /* Tablets */
 @media screen and (max-width: 1200px) {
-  .menuItem a{
+  .menuItem span{
     display: none;
   }
   .logo{
@@ -99,7 +99,7 @@
     padding-right: 1rem;
     height: 100%;
   }
-  .menuItem>a{
+  .menuItem>span{
     display: block;
   }
   .logo{
