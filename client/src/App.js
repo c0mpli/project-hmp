@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
+import './App.css'
+import Dashboard from './pages/Dashboard';
+import {BrowserRouter, Routes, Route } from 'react-router-dom'
+import MyPrograms from './pages/MyPrograms';
+import HMPPrograms from './pages/HMPPrograms';
+import MyAccount from './pages/MyAccount';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+      <Routes>
+        {/** verify login here first */}
+ 
+
+        <Route path='/dashboard' element={<Dashboard/>}></Route>
+        <Route path='/myprograms' element={<MyPrograms/>}></Route>
+        <Route path='/hmpprograms' element={<HMPPrograms/>}></Route>
+        <Route path='/myaccount' element={<MyAccount/>}></Route>
+
+      </Routes>
+      </BrowserRouter>
+      
     </div>
   );
 }
