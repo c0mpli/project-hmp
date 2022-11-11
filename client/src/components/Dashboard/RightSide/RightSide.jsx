@@ -1,9 +1,10 @@
 import React from "react";
-import CustomerReview from "../CustomerReview/CustomerReview";
 import "./RightSide.css";
-import { UpdatesData } from "../../Data/Data";
-import ProfileImage from '../../images/img1.png'
+import { cardsData, UpdatesData } from "../../../Data/Data";
+import ProfileImage from '../../../images/img1.png'
+import { useNavigate, Link, Navigate } from "react-router-dom";
 const RightSide = () => {
+  const navigate = useNavigate()
   return (
     <div className="RightSide">
 
@@ -38,7 +39,29 @@ const RightSide = () => {
 
       <div>
         <h3>Active Programs</h3>
-        <CustomerReview />
+        <div>
+      <div className="active-programs">
+        {cardsData.map((card) => {
+          return (
+            <div className="programs" onClick={()=>{navigate('../myprograms')}}>
+              <img src={card.image} alt="profile" />
+              <div className="noti">
+                <div  style={{marginBottom: '0.5rem'}}>
+                  <span>{card.title}</span>
+                  <br/>
+                  <Link to={'../myprograms'}className="card-continue-journey">Continue Journey -></Link>
+                </div>
+              </div>
+            </div>
+            
+            );
+          })}
+      </div>
+      <div className="add-program">
+
+          <button onClick={()=>{navigate('../myprograms')}}>ADD PROGRAMS -></button>
+      </div>
+    </div>
       </div>
     </div>
   );

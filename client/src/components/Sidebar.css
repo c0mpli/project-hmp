@@ -4,7 +4,8 @@
   position: relative;
   padding-top: 4rem;
   transition: all 300ms ease;
-  
+  height: auto;
+  padding-bottom: 10rem;
 } 
 #light.sidebar{
   background-color: #F6F6F9;
@@ -62,9 +63,9 @@
 }
 
 .menu .menuItem:last-child {
-  position: absolute;
-  bottom: 2.3rem;
+  bottom: 5vh;
   width: 100%;
+  position:fixed
 }
 
 .active {

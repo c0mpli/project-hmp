@@ -1,6 +1,7 @@
 .Cards {
   display: flex;
   gap: 10px;
+  width: 95%;
 }
 .parentContainer{
   width: 100%;
@@ -26,14 +27,11 @@ font-weight: 700;
   .Cards{
     flex-direction: column;
   }
-  .parentContainer{
-    
-  }
 }
 
 @media screen and (max-width: 768px)
 {
   .Cards{
-    width: 90%;
+    width: 80%;
   }
 }

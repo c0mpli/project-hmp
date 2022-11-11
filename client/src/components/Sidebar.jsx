@@ -11,7 +11,7 @@ import {useNavigate,Link} from "react-router-dom"
 const Sidebar = () => {
   const [selected, setSelected] = useState(0);
 
-  const [expanded, setExpaned] = useState(true)
+  const [expanded, setExpaned] = useState(false)
 
   const navigate = useNavigate();
   
@@ -30,7 +30,10 @@ const Sidebar = () => {
       <div className="bars" style={expanded?{left: '60%'}:{left: '5%'}} onClick={()=>setExpaned(!expanded)}>
         <UilBars />
       </div>
-    <motion.div className='sidebar' id='light' variants={sidebarVariants} animate={window.innerWidth<=768?`${expanded}`:''}>
+    <motion.div className='sidebar' id='light' 
+    variants={sidebarVariants} 
+    animate={window.innerWidth<=768?`${expanded}`:''} 
+    >
       {/* logo */}
       <div className="logo">
         <img src={Logo} alt="logo"/>
@@ -38,8 +41,6 @@ const Sidebar = () => {
 
       <div className="menu">
         {SidebarData.map((item, index) => {
-          const url = item.heading.replace(' ','').toLowerCase()
-
           return (
             <div
               className={window.location.pathname === item.link ? "menuItem active" : "menuItem"}
@@ -47,6 +48,7 @@ const Sidebar = () => {
               onClick={() => {
                 setSelected(item.key-1)
                 navigate("../"+item.link)
+                setExpaned(false)
               }}
             >
               <item.icon />

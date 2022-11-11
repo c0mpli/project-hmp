@@ -27,8 +27,7 @@
   width: 100%;
   background: var(--glass);
   gap: 16px;
-  grid-template-columns: 13rem auto 18rem;
-  overflow: hidden;
+  grid-template-columns: 13rem auto 20rem;
 }
 
 @media screen and (max-width: 1200px) {
