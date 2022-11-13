@@ -12,12 +12,10 @@
   --beforeActiveItem: #F24E1E;
 }
 
-.App {
-  color: var(--black);
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.App{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: 'Inter', sans-serif;
 }
 

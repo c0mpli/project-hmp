@@ -5,7 +5,7 @@ import { UilSignOutAlt } from "@iconscout/react-unicons";
 import { SidebarData } from "../Data/Data";
 import { UilBars } from "@iconscout/react-unicons";
 import { motion } from "framer-motion";
-import {useNavigate,Link} from "react-router-dom"
+import {useNavigate} from "react-router-dom"
 
 
 const Sidebar = () => {

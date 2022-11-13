@@ -2,7 +2,7 @@ import React from "react";
 import "./RightSide.css";
 import { cardsData, UpdatesData } from "../../../Data/Data";
 import ProfileImage from '../../../images/img1.png'
-import { useNavigate, Link, Navigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 const RightSide = () => {
   const navigate = useNavigate()
   return (
