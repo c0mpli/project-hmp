@@ -10,6 +10,13 @@
   --smboxShadow: -79px 51px 60px rgba(0, 0, 0, 0.08);
   --activeItem: #FF9A6226;
   --beforeActiveItem: #F24E1E;
+
+
+  --HMPBlue: #013765;
+  --HMPGrey: #8B8A8F;
+  --HMPYellow: #FDCE02;
+  --HMPOffWhite: #F3F3F4;
+  --HMPOffWhiteCircle:#F3F3F466;
 }
 
 .App{
@@ -17,6 +24,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
+  width: 100%;
 }
 
 .AppGlass {

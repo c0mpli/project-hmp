@@ -1,0 +1,30 @@
+.landing{
+    margin: 0 13%;
+    
+}
+
+.landing-section1 > .background > svg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-size: contain;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .landing{
+        margin: 0 10%;
+    }
+    .landing-section1 > .background{
+        display: none;
+    }
+  }
+
+
+@media screen and (max-width: 765px) {
+    .landing{
+        margin: 0 5%;
+    }
+   
+  }
