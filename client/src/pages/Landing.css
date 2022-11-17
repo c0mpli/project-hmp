@@ -1,23 +1,43 @@
 .landing{
     margin: 0 13%;
-    
+}
+.landing-section1{
+    display: flex;
+    width: 100%;
+    position: relative;
+    z-index: 20;
+}
+.landing-img-bg::before{
+    position: absolute;
+    top:0;
+    left: 0;
+}
+.landing-img-bg{
+    position: relative;
+    width: 100%;
+    height: auto;
+    background-image:url(../imgs/Frame1.png) ;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: top;
+    z-index: -1;
+}
+.content{
+    width: 90%;
+    justify-content: right;
+    display: flex;
+    flex-wrap: wrap;
+}
+.content h1{
+    font-size: 3rem;
 }
 
-.landing-section1 > .background > svg{
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    background-size: contain;
-}
 
 
 @media screen and (max-width: 1200px) {
     .landing{
         margin: 0 10%;
-    }
-    .landing-section1 > .background{
-        display: none;
     }
   }
 
@@ -25,6 +45,5 @@
 @media screen and (max-width: 765px) {
     .landing{
         margin: 0 5%;
-    }
-   
-  }
+    } 
+}
