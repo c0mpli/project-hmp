@@ -13,15 +13,18 @@
     left: 0;
 }
 .landing-img-bg{
+    display: block;
     position: relative;
     width: 100%;
     height: auto;
-    background-image:url(../imgs/Frame1.png) ;
+    background-image:url(../imgs/Frame1.png);
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: top;
-    z-index: -1;
+    
+   
+
 }
 .content{
     width: 90%;

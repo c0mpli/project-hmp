@@ -7,6 +7,7 @@ function Landing() {
   const navigate = useNavigate()
 
   return (
+    <>
     <div className="landing-img-bg">
       <div className='landing'>
         <Navbar />
@@ -17,6 +18,7 @@ function Landing() {
         </div>
       </div>
     </div>
+    </>
   )
 }
 

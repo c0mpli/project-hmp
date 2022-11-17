@@ -1,13 +1,11 @@
-nav{
-    position: relative;
-}
+
 .landing-navbar{
     height: 19vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 20;
 }
+
 .navbar-selected{
     color: var(--HMPBlue) !important;
 }
@@ -65,7 +63,6 @@ nav{
     background-color: var(--HMPBlue);
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
- 
     display: none;
   
   }
