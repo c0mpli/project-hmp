@@ -5,7 +5,6 @@
     display: flex;
     width: 100%;
     position: relative;
-    z-index: 20;
 }
 .landing-img-bg::before{
     position: absolute;
@@ -42,6 +41,9 @@
     .landing{
         margin: 0 10%;
     }
+    .landing-img-bg{
+        background-image: none;
+    }
   }
 
 
@@ -49,4 +51,5 @@
     .landing{
         margin: 0 5%;
     } 
+    
 }

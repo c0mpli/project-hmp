@@ -4,6 +4,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;;
+    z-index: 10;
 }
 
 .navbar-selected{
@@ -100,10 +102,25 @@
     .hamburger {
       display: block;
     }
+    @keyframes fade{
+      0%{
+        opacity: 0;
+      }
+      100%{
+        opacity: 100%;
+      }
+    }
+    .navbar-menu{
+      animation-name: fade;
+      animation-duration: 2s;
+    }
     .navbar-menu.expanded ul {
+      opacity: 1;
+      transition: opacity 1s;
         display: block !important;
     }
     .navbar-menu ul{
+      opacity: 0;
         display: none;
     }
     .navigation-menu li:hover {
