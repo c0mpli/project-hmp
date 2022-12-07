@@ -81,6 +81,10 @@
 
 
   @media screen and (max-width: 765px) {
+    .landing-navbar{
+      justify-content: space-around;
+      width: 100%;
+    }
     .navbar-menu ul {
         position: absolute;
         right: -5%;
@@ -91,6 +95,7 @@
         height: 100vh;
         background-color: var(--HMPOffWhite);
         margin: 0;
+        
       }
       .navbar-menu ul li{
         padding: 2rem;

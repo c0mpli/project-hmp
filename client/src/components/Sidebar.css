@@ -33,6 +33,7 @@
 .logo > img {
   width: 8rem;
   height: 4rem;
+  cursor: pointer;
 }
 
 

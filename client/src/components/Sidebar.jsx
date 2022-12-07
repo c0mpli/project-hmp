@@ -36,7 +36,7 @@ const Sidebar = () => {
     >
       {/* logo */}
       <div className="logo">
-        <img src={Logo} alt="logo"/>
+        <img src={Logo} alt="logo" onClick={()=>{navigate('/')}}/>
       </div>
 
       <div className="menu">
