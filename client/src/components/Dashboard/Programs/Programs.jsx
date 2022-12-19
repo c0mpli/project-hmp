@@ -6,12 +6,14 @@ import 'slick-carousel/slick/slick-theme.css';
 import './Programs.css';
 import { dataDigitalBestSeller } from '../../../Data/Data';
 import imgGirl from '../../../imgs/img1.png';
+import { useNavigate } from 'react-router-dom';
 
 function Programs() {
+  const navigate = useNavigate()
   const [defaultImage, setDefaultImage] = useState({});
   const settings = {
     dots: false,
-    infinite: false,
+    infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
@@ -69,10 +71,11 @@ function Programs() {
                 onError={handleErrorImage}
               />
               <h1>{item.title}</h1>
+              <p>___________________________</p>
             </div>
             <div className="card-bottom">
-              <h3>{item.price}</h3>
-              <span className="category">{item.category}</span>
+              <p>{item.price}</p>
+              <button onClick={()=>navigate('/hmpprograms')}>View More</button>
             </div>
           </div>
         ))}

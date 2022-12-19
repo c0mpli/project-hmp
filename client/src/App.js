@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './App.css'
 import Dashboard from './pages/Dashboard';
 import {BrowserRouter, Routes, Route } from 'react-router-dom'
@@ -8,10 +8,19 @@ import MyAccount from './pages/MyAccount';
 import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import { ThemeContext } from './context/ThemeContext';
+
+
 
 function App() {
+  const [theme,setTheme] = useState('light');
+
+  const toggleTheme=()=>{
+    setTheme(theme==='light'?'dark':'light');
+  }
   return (
-    <div className="App">
+    <ThemeContext.Provider value={{theme,toggleTheme}}>
+    <div className="App" id={theme}>
       <BrowserRouter>
       <Routes>
         <Route path='/login' element={<Login />}></Route>
@@ -22,13 +31,14 @@ function App() {
         <Route path='/myprograms' element={<MyPrograms/>}></Route>
         <Route path='/hmpprograms' element={<HMPPrograms />}></Route>
         <Route path='/myaccount' element={<MyAccount />}></Route>
+        
 
         {/**Below If logged in then element will be dashboard else element will be landing*/}
         <Route path='/' element={<Landing />}></Route>
       </Routes>
       </BrowserRouter>
-      
     </div>
+    </ThemeContext.Provider>
   );
 }
 

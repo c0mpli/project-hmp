@@ -8,7 +8,6 @@ import {useNavigate, Link} from 'react-router-dom'
 // parent Card
 
 const Card = (props) => {
-  
   return (
     <AnimateSharedLayout>
         <CompactCard param={props}  />
@@ -25,7 +24,7 @@ function CompactCard({ param }) {
       className="CompactCard"
       style={{
         background:"#f6f6f6",
-        boxShadow: "0px 5px 10px 0px orange",
+        boxShadow: "1px 4px 4px 2px rgba(0, 0, 0, 0.25)",
       }}
       layoutId="expandableCard"
       onClick={()=>{navigate('../myprograms')}}
@@ -37,7 +36,7 @@ function CompactCard({ param }) {
         />
       </div>
         <span className="card-title">{param.title}</span>
-        <Link className="card-continue-journey">Continue Journey -></Link>
+        <Link className="card-continue-journey">{'Continue Journey ->'}</Link>
     </motion.div>
   );
 }

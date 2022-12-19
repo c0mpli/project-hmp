@@ -8,20 +8,23 @@
   --glass: rgba(255, 255, 255, 0.54);
   --boxShadow: 0px 19px 60px rgb(0 0 0 / 8%);
   --smboxShadow: -79px 51px 60px rgba(0, 0, 0, 0.08);
-  --activeItem: #FF9A6226;
-  --beforeActiveItem: #F24E1E;
 
 
-  --HMPBlue: #013765;
-  --HMPGrey: #8B8A8F;
-  --HMPYellow: #FDCE02;
+  --HMPLogoBlue: #013765;
+  --HMPLogoGrey: #8B8A8F;
+  --HMPLogoYellow: #FDCE02;
   --HMPOffWhite: #F3F3F4;
   --HMPOffWhiteCircle:#F3F3F466;
+  --HMPBlue:#0062B5;
+  --HMPSideBarIcons:#013765;
+  --HMPLightBlue:#B8DDFC80;
+  --DarkBG:#000010;
+  
 }
 
 .App{
   margin: 0;
-  padding: 0;
+  padding: 0 !;
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
   width: 100%;
@@ -34,9 +37,15 @@
   height: 100vh;
   width: 100%;
   background: var(--glass);
-  gap: 16px;
   grid-template-columns: 13rem auto 20rem;
 }
+
+#dark .AppGlass{
+  background-color:#000010;
+}
+
+
+
 
 @media screen and (max-width: 1200px) {
   .AppGlass{

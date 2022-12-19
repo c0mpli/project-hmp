@@ -17,7 +17,8 @@ const RightSide = () => {
         </div>
       </div>
 
-    <div>
+    <div> 
+    <h3>HMP Messages</h3>
       <div className="Updates">
         {UpdatesData.map((update) => {
           return (
@@ -38,9 +39,9 @@ const RightSide = () => {
     </div>
 
       <div>
-        <h3>Active Programs</h3>
+        <h3>Upcoming Appointments</h3>
         <div>
-      <div className="active-programs">
+      {/*<div className="active-programs">
         {cardsData.map((card) => {
           return (
             <div className="programs" onClick={()=>{navigate('../myprograms')}}>
@@ -52,14 +53,14 @@ const RightSide = () => {
                   <Link to={'../myprograms'}className="card-continue-journey">Continue Journey -></Link>
                 </div>
               </div>
-            </div>
+          </div>
             
             );
           })}
-      </div>
+      </div>*/}
       <div className="add-program">
 
-          <button onClick={()=>{navigate('../myprograms')}}>ADD PROGRAMS -></button>
+          <button onClick={()=>{navigate('../myprograms')}}>{'ADD PROGRAMS ->'}</button>
       </div>
     </div>
       </div>

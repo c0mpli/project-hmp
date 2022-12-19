@@ -1,10 +1,11 @@
 import React from "react";
 import "./Cards.css";
 import { cardsData } from "../../../Data/Data";
-
+import { useNavigate } from "react-router-dom";
 import Card from "../Card/Card";
 
 const Cards = () => {
+  const navigate = useNavigate()
   return (
     <>
     <div className="Cards">
@@ -23,7 +24,7 @@ const Cards = () => {
     </div>
     <div className="card-button">
 
-      <button>VIEW ALL -> </button>
+      <button onClick={()=>navigate('/myprograms')}>{'VIEW ALL ->'} </button>
     </div>
     </>
   );

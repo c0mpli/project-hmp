@@ -14,15 +14,23 @@
   margin-top: 2rem;
 }
 .card-button button{
-  background: #FFFFFF;
-border: 1px solid #FA8128;
+background: #FFFFFF;
+border: 1px solid var(--HMPBlue);
 border-radius: 20px;
 cursor: pointer;
 height: 2rem;
 width: 8rem;
-color: #FA8128;
+color: var(--HMPBlue);
 font-weight: 700;
 }
+
+
+#dark .card-button button{
+  background: var(--DarkBG);
+  filter: drop-shadow(0px 2px 4px #013765);
+  color:#4AA9FA;
+}
+
 @media screen and (max-width: 1200px) {
   .Cards{
     flex-direction: column;
