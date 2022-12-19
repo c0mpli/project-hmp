@@ -1,21 +1,14 @@
 import React from "react";
 import "./RightSide.css";
 import { cardsData, UpdatesData } from "../../../Data/Data";
-import ProfileImage from '../../../images/img1.png'
+
 import { useNavigate, Link } from "react-router-dom";
 const RightSide = () => {
   const navigate = useNavigate()
   return (
     <div className="RightSide">
 
-      <div className="profile">
-        <img src={ProfileImage}/>
-        <div className="profile-info">
-          <h2>Azeem</h2>
-          <div className="profileRectLine"></div>
-          <p>Subscriber</p>
-        </div>
-      </div>
+      
 
     <div> 
     <h3>HMP Messages</h3>

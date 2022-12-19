@@ -99,31 +99,35 @@ export const dataDigitalBestSeller = [
     title: 'ACL Rehab Stage-1 Recovery Program',
     price: 'Lorem ipsum dolor sit dfd consectetur ashjfkdye ',
     linkImg: pic1,
+    days:18,
   },
   {
     id: 2,
     title: 'ACL Rehab Stage-2 Recovery Program',
     price: 'Lorem ipsum dolor sit dfd consectetur ashjfkdye ',
     linkImg: pic2,
+    days:21,
   },
   {
     id: 3,
     title: 'ACL Rehab Stage-3 Recovery Program',
     price: 'Lorem ipsum dolor sit dfd consectetur ashjfkdye ',
     linkImg: pic3,
+    days:26,
   },
   {
     id: 4,
     title: 'ACL Rehab Stage-4 Recovery Program',
     price: 'Lorem ipsum dolor sit dfd consectetur ashjfkdye ',
-
     linkImg: pic1,
+    days:69,
   },
   {
     id: 5,
     title: 'ACL Rehab Stage-5 Recovery Program',
     price: 'Lorem ipsum dolor sit dfd consectetur ashjfkdye ',
     linkImg: pic2,
+    days:19,
   },
 
 ];

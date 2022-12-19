@@ -32,16 +32,22 @@
   
 }
 
-.AppGlass {
+.AppGlass,.AppGlass2,.AppGlass3 {
   display: grid;
-  height: 100vh;
+  height: auto;
   width: 100%;
   background: var(--glass);
   grid-template-columns: 13rem auto 20rem;
   overflow-x: hidden;
 }
+.AppGlass2{
+  grid-template-columns: 13rem auto;
+}
+.AppGlass3{
+  grid-template-columns: auto 20rem;
+}
 
-#dark .AppGlass{
+#dark .AppGlass,#dark .AppGlass2,#dark .AppGlass3{
   background-color:#000010;
 }
 
@@ -53,10 +59,18 @@
     grid-template-columns: 10% 50% auto;
     overflow-y: scroll;
   } 
+  .AppGlass2{
+    grid-template-columns: 10% auto;
+    overflow-y: scroll;
+  } 
+  .AppGlass3{
+    grid-template-columns: 50% auto;
+    overflow-y: scroll;
+  } 
 }
 
 @media screen and (max-width: 768px) {
-  .AppGlass{
+  .AppGlass,.AppGlass2,.AppGlass3{
     grid-template-columns: 1fr;
   } 
 }

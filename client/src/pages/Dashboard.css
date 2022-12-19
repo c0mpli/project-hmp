@@ -1,0 +1,9 @@
+.headerProfile{
+    display: flex;
+    width: 100%;
+}
+
+.ContentWrapper{
+    display: grid;
+    grid-template-rows: auto auto;
+}
