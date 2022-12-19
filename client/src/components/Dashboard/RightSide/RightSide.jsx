@@ -12,7 +12,7 @@ const RightSide = () => {
         <img src={ProfileImage}/>
         <div className="profile-info">
           <h2>Azeem</h2>
-          <p style={{position:"absolute",paddingTop:"1rem"}}>__________________</p>
+          <div className="profileRectLine"></div>
           <p>Subscriber</p>
         </div>
       </div>
@@ -22,6 +22,7 @@ const RightSide = () => {
       <div className="Updates">
         {UpdatesData.map((update) => {
           return (
+            <>
             <div className="update">
               <img src={update.img} alt="profile" />
               <div className="noti">
@@ -30,9 +31,11 @@ const RightSide = () => {
                   <br/>
                   <span> {update.noti}</span>
                 </div>
-                  <span style={{fontSize:"0.7rem"}}>{update.time}</span>
+                  <span className="notificationTime">{update.time}</span>
               </div>
             </div>
+            <div className="messagesRectLine"></div>
+            </>
           );
         })}
       </div>
@@ -59,8 +62,7 @@ const RightSide = () => {
           })}
       </div>*/}
       <div className="add-program">
-
-          <button onClick={()=>{navigate('../myprograms')}}>{'ADD PROGRAMS ->'}</button>
+          <button onClick={()=>{navigate('../myprograms')}}>Schedule an appoinment</button>
       </div>
     </div>
       </div>

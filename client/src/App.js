@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import './App.css'
 import Dashboard from './pages/Dashboard';
 import {BrowserRouter, Routes, Route } from 'react-router-dom'
@@ -13,10 +13,12 @@ import { ThemeContext } from './context/ThemeContext';
 
 
 function App() {
-  const [theme,setTheme] = useState('light');
+  const [theme,setTheme] = useState(JSON.parse(localStorage.getItem('theme')));
 
   const toggleTheme=()=>{
+    const temp = theme==='light'?'dark':'light'
     setTheme(theme==='light'?'dark':'light');
+    localStorage.setItem('theme',JSON.stringify(temp))
   }
   return (
     <ThemeContext.Provider value={{theme,toggleTheme}}>

@@ -72,7 +72,7 @@ function Programs() {
               />
               <h1>{item.title}</h1>
               
-              <div className='rectLine'></div>
+              <div className='programsRectLine'></div>
             </div>
             <div className="card-bottom">
               <p>{item.price}</p>
