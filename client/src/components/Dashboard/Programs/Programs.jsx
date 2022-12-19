@@ -26,7 +26,7 @@ function Programs() {
           slidesToShow: 2,
           slidesToScroll: 2,
           infinite: true,
-          dots: true,
+          dots: false,
         },
       },
       {
@@ -71,7 +71,8 @@ function Programs() {
                 onError={handleErrorImage}
               />
               <h1>{item.title}</h1>
-              <p>___________________________</p>
+              
+              <div className='rectLine'></div>
             </div>
             <div className="card-bottom">
               <p>{item.price}</p>

@@ -35,6 +35,11 @@
 
 @media screen and (max-width: 768px)
 {
+    .maindash-heading-wrapper{
+        width: 100%;
+        margin-left: 2rem;
+        margin-top: 2.5rem;
+    }
     .MainDash{
         align-items: center;
     }

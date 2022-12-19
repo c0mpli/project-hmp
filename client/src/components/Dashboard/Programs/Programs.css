@@ -18,6 +18,16 @@ margin: 0 -10px;
     color: #ffb800;
     opacity: 100;
 }
+.rectLine{
+    width: 95%;
+    height: 1px;
+    background-color: #013765;
+    margin: 0.5rem auto;
+}
+
+#dark .rectLine{
+    background-color: #4AA9FA;
+}
 
 .card {
     color: black;
