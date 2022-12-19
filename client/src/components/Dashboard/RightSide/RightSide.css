@@ -2,16 +2,23 @@
     display: flex;
     flex-direction: column;
     /* padding-top: 1rem; */
-    width: 95%;
+    padding-right: 5%;
 }
 
-
+#dark .RightSide{
+    background-color: var(--DarkBG);
+    color: #ECF5FC;
+}
 .Updates{
     box-shadow: 0px 2px 4px rgba(119, 114, 114, 0.5);
     background-color: #FAF4E6;
     padding: 1rem;
     margin-top: 2rem;
     
+}
+#dark .Updates{
+    background-color: #001629;
+    box-shadow: 0px 2px 4px #013765;
 }
 
 .active-programs ,.Updates{

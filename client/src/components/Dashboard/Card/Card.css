@@ -61,6 +61,9 @@ box-shadow: 1px 4px 4px 2px #011424 !important;
     font-size: 12px;
     text-decoration: none;
 }
+#dark .card-continue-journey{
+  color: #FFB800;
+}
 
 /* sideDetail*/
 .detail {
