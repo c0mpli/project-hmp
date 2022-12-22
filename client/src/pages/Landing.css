@@ -23,6 +23,9 @@
     flex-wrap: wrap;
     flex-direction: column;
 }
+.content img{
+    margin-bottom: -1rem;
+}
 .subContent{
     width: 80%;
     margin-bottom: 2rem;
@@ -84,6 +87,59 @@
     transition: 0.3s;
 }
 
+.landing-trendingPrograms{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: auto;
+    margin: 10rem 0;
+}
+
+.landing-trendingPrograms h1{
+    margin: 0;
+    padding: 0;
+}
+.landing-trendingPrograms p{
+    color: #99989C;
+    font-weight: 700;
+}
+.landingProgramWrapper{
+    background-color: var(--HMPLogoBlue);
+    border-radius: 60px;
+    height: auto;
+    width: 100%;
+    margin-top: 8rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.landing-programs{
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+}
+.landingProgramWrapper button{
+    background-color: var(--HMPLogoYellow);
+    border: 2px solid #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    width: 10rem;
+    height: 4rem;
+    font-weight: 700;
+    position: relative;
+    margin-bottom: -2rem;
+    cursor: pointer;
+}
+
+.landingProgramWrapper button:hover{
+    transform: scale(1.1);
+    transition: 0.3s;
+}
 @media screen and (max-width: 1200px) {
     .landing{
         margin: 0 5%;
@@ -109,7 +165,9 @@
 @media screen and (max-width: 765px) {
     .landing{
         margin: 0;
-        width: 100%;
+        padding: 0 5%;
+        width: auto;
+        
     } 
     .content h1{
         font-size: 2rem;
@@ -120,5 +178,8 @@
     }
     .section1-buttons{
         gap: 1rem;
+    }
+    .landing-trendingPrograms{
+        text-align: center;
     }
 }

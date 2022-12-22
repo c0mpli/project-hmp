@@ -1,9 +1,7 @@
 import React from 'react'
 import Sidebar from '../components/Sidebar'
 import './HMPPrograms.css'
-import Switch from "react-switch";
 import { useTheme } from "../context/ThemeContext";
-import ProfileImage from '../images/img1.png'
 import ProfileHeader from '../components/ProfileHeader';
 import HMPProgram from '../components/HMPProgram';
 import { dataDigitalBestSeller } from '../Data/Data';

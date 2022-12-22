@@ -1,17 +1,11 @@
 // Sidebar imports
 import {
   UilEstate,
-  UilClipboardAlt,
   UilUsersAlt,
   UilPackage,
   UilDumbbell,
-  UilChart,
-  UilSignOutAlt,
 } from "@iconscout/react-unicons";
 
-// Analytics Cards imports
-import { UilUsdSquare, UilMoneyWithdrawal } from "@iconscout/react-unicons";
-import { keyboard } from "@testing-library/user-event/dist/keyboard";
 
 // Recent Card Imports
 import img1 from "../imgs/img1.png";
@@ -94,6 +88,7 @@ export const UpdatesData = [
 
 
 export const dataDigitalBestSeller = [
+  //HMP Programs data
   {
     id: 1,
     title: 'ACL Rehab Stage-1 Recovery Program',

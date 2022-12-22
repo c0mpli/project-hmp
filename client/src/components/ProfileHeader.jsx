@@ -1,5 +1,5 @@
 import React from 'react'
-import ProfileImage from '../images/img1.png'
+import ProfileImage from '../imgs/img1.png'
 import Switch from "react-switch";
 import { useTheme } from "../context/ThemeContext";
 import './ProfileHeader.css'
