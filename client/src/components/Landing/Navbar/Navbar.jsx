@@ -12,8 +12,8 @@ function Navbar() {
       if(window.location.pathname === "/"){
         document.getElementById("home").style.color = "var(--HMPBlue)"
       }
-      if(window.location.pathname === "/myprograms"){
-        document.getElementById("myprograms").style.color = "var(---HMPBlue)"
+      if(window.location.pathname === "/hmpprograms"){
+        document.getElementById("hmpprograms").style.color = "var(---HMPBlue)"
       }
     }, [location])
     
@@ -28,10 +28,10 @@ function Navbar() {
             <Link to="/" id="home">Home</Link>
           </li>
           <li>
-            <Link to="/myprograms" id="myprograms">Programs</Link>
+            <Link to="/hmpprograms" id="hmpprograms">Programs</Link>
           </li>
           <li>
-            <Link to="/" id="aboutus">About Us</Link>
+            <Link to="/#aboutus" id="aboutus">About Us</Link>
           </li>
           <li>
             <Link to="/" id="contactus">Contact Us</Link>
