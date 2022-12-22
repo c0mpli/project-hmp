@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect, useRef} from 'react'
 import {useNavigate} from 'react-router-dom'
 import Navbar from '../components/Landing/Navbar/Navbar'
 import './Landing.css'
@@ -24,6 +24,19 @@ import HMPLogo from '../imgs/HMP-logo.png'
 
 function Landing() {
   const navigate = useNavigate()
+
+
+  const aboutusRef = useRef(null)
+  const contactusRef = useRef(null)
+  function aboutusScroll(){
+    aboutusRef.current.scrollIntoView()
+  }
+  function contactusScroll(){
+    contactusRef.current.scrollIntoView()
+  }
+
+  
+
   const {width, height} = useWindowDimensions()
   let programCount = 3
   if(width<500) programCount = 1
@@ -33,7 +46,7 @@ function Landing() {
     <>
       <div className='landing'>
         <img src={bgImage3} className='bgImage firstBgImage'/>
-        <Navbar />
+        <Navbar aboutusScroll={aboutusScroll} contactusScroll={contactusScroll}/>
         <div className="landing-section1">
           <div></div>
           <div className="content">
@@ -68,11 +81,11 @@ function Landing() {
             }
             </div>
             <div>
-                <button>View All</button>
+                <button onClick={()=>{navigate('/hmpprograms')}}>View All</button>
             </div>
           </div>
         </div>
-        <div className="landing-aboutus" id="aboutus">
+        <div className="landing-aboutus" ref={aboutusRef}>
 
         </div>
           <img src={bgImage2} className='bgImage secondBgImage' />
@@ -99,7 +112,7 @@ function Landing() {
           <TestimonialCard />
         </div>
       </div>
-        <div className="landing-footer">
+        <div className="landing-footer" ref={contactusRef}>
           
         </div>
     </>

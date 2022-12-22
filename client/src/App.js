@@ -9,6 +9,7 @@ import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import { ThemeContext } from './context/ThemeContext';
+import ScrollToTop from './components/ScrollToTop';
 
 
 
@@ -20,10 +21,16 @@ function App() {
     setTheme(theme==='light'?'dark':'light');
     localStorage.setItem('theme',JSON.stringify(temp))
   }
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <ThemeContext.Provider value={{theme,toggleTheme}}>
     <div className="App" id={theme}>
       <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<Signup />}></Route>

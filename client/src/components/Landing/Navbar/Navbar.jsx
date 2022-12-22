@@ -4,7 +4,7 @@ import {Link, useLocation, useNavigate} from 'react-router-dom'
 import HMPLogo from '../../../imgs/HMP-logo.png'
 import './Navbar.css'
 
-function Navbar() {
+function Navbar(props) {
     const navigate = useNavigate()
     const [isNavExpanded, setIsNavExpanded] = useState(false)
     const location = useLocation()
@@ -34,10 +34,16 @@ function Navbar() {
             <Link to="/hmpprograms" id="hmpprograms" onClick={handleClick}>Programs</Link>
           </li>
           <li>
-            <Link to="/#aboutus" id="aboutus" onClick={handleClick}>About Us</Link>
+            <Link onClick={()=>{
+              handleClick()
+              props.aboutusScroll()
+            }} id="aboutus">About Us</Link>
           </li>
           <li>
-            <Link to="/" id="contactus" onClick={handleClick}>Contact Us</Link>
+            <Link to="/" id="contactus" onClick={()=>{
+              handleClick()
+              props.contactusScroll()
+            }}>Contact Us</Link>
           </li>
           <li>
             <button onClick={()=>navigate('/login')}>Sign in</button>
