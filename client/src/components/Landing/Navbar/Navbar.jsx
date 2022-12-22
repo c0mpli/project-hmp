@@ -17,6 +17,9 @@ function Navbar() {
       }
     }, [location])
     
+    function handleClick(){
+      setIsNavExpanded(!isNavExpanded)
+    }
   return (
     <nav className='landing-navbar'>
         <div className="navbar-logo">
@@ -25,27 +28,24 @@ function Navbar() {
         <div className={isNavExpanded?"navbar-menu expanded":"navbar-menu"}>
         <ul>
           <li>
-            <Link to="/" id="home">Home</Link>
+            <Link to="/" id="home" onClick={handleClick}>Home</Link>
           </li>
           <li>
-            <Link to="/hmpprograms" id="hmpprograms">Programs</Link>
+            <Link to="/hmpprograms" id="hmpprograms" onClick={handleClick}>Programs</Link>
           </li>
           <li>
-            <Link to="/#aboutus" id="aboutus">About Us</Link>
+            <Link to="/#aboutus" id="aboutus" onClick={handleClick}>About Us</Link>
           </li>
           <li>
-            <Link to="/" id="contactus">Contact Us</Link>
+            <Link to="/" id="contactus" onClick={handleClick}>Contact Us</Link>
           </li>
           <li>
-
             <button onClick={()=>navigate('/login')}>Sign in</button>
           </li>
         </ul>
         </div>
         <button className="hamburger"
-        onClick={() => {
-          setIsNavExpanded(!isNavExpanded);
-        }}>
+        onClick={handleClick}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 w-5"
