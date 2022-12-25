@@ -17,10 +17,12 @@ import approveBadge from '../imgs/ApproveBadge.svg'
 import therapyBadge from '../imgs/physical-therapy.svg'
 import trophy from '../imgs/Trophy.svg'
 import fire from '../imgs/fire.svg'
+import promo from '../imgs/Promo.svg'
 import TestimonialIcon from '../imgs/TestimonialIcon.svg'
 import TestimonialCard from '../components/Landing/Testimonials/TestimonialCard'
 import ServiceCard from '../components/ServiceCard'
 import HMPLogo from '../imgs/HMP-logo.png'
+import PricingCard from '../components/PricingCard'
 
 function Landing() {
   const navigate = useNavigate()
@@ -101,7 +103,24 @@ function Landing() {
             <button>Book an appointment</button>
           </div>
         </div>
-        <div className="landing-pricing"></div>
+        <div className="landing-pricing">
+        <img src={promo}/>
+          <h1>Our Plans</h1>
+          <p>Pick a plan that suits you the best</p>
+          <div className='landingPricingWrapper'>
+            <PricingCard 
+            title="Monthly Plan"
+            subtitle="Get a taste of the exercise and rehab programs for 1 month."
+            price="490"
+            />
+            <PricingCard 
+            title="Yearly Plan"
+            subtitle="Full access to all HMP exercise and rehab programs for 12 months."
+            price="3900"
+            />
+          </div>
+        </div>
+
         <div className="landing-testimonials">
           <div className="testimonialsHeader">
 
