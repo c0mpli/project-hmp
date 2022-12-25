@@ -19,6 +19,9 @@ import pic3 from "../imgs/sampleProgram3.png";
 
 //Testimonal imports
 import anushkaSharma from "../imgs/anushkaSharma.png"
+import akshayKumar from '../imgs/akshay.png'
+import viratKohli from '../imgs/virat.png'
+import sachinTendulkar from '../imgs/sachin.png'
 
 // Sidebar Data
 export const SidebarData = [
@@ -142,18 +145,18 @@ export const testimonials =[
     name:"Akshay Kumar",
     status:"Indian Actor",
     message:"Heath is my go to guy with hands of steel and technique like I've never encountered in India before. I have a lot to thank him for, he's helped me get through more action sequences than I remember.",
-    image:anushkaSharma
+    image:akshayKumar
   },
   {
     name:"Sachin Tendulkar",
     status:"Retired Indian Cricketer",
     message:"Heath was a huge help with my wrist surgery rehab. His guidance made a huge difference in making me fit again.",
-    image:anushkaSharma
+    image:sachinTendulkar
   },
   {
     name:"Virat Kohli",
     status:"Indian Cricketer",
     message:"Heath has a fantastic out-of-the-box approach to fitness and how to enhance sports specific skills.",
-    image:anushkaSharma
+    image:viratKohli
   },
 ]

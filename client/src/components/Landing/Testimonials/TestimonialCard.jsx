@@ -14,7 +14,7 @@ function TestimonialCard() {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: 0,
@@ -37,7 +37,7 @@ function TestimonialCard() {
                       <img src={testimonial.image}/>
                       <div className="testimonialContent">
                         <p>"{testimonial.message}"</p>
-                        <div>
+                        <div className='testimonialProfile'>
                           <h1>{testimonial.name}</h1>
                           <h4>{testimonial.status}</h4>
                         </div>

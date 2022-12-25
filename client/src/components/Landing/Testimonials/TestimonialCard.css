@@ -32,3 +32,25 @@
     font-style: italic;
     color: var(--HMPLogoGrey);
 }
+
+@media screen and (max-width:765px) {
+    .testimonialWrapper{
+        display: flex !important;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: justify;
+        gap:3rem;
+    }
+    .testimonialSliderWrapper img{
+        margin-left: 0;
+    }
+    .testimonialContent{
+        gap:1rem;
+        width: 80%;
+        padding-bottom: 2rem;
+    }
+    .testimonialProfile{
+        text-align: center;
+    }
+}
