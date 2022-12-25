@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import './Login.css'
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate ,Link } from 'react-router-dom';
 import { useAuthContext } from '../hooks/useAuthContext';
 import logo from '../imgs/HMP-logo.png'
 import loginImg from '../imgs/login-person.png'
@@ -11,6 +11,7 @@ function Login() {
     const [email, setEmail] = useState();
    const [password, setPassword] = useState();
    const [errorMessage, setErrorMessage] = useState("");
+
     async function handleSubmit(event) {
         try{
             const formData = new FormData()
@@ -40,10 +41,9 @@ function Login() {
   return (
     <div className='login-wrapper'>
         <nav className='navbar'>
-            <img src={logo}/>
+            <img src={logo} onClick={()=>navigate('../')}/>
             <div className='navbar-buttons'>
-                <button className='login-button'>Login</button>
-                <button className='signup-button'>Signup</button>
+                
             </div>
         </nav>
         <div className="content-wrapper">
@@ -55,11 +55,12 @@ function Login() {
                     <p style={{color:errorMessage==="ok"?"lightgreen":"lightred",display:!errorMessage?"ok":""}}>
                         {errorMessage==="ok"?"Signup Successfull, Please":errorMessage}
                     </p>
+                    <div>
+                        <Link>Forget Password?</Link>
+                    </div>
                     <button>Login</button>
+                    <div className='login-subtitle'><p>New Here?</p><Link to='/signup'>Signup</Link></div>
                 </form>
-            </div>
-            <div className="login-img-wrapper">
-                <img src={loginImg}/>
             </div>
         </div>
         

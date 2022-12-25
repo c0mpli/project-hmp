@@ -1,31 +1,25 @@
 import React, {useState} from 'react'
-import './Signup.css'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import axios from 'axios';
+import logo from '../imgs/HMP-logo.png'
+import './Login.css'
+import loginImg from '../imgs/login-person.png'
 
 function Signup() {
+    const navigate = useNavigate()
     const [email, setEmail] = useState();
    const [password, setPassword] = useState();
-   const [firstName, setFirstName] = useState();
-   const [lastName, setLastName] = useState();
-   const [confirmPassword, setConfirmPassword] = useState();
-   const [mobileNumber, setMobileNumber] = useState();
+   const [name, setName] = useState();
    const [errorMessage, setErrorMessage] = useState("");
 
     async function handleSubmit(e){
         e.preventDefault();
-        if(password!==confirmPassword){
-            setErrorMessage("Passwords do not match")
-            return
-        }
+        
         try{
             const formData = new FormData()
             formData.append('email',email)
-            formData.append('firstname',firstName)
-            formData.append('lastname',lastName)
+            formData.append('name',name)
             formData.append('password',password)
-            formData.append('confPassword',confirmPassword)
-            formData.append('mobilenum',mobileNumber)
 
             const response = await axios.get('/userregister',formData)
             
@@ -44,8 +38,15 @@ function Signup() {
     }
   return (
     <>
-        <div className="signup-form-container">
-            <form onSubmit={handleSubmit} className='signup-form'>
+    <div className="login-wrapper">
+        <nav className='navbar'>
+            <img src={logo} onClick={()=>navigate('../')}/>
+            <div className='navbar-buttons'>
+            </div>
+        </nav>
+        <div className="content-wrapper">
+            <div className='login-form-container'>
+            <form onSubmit={handleSubmit} className='login-form'>
                 <h1>Sign Up</h1>
                 <input 
                     type="email" 
@@ -55,34 +56,14 @@ function Signup() {
                 />
                 <input 
                     type="text" 
-                    placeholder="First Name" 
-                    onChange={e => setFirstName(e.target.value)} 
+                    placeholder="Name" 
+                    onChange={e => setName(e.target.value)} 
                     required
                 />
-                <input 
-                    type="text" 
-                    placeholder="Last Name" 
-                    onChange={e => setLastName(e.target.value)} 
-                    required
-                />
-                <input 
-                    type="tel" 
-                    placeholder="Mobile Number" 
-                    onChange={e => setMobileNumber(e.target.value)} 
-                    pattern="[0-9]{10}"
-                    required
-                />
-
                 <input 
                     type="password" 
                     placeholder="Password" 
                     onChange={e => setPassword(e.target.value)} 
-                    required
-                />
-                <input 
-                    type="password" 
-                    placeholder="Confirm Password" 
-                    onChange={e => setConfirmPassword(e.target.value)} 
                     required
                 />
                 <p style={{color:errorMessage==="ok"?"lightgreen":"lightred",display:!errorMessage?"ok":""}}>
@@ -92,9 +73,15 @@ function Signup() {
                 <button type='submit' value='submit'>
                     Sign Up
                 </button>
-                <Link to={'../login'}>Already have an account?</Link> 
+                <div className='login-subtitle'>
+                    <p>Already have an account?</p>
+                    <Link to={'../login'}>Login</Link>
+                </div> 
             </form>
-        </div>
+            </div>
+            
+        </div>  
+    </div>
     </>
   )
 }
