@@ -6,11 +6,9 @@ import PopularPrograms from '../components/Landing/PopularPrograms/PopularProgra
 import useWindowDimensions from '../components/useWindowDimensions'
 import { dataDigitalBestSeller, testimonials} from '../Data/Data'
 
-import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import bgImage from '../imgs/Frame1.png'
 import bgImage3 from '../imgs/bgImage.png'
 import bgImage2 from '../imgs/bgImage2.png'
 import approveBadge from '../imgs/ApproveBadge.svg'

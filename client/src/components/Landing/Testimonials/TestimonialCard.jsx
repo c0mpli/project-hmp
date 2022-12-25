@@ -37,8 +37,11 @@ function TestimonialCard() {
                       <img src={testimonial.image}/>
                       <div className="testimonialContent">
                         <p>"{testimonial.message}"</p>
-                        <h1>{testimonial.name}</h1>
-                        <h4>{testimonial.status}</h4>
+                        <div>
+                          <h1>{testimonial.name}</h1>
+                          <h4>{testimonial.status}</h4>
+                        </div>
+                        
                       </div>
                     </div>
                     )

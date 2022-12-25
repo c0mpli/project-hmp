@@ -78,6 +78,12 @@
     .navbar-menu{
         margin-left: 0;
     }
+    .navbar-menu ul{
+      gap:3rem;
+    }
+    .navbar-menu ul li{
+      margin: 0;
+    }
   }
 
 
