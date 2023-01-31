@@ -52,8 +52,9 @@ function Login() {
                     <h1>Login</h1>
                     <input type="email" placeholder="Email" onChange={e => setEmail(e.target.value)}/>
                     <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
-                    <p style={{color:errorMessage==="ok"?"lightgreen":"lightred",display:!errorMessage?"ok":""}}>
-                        {errorMessage==="ok"?"Signup Successfull, Please":errorMessage}
+                    <p 
+                    style={{color:errorMessage==="ok"?"lightgreen":"lightred",display:!errorMessage?"ok":""}}>
+                        {errorMessage==="ok"?"Signup Successfull, Please login":errorMessage}
                     </p>
                     <div>
                         <Link>Forget Password?</Link>
