@@ -24,6 +24,26 @@ const userSchema=new mongoose.Schema({
     admin:{
         type:Boolean,
         required:true,
+    },
+    superadmin:{
+        type:Boolean,
+        required:true,
+    },
+    courseprogress:{
+        type:Array,
+        /*
+        structure:
+        [
+            {
+                courseId,
+                courseName,
+                week,
+                day,
+                videoindex,
+                percentage
+            }
+        ]
+        */
     }
 });
 
