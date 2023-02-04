@@ -71,6 +71,7 @@ router.post("/updatecourseprogress", isUser, async (req, res) => {
 	const userId=req.auth.user._id;
 	const courseId=req.body.courseId;
 	const courseName=req.body.courseName;
+	const percentage=0;
 	const week=req.body.week;
 	const day=req.body.day;
 	const videoindex=req.body.videoindex;
@@ -78,18 +79,19 @@ router.post("/updatecourseprogress", isUser, async (req, res) => {
 	var courseprogress=foundUser.courseprogress;
 	
 	var foundCourseIndex = courseprogress.findIndex(instance => instance.courseId === courseId);
-	if(foundCourseIndex==-1)
-	{
-		courseprogress.push({courseId:courseId,courseName:courseName,week:week,day:day,videoindex:videoindex});
-		const updatedUser=await User.findOneAndUpdate({_id:userId},{courseprogress:courseprogress},{new:true});
-		return res.json(updatedUser);
-	}
-	else{
+	// if(foundCourseIndex==-1)
+	// {
 
-		courseprogress[foundCourseIndex]={courseId:courseId,courseName:courseName,week:week,day:day,videoindex:videoindex};
+	// 	courseprogress.push({percentage:percentage,courseId:courseId,courseName:courseName,week:weekstructure});
+	// 	const updatedUser=await User.findOneAndUpdate({_id:userId},{courseprogress:courseprogress},{new:true});
+	// 	return res.json(updatedUser);
+	// }
+	// else{
+
+		courseprogress[foundCourseIndex]={percentage:percentage,courseId:courseId,courseName:courseName,week:week,day:day,videoindex:videoindex};
 		const updatedUser=await User.findOneAndUpdate({_id:userId},{courseprogress:courseprogress},{new:true});
 		return res.json(updatedUser);
-	}
+	// }
 
 
 
@@ -101,11 +103,21 @@ router.get("/getcourseprogress", isUser, async (req, res) => {
 	// try{
 	const user=await User.findOne({_id:req.auth.user._id});
 	const courseProgress=user.courseprogress;
+	console.log(courseProgress)
 
 	courseProgress.forEach(async(object) => {
-		totalduration = await Program.findOne({ _id: object.courseId }).duration;
-		object.percentage = (((object.week * 7)+object.day) / (totalduration*7)) * 100;
+		//DEBUG
+		console.log("inside for each");
+		const program = await Program.findOne({ _id: object.courseId });
+		const totalduration=parseInt(program.duration);
+		const intweek=parseInt(object.week);
+		const intday=parseInt(object.day);
+		object.percentage = (((intweek * 7)+intday) / (totalduration*7)) * 100;
+		console.log(object.percentage);
+		await User.updateOne({_id: object.courseId}, {$set: {percentage: object.percentage}})
+		
 	  });
+	  
 	  res.status(200).send({
 		message: "Course progress fetched successfully",
 		success: true,

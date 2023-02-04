@@ -9,22 +9,32 @@ function Signup() {
     const navigate = useNavigate()
     const [email, setEmail] = useState();
    const [password, setPassword] = useState();
+   const [confPassword, setconfPassword] = useState();
    const [name, setName] = useState();
+   const [number, setNumber] = useState();
+
    const [errorMessage, setErrorMessage] = useState("");
 
     async function handleSubmit(e){
         e.preventDefault();
         
         try{
-            const formData = new FormData()
-            formData.append('email',email)
-            formData.append('name',name)
-            formData.append('password',password)
+            const registerData ={
+                "firstname":(name.split(' '))[0],
+                "lastname":(name.split(' '))[name.length-1],
+                "email":email,
+                "mobilenum":number,
+                "password":password,
+                "confPassword":confPassword
+            } 
 
-            const response = await axios.get('/userregister',formData)
+            const response = await axios.post('http://192.168.1.7:5000/user/userregister',registerData)
             
             const json = await response.json()
-            console.log(json)
+            if(response.status===200){
+                setErrorMessage("ok")
+            }
+            //console.log(json)
 
             if(!response.ok){
                 setErrorMessage(json)
@@ -46,8 +56,14 @@ function Signup() {
         </nav>
         <div className="content-wrapper">
             <div className='login-form-container'>
-            <form onSubmit={handleSubmit} className='login-form'>
+            <form className='login-form'>
                 <h1>Sign Up</h1>
+                <input 
+                    type="text" 
+                    placeholder="Full Name" 
+                    onChange={e => setName(e.target.value)} 
+                    required
+                />
                 <input 
                     type="email" 
                     placeholder="Email" 
@@ -55,9 +71,9 @@ function Signup() {
                     required
                 />
                 <input 
-                    type="text" 
-                    placeholder="Name" 
-                    onChange={e => setName(e.target.value)} 
+                    type="number" 
+                    placeholder="Mobile number" 
+                    onChange={e => setNumber(e.target.value)} 
                     required
                 />
                 <input 
@@ -66,11 +82,17 @@ function Signup() {
                     onChange={e => setPassword(e.target.value)} 
                     required
                 />
+                <input 
+                    type="password" 
+                    placeholder="Confirm Password" 
+                    onChange={e => setconfPassword(e.target.value)} 
+                    required
+                />
                 <p style={{color:errorMessage==="ok"?"lightgreen":"lightred",display:!errorMessage?"ok":""}}>
                     {errorMessage==="ok"?"Signup Successfull, Please":errorMessage}
                 </p>
                 
-                <button type='submit' value='submit'>
+                <button value='submit' onClick={e=>handleSubmit(e)}>
                     Sign Up
                 </button>
                 <div className='login-subtitle'>

@@ -13,29 +13,33 @@ function Login() {
    const [errorMessage, setErrorMessage] = useState("");
 
     async function handleSubmit(event) {
-        try{
-            const formData = new FormData()
-            formData.append('email',email)
-            formData.append('password',password)
-
-            const response = await axios.get('/userlogin',formData)
+        event.preventDefault()
+        console.log("Clicked")
+        axios.post('http://localhost:5000/user/userlogin',{
+            "email":email,
+            "password":password
+        })
+        .then(response => {
+            console.log(response.data);
+            setErrorMessage("");
+            dispatch({type:"LOGIN",payload: response.data}) 
+            localStorage.setItem("token",response.data.token)
+            navigate('../dashboard')       
+        })
+        .catch((err) => {console.log(err.message);setErrorMessage("Incorrect details")});
+        const response = await axios.post('http://localhost:5000/user/userlogin',{
+            "email":email,
+            "password":password
+        })
             
-            const json = await response.json()
-            console.log(json)
-            
-            if(!response.ok){
-                setErrorMessage(json)
-            }
-            if(response.ok){
-                //set state to logged in 
-                dispatch({type:"LOGIN",payload: json})
-                navigate('../dashboard')
-            }
-        }catch(e){
-            setErrorMessage(e)
-        }
-        event.preventDefault();
-        alert(email + password)
+            // const json = await response.data
+            // //console.log(json)
+            // if(response.ok){
+            //     //set state to logged in 
+            //     dispatch({type:"LOGIN",payload: json})
+            //     navigate('../dashboard')
+            // }
+        //alert(email + password)
     
       }
   return (
@@ -43,23 +47,22 @@ function Login() {
         <nav className='navbar'>
             <img src={logo} onClick={()=>navigate('../')}/>
             <div className='navbar-buttons'>
-                
             </div>
         </nav>
         <div className="content-wrapper">
             <div className="login-form-container">
-                <form onSubmit={handleSubmit} className='login-form'>
+                <form className='login-form'>
                     <h1>Login</h1>
                     <input type="email" placeholder="Email" onChange={e => setEmail(e.target.value)}/>
                     <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
                     <p 
-                    style={{color:errorMessage==="ok"?"lightgreen":"lightred",display:!errorMessage?"ok":""}}>
+                    style={{color:"red"}}>
                         {errorMessage==="ok"?"Signup Successfull, Please login":errorMessage}
                     </p>
                     <div>
                         <Link>Forget Password?</Link>
                     </div>
-                    <button>Login</button>
+                    <button onClick={e=>handleSubmit(e)}>Login</button>
                     <div className='login-subtitle'><p>New Here?</p><Link to='/signup'>Signup</Link></div>
                 </form>
             </div>

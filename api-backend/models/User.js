@@ -37,9 +37,16 @@ const userSchema=new mongoose.Schema({
             {
                 courseId,
                 courseName,
-                week,
-                day,
-                videoindex,
+                weeks[
+                    [
+                       
+                    ],
+                    [
+
+                    ],
+
+                ],
+               
                 percentage
             }
         ]

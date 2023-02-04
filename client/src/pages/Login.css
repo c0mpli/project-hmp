@@ -34,6 +34,7 @@ border-radius: 8px;
 	padding: 0.8rem;
     width: 70%;
 	color: white;
+	cursor: pointer;
 }
 
 .navbar{

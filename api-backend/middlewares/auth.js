@@ -3,6 +3,7 @@ const User = require("../models/User");
 const config = require("../config");
 const Partner=require("../models/Partner");
 
+
 async function authMiddleware(req, res, next) {
 	const token = req.headers.token;
 	if (!token) {

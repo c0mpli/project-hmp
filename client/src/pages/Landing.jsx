@@ -41,7 +41,7 @@ function Landing() {
   let programCount = 3
   if(width<500) programCount = 1
   else if(width>=500 && width<800) programCount=2
-  console.log(width, height)
+  //console.log(width, height)
   return (
     <>
       <div className='landing'>

@@ -6,6 +6,7 @@ const saltRounds=10;
 const isAdmin = require("../middlewares/isAdmin.js");
 const Program = require("../models/Program.js");
 const Partner=require("../models/Partner");
+const isHealthPartner = require("../middlewares/isHealthPartner.js");
 
 
 //delete a course
@@ -32,12 +33,7 @@ router.post("/addnewcourse",isAdmin , async (req, res) => {
       // [{day:[[link1,link2,link3....link7]]}]
         const newProgram=new Program(req.body);
         
-      await newProgram.save();
-      res.send({
-        message: "Program added",
-        success: true,
-        data: null,
-      });
+      res.json(await newProgram.save());
     } catch (error) {
       res.send({
         message: error.message,
@@ -79,17 +75,22 @@ router.post("/addtoexistingcourse",isAdmin , async (req, res) => {
 //changecoursedetails
 router.post("/changecoursedetails",isAdmin , async (req, res) => {
     try {
+      //COMPLETE IT
       const coursetitle=req.body.coursetitle;
       const duration=req.body.duration;
       const description=req.body.description;
       const id=req.body.id;
       const courseBeforeupdate=await Program.findOne({_id:id});
       var videos=courseBeforeupdate.videos;
+      console.log(videos.length)
       var diff=duration-videos.length;
-      //for(var i=0;i;)
+      var tobeaddedarray=new Array(diff).fill({day:[[],[],[],[],[],[],[]]});
+      videos+=tobeaddedarray;
+      console.log(tobeaddedarray.length)
+      
       const updatedCourse=await Program.findByIdAndUpdate(id, { $set: {videos:videos, progamname : coursetitle,duration:duration,description:description } }, { new: true });
 
-      res.json(updatedCourse);
+      res.json(updatedCourse.videos.length);
 
 
     } catch (error) {
