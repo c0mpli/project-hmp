@@ -3,11 +3,15 @@ import ProfileImage from '../imgs/img1.png'
 import Switch from "react-switch";
 import { useTheme } from "../context/ThemeContext";
 import './ProfileHeader.css'
+import { useAuthContext } from '../hooks/useAuthContext';
 
 function ProfileHeader(props) {
     const {theme, toggleTheme} = useTheme()
-    const name = localStorage.getItem('name')
-    let role = localStorage.getItem('role')
+    const {user} = useAuthContext()
+    const name = user["firstname"]
+    let role = user["usertype"]
+    console.log()
+    
     if(role==='user'){role='Subscriber'}
   return (
     <div className='AppGlass3 ProfileHeader'>

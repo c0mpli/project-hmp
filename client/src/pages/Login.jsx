@@ -20,7 +20,7 @@ function Login() {
             "password":password
         })
         .then(response => {
-            //console.log(response.data);
+            console.log(response.data);
             setErrorMessage("");
             dispatch({type:"LOGIN",payload: response.data}) 
             localStorage.setItem("name",response.data.firstname)

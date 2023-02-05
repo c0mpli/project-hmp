@@ -15,9 +15,8 @@ const Sidebar = () => {
   const [expanded, setExpaned] = useState(false)
 
   const navigate = useNavigate();
-  const {dispatch} = useAuthContext()
-  const role = localStorage.getItem('role')
-  console.log(role)
+  const {dispatch,user} = useAuthContext()
+  let role = user["usertype"]
   let data =[]
   if(role==='user'){
     data=SidebarData.slice(0,4)

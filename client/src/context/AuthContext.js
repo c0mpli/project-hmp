@@ -24,8 +24,8 @@ export function AuthContextProvider({children}){
         if(isUser){
             console.log("User exists")
             dispatch({type:'LOGIN',payload:{
-                name:isUser,
-                role:role
+                firstname:isUser,
+                usertype:role
             }})
         }
     },[])
