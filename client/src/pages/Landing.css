@@ -263,7 +263,6 @@ textarea {
 }
 
 [type="submit"] {
-  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   width: 100%;
   background:var(--HMPLogoBlue);
   border-radius:5px;
