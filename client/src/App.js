@@ -11,6 +11,8 @@ import Signup from './pages/Signup';
 import { ThemeContext } from './context/ThemeContext';
 import ScrollToTop from './components/ScrollToTop';
 import { useAuthContext } from './hooks/useAuthContext';
+import ManageUsers from './pages/ManageUsers';
+import ManageAdmin from './pages/ManageAdmin';
 
 
 
@@ -22,7 +24,7 @@ function App() {
     setTheme(theme==='light'?'dark':'light');
     localStorage.setItem('theme',JSON.stringify(temp))
   }
-
+  const role = localStorage.getItem('role')
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -43,8 +45,9 @@ function App() {
         <Route path='/hmpprograms' element={user?<HMPPrograms />:<Login />}></Route>
         <Route path='/myaccount' element={user?<MyAccount />:<Login />}></Route>
         
+        <Route path='/manageusers' element={role==='admin' || role==='superadmin'?<ManageUsers/>:user?<Dashboard/>:<Login/>}></Route>
+        <Route path='/manageadmins' element={role==='admin' || role==='superadmin'?<ManageAdmin/>:user?<Dashboard/>:<Login/>}></Route>
 
-        {/**Below If logged in then element will be dashboard else element will be landing*/}
         <Route path='/' element={<Landing />}></Route>
       </Routes>
       </BrowserRouter>

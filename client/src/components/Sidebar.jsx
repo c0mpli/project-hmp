@@ -16,8 +16,18 @@ const Sidebar = () => {
 
   const navigate = useNavigate();
   const {dispatch} = useAuthContext()
-  
-  
+  const role = localStorage.getItem('role')
+  console.log(role)
+  let data =[]
+  if(role==='user'){
+    data=SidebarData.slice(0,4)
+  }
+  if(role==='superadmin'){
+    data=SidebarData
+  }
+  if(role==='admin'){
+    data=SidebarData.slice(0,5)
+  }
 
   const sidebarVariants = {
     true: {
@@ -43,7 +53,7 @@ const Sidebar = () => {
       </div>
 
       <div className="menu">
-        {SidebarData.map((item, index) => {
+        {data.map((item, index) => {
           return (
             <div
               className={window.location.pathname === item.link ? "menuItem active" : "menuItem"}
@@ -64,6 +74,7 @@ const Sidebar = () => {
           <UilSignOutAlt />
           <span onClick={()=>{
             localStorage.removeItem('name')
+            localStorage.removeItem('role')
             dispatch({type:'LOGOUT'})
             navigate('../')
           }}>Logout</span>

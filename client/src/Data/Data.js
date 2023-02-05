@@ -4,6 +4,7 @@ import {
   UilUsersAlt,
   UilPackage,
   UilDumbbell,
+  UilUser,
 } from "@iconscout/react-unicons";
 
 
@@ -48,6 +49,18 @@ export const SidebarData = [
     icon: UilPackage,
     heading: 'My Account',
     link:"/myaccount",
+  },
+  {
+    key:5,
+    icon: UilUser,
+    heading: 'Manage Users',
+    link:"/manageusers",
+  },
+  {
+    key:6,
+    icon: UilUser,
+    heading: 'Manage Admins',
+    link:"/manageadmins",
   },
 ];
 

@@ -24,6 +24,7 @@ function Login() {
             setErrorMessage("");
             dispatch({type:"LOGIN",payload: response.data}) 
             localStorage.setItem("name",response.data.firstname)
+            localStorage.setItem("role",response.data.usertype)
             navigate('../dashboard')       
         })
         .catch((err) => {console.log(err.message);setErrorMessage("Incorrect details")});
