@@ -7,6 +7,8 @@ import './ProfileHeader.css'
 function ProfileHeader(props) {
     const {theme, toggleTheme} = useTheme()
     const name = localStorage.getItem('name')
+    let role = localStorage.getItem('role')
+    if(role==='user'){role='Subscriber'}
   return (
     <div className='AppGlass3 ProfileHeader'>
         <div className='HeaderContent'>
@@ -18,7 +20,7 @@ function ProfileHeader(props) {
             <div className="profile-info">
                 <h2>{name}</h2>
                 <div className="profileRectLine"></div>
-                <p>Subscriber</p>
+                <p>{role}</p>
             </div>
         </div>
     </div>

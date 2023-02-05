@@ -19,12 +19,12 @@ import ManageAdmin from './pages/ManageAdmin';
 function App() {
   const [theme,setTheme] = useState(JSON.parse(localStorage.getItem('theme')));
   const {user} = useAuthContext()
+  const role = localStorage.getItem('role')
   const toggleTheme=()=>{
     const temp = theme==='light'?'dark':'light'
     setTheme(theme==='light'?'dark':'light');
     localStorage.setItem('theme',JSON.stringify(temp))
   }
-  const role = localStorage.getItem('role')
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
