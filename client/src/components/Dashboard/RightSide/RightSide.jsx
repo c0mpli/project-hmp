@@ -1,8 +1,7 @@
 import React from "react";
 import "./RightSide.css";
-import { cardsData, UpdatesData } from "../../../Data/Data";
-
-import { useNavigate, Link } from "react-router-dom";
+import { UpdatesData } from "../../../Data/Data";
+import { useNavigate } from "react-router-dom";
 const RightSide = () => {
   const navigate = useNavigate()
   return (
@@ -16,9 +15,9 @@ const RightSide = () => {
         {UpdatesData.map((update) => {
           return (
             <>
-            <div className="update">
+            <div className="update" key={update}>
               <img src={update.img} alt="profile" />
-              <div className="noti">
+              <div className="noti" key={update}>
                 <div  style={{marginBottom: '0.5rem'}}>
                   <span>{update.name}</span>
                   <br/>

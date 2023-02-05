@@ -62,7 +62,11 @@
   .AppGlass2{
     grid-template-columns: 10% auto;
     overflow-y: scroll;
+
   } 
+  .AppGlass2::-webkit-scrollbar,.AppGlass3::-webkit-scrollbar{
+    display: none;
+  }
   .AppGlass3{
     grid-template-columns: 50% auto;
     overflow-y: scroll;
