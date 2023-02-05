@@ -1,10 +1,10 @@
-import React,{useEffect, useRef} from 'react'
+import React,{useRef} from 'react'
 import {useNavigate} from 'react-router-dom'
 import Navbar from '../components/Landing/Navbar/Navbar'
 import './Landing.css'
 import PopularPrograms from '../components/Landing/PopularPrograms/PopularPrograms'
 import useWindowDimensions from '../components/useWindowDimensions'
-import { dataDigitalBestSeller, testimonials} from '../Data/Data'
+import { dataDigitalBestSeller} from '../Data/Data'
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -19,7 +19,6 @@ import promo from '../imgs/Promo.svg'
 import TestimonialIcon from '../imgs/TestimonialIcon.svg'
 import TestimonialCard from '../components/Landing/Testimonials/TestimonialCard'
 import ServiceCard from '../components/ServiceCard'
-import HMPLogo from '../imgs/HMP-logo.png'
 import PricingCard from '../components/PricingCard'
 
 function Landing() {
@@ -37,7 +36,7 @@ function Landing() {
 
   
 
-  const {width, height} = useWindowDimensions()
+  const {width} = useWindowDimensions()
   let programCount = 3
   if(width<500) programCount = 1
   else if(width>=500 && width<800) programCount=2
@@ -45,12 +44,12 @@ function Landing() {
   return (
     <>
       <div className='landing'>
-        <img src={bgImage3} className='bgImage firstBgImage'/>
+        <img src={bgImage3} className='bgImage firstBgImage' alt="bgImage"/>
         <Navbar aboutusScroll={aboutusScroll} contactusScroll={contactusScroll}/>
         <div className="landing-section1">
           <div></div>
           <div className="content">
-            <h1>Restoring <img src={fire}/><br />your movement with physiotherapy</h1>
+            <h1>Restoring <img src={fire} alt="Fire Icon"/><br />your movement with physiotherapy</h1>
             <div className='subContent'>
             <p><b>Develop, Maintain and Restore your body’s movement and function with the world’s best physiotherapist</b></p>
             </div>
@@ -66,7 +65,7 @@ function Landing() {
           </div>
         </div>
         <div className='landing-trendingPrograms'>
-          <img src={trophy}/>
+          <img src={trophy} alt="Trophy Icon"/>
           <h1>Trending Programs</h1>
           <p>Try popular programs that suit yourself</p>
           <div className='landingProgramWrapper'>
@@ -88,10 +87,10 @@ function Landing() {
         <div className="landing-aboutus" ref={aboutusRef}>
 
         </div>
-          <img src={bgImage2} className='bgImage secondBgImage' />
+          <img src={bgImage2} className='bgImage secondBgImage' alt='bgImage'/>
         <div className="landing-services">
           <div className='servicesContent'>
-            <h1>Services Available <img src={approveBadge}/></h1>
+            <h1>Services Available <img src={approveBadge} alt="Approved Icon"/></h1>
             <div className='servicesWrapper'>
               <ServiceCard title="Physiotherapy" message="Relax, unwind and let our therapists work the tension away." side='left' image={therapyBadge}/>
               <ServiceCard title="Integrated Therapy" message="Relax, unwind and let our therapists work the tension away." side='right' image={therapyBadge}/>

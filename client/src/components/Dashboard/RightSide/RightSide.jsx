@@ -2,6 +2,7 @@ import React from "react";
 import "./RightSide.css";
 import { UpdatesData } from "../../../Data/Data";
 import { useNavigate } from "react-router-dom";
+
 const RightSide = () => {
   const navigate = useNavigate()
   return (

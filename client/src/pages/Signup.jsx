@@ -3,7 +3,6 @@ import {Link, useNavigate} from 'react-router-dom'
 import axios from 'axios';
 import logo from '../imgs/HMP-logo.png'
 import './Login.css'
-import loginImg from '../imgs/login-person.png'
 
 function Signup() {
     const navigate = useNavigate()
@@ -17,40 +16,28 @@ function Signup() {
 
     async function handleSubmit(e){
         e.preventDefault();
+        const names = name.split(' ')
         
-        try{
-            const registerData ={
-                "firstname":(name.split(' '))[0],
-                "lastname":(name.split(' '))[name.length-1],
-                "email":email,
-                "mobilenum":number,
-                "password":password,
-                "confPassword":confPassword
-            } 
-
-            const response = await axios.post('http://192.168.1.7:5000/user/userregister',registerData)
-            
-            const json = await response.json()
-            if(response.status===200){
-                setErrorMessage("ok")
-            }
-            //console.log(json)
-
-            if(!response.ok){
-                setErrorMessage(json)
-            }
-            if(response.ok){
-                setErrorMessage("ok")
-            }
-        }catch(e){
-            setErrorMessage(e)
-        }
+        axios.post('http://localhost:5000/user/userregister',{
+            "firstname":names[0],
+            "lastname":names[names.length-1],
+            "email":email,
+            "mobilenum":number,
+            "password":password,
+            "confPassword":confPassword
+        })
+        .then(response=>{
+            console.log(response.data)
+            setErrorMessage("ok")
+        })
+        .catch((err) => {console.log(err.message);setErrorMessage("Incorrect details")});
+        
     }
   return (
     <>
     <div className="login-wrapper">
         <nav className='navbar'>
-            <img src={logo} onClick={()=>navigate('../')}/>
+            <img src={logo} onClick={()=>navigate('../')} alt="Logo"/>
             <div className='navbar-buttons'>
             </div>
         </nav>
@@ -89,7 +76,7 @@ function Signup() {
                     required
                 />
                 <p style={{color:errorMessage==="ok"?"lightgreen":"lightred",display:!errorMessage?"ok":""}}>
-                    {errorMessage==="ok"?"Signup Successfull, Please":errorMessage}
+                    {errorMessage==="ok"?"Signup Successfull, Please login":errorMessage}
                 </p>
                 
                 <button value='submit' onClick={e=>handleSubmit(e)}>

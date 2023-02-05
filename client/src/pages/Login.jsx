@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useNavigate ,Link } from 'react-router-dom';
 import { useAuthContext } from '../hooks/useAuthContext';
 import logo from '../imgs/HMP-logo.png'
-import loginImg from '../imgs/login-person.png'
+
 function Login() {
     const navigate = useNavigate()
     const {dispatch} = useAuthContext()
@@ -27,7 +27,7 @@ function Login() {
             navigate('../dashboard')       
         })
         .catch((err) => {console.log(err.message);setErrorMessage("Incorrect details")});
-        const response = await axios.post('http://localhost:5000/user/userlogin',{
+        await axios.post('http://localhost:5000/user/userlogin',{
             "email":email,
             "password":password
         })
@@ -45,7 +45,7 @@ function Login() {
   return (
     <div className='login-wrapper'>
         <nav className='navbar'>
-            <img src={logo} onClick={()=>navigate('../')}/>
+            <img src={logo} onClick={()=>navigate('../')} alt="Logo"/>
             <div className='navbar-buttons'>
             </div>
         </nav>
