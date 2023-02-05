@@ -6,18 +6,7 @@ const saltRounds=10;
 const isAdmin = require("../middlewares/isAdmin.js");
 
 
-//get course details
-router.get("/getcoursedetails",isAdmin , async (req, res) => {
-    try {
-      
-    } catch (error) {
-      res.send({
-        message: error.message,
-        success: false,
-        data: null,
-      });
-    }
-  });
+
 
 
 
@@ -50,5 +39,126 @@ router.post("/addsuperadmin", async (req, res) => {
 
 
 
+//DISCARDED ROUTES BELOW
+
+// Update course progress
+// router.post("/updatecourseprogress", isUser, async (req, res) => {
+// 	//IF NEEDED CHECK IF WEEK<WEEK DAY<DAY ETC
+// 	const userId=req.auth.user._id;
+// 	const courseId=req.body.courseId;
+// 	const courseName=req.body.courseName;
+// 	const percentage=0;
+// 	const week=req.body.week;
+// 	const day=req.body.day;
+// 	const videoindex=req.body.videoindex;
+// 	const foundUser=await User.findOne({_id:userId});
+// 	var courseprogress=foundUser.courseprogress;
+	
+// 	var foundCourseIndex = courseprogress.findIndex(instance => instance.courseId === courseId);
+// 	if(foundCourseIndex==-1)
+// 	{
+
+// 		courseprogress.push({percentage:percentage,courseId:courseId,courseName:courseName,week:weekstructure});
+// 		const updatedUser=await User.findOneAndUpdate({_id:userId},{courseprogress:courseprogress},{new:true});
+// 		return res.json(updatedUser);
+// 	}
+// 	else{
+
+// 		courseprogress[foundCourseIndex]={percentage:percentage,courseId:courseId,courseName:courseName,week:week,day:day,videoindex:videoindex};
+// 		const updatedUser=await User.findOneAndUpdate({_id:userId},{courseprogress:courseprogress},{new:true});
+// 		return res.json(updatedUser);
+// 	}
+
+// });
+
+
+// Update course progress
+// router.post("/updatecourseprogress", isUser, async (req, res) => {
+// 	const userId=req.auth.user._id;
+// 	const foundUser=await User.findOne({_id:userId});
+// 	const videoindex=parseInt(req.body.videoindex);
+// 	const weeknum=parseInt(req.body.weeknum) ;
+// 	const daynum=parseInt(req.body.daynum);
+// 	const courseId=req.body.courseId;
+
+
+// 	var courseprogress=foundUser.courseprogress;
+
+// 	var foundCourseIndex = courseprogress.findIndex(instance => instance.courseId === courseId);
+	
+// 	if(foundCourseIndex==-1)
+// 	{
+// 		// if(!weeknum&&!daynum&&!videoindex)
+// 		// {
+
+// 		// }
+// 		// else{
+// 		// 	const structure={};
+// 		// structure.courseId=courseId;
+// 		// structure.progress=[];
+// 		// var videoarr=[];
+// 		// videoarr.push(videoindex);
+// 		// var weekstruct={
+// 		// 	weeknum:weeknum,
+// 		// 	days:[{
+// 		// 		daynum:daynum,
+// 		// 		videos:videoarr
+// 		// 	}]
+// 		// };
+		
+// 		// structure.progress.push(weekstruct);
+// 		// structure.percentage=0;
+
+// 		// courseProgress.push(structure);
+// 		// const updatedUser=await User.findOneAndUpdate({_id:userId},{courseprogress:courseProgress},{new:true});
+// 		// return res.json(updatedUser);
+// 		// }
+
+		
+
+// 		courseprogress.push({
+// 			courseId:courseId,
+// 			progress:[]
+// 		})
+// 		const updatedUser=await User.findOneAndUpdate({_id:userId},{courseprogress:courseprogress},{new:true});
+// 		res.json(updatedUser);
+		
+// 	}
+// 	else{
+// 		// var currentcourse=courseprogress[foundCourseIndex];
+// 		var newcourseprogress=courseprogress;
+// 		var currentcourseprogress=newcourseprogress[foundCourseIndex].progress;
+// 		var foundweek = currentcourseprogress.findIndex(instance => instance.weeknum === weeknum);
+// 		if(foundweek==-1)
+// 		{
+// 			currentcourseprogress.push({
+// 				weeknum:weeknum,
+// 				days:[{
+// 					daynum:daynum,
+// 					videos:[videoindex]
+// 				}]
+// 			});
+
+// 			currentcourseprogress.sort((a,b)=>a.weeknum-b.weeknum);		
+// 			const updatedUser=await User.findOneAndUpdate({_id:userId},{courseprogress:newcourseprogress},{new:true});
+// 			res.json(updatedUser);
+
+// 		}
+// 		else{
+// 			currentcourseprogress[foundweek]
+// 		}
+// 	}
+
+	// var courseProgressArray = Object.values(JSON.parse(courseProgress));
+	// console.log(courseProgressArray)
+	// var foundweek = courseProgressArray.findIndex(instance => instance.weeknum === );
+
+// });
+
+// Get course progress
+// router.post("/getcourseprogress", isUser, async (req, res) => {
+	
+
+// });
 
   module.exports = router;

@@ -27,7 +27,7 @@ function Signup() {
             "confPassword":confPassword
         })
         .then(response=>{
-            console.log(response.data)
+            //console.log(response.data)
             setErrorMessage("ok")
         })
         .catch((err) => {console.log(err.message);setErrorMessage("Incorrect details")});

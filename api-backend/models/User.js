@@ -36,18 +36,11 @@ const userSchema=new mongoose.Schema({
         [
             {
                 courseId,
-                courseName,
-                weeks[
-                    [
-                       
-                    ],
-                    [
-
-                    ],
-
-                ],
+                watchedlinks:[
+                    link1,link2
+                ]
                
-                percentage
+                
             }
         ]
         */

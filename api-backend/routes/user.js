@@ -61,82 +61,24 @@ router.post("/userlogin", async (req, res) => {
 		config.jwtSecret,{expiresIn:"1d"}
 		);
 		res.setHeader("token", token);
-		res.json({ token });
+		const firstname=user.firstname;
+		const lastname=user.lastname;
+		var usertype="";
+		if(user.admin==true&&user.superadmin==true)
+		{
+			usertype="superadmin";
+		}
+		else if(user.admin==true&&user.superadmin==false)
+		{
+			usertype="admin";
+		}
+		else{
+			usertype="user";
+		}
+
+		res.json({ token,usertype,firstname,lastname });
 	});
 });
-
-//Update course progress
-router.post("/updatecourseprogress", isUser, async (req, res) => {
-	//IF NEEDED CHECK IF WEEK<WEEK DAY<DAY ETC
-	const userId=req.auth.user._id;
-	const courseId=req.body.courseId;
-	const courseName=req.body.courseName;
-	const percentage=0;
-	const week=req.body.week;
-	const day=req.body.day;
-	const videoindex=req.body.videoindex;
-	const foundUser=await User.findOne({_id:userId});
-	var courseprogress=foundUser.courseprogress;
-	
-	var foundCourseIndex = courseprogress.findIndex(instance => instance.courseId === courseId);
-	// if(foundCourseIndex==-1)
-	// {
-
-	// 	courseprogress.push({percentage:percentage,courseId:courseId,courseName:courseName,week:weekstructure});
-	// 	const updatedUser=await User.findOneAndUpdate({_id:userId},{courseprogress:courseprogress},{new:true});
-	// 	return res.json(updatedUser);
-	// }
-	// else{
-
-		courseprogress[foundCourseIndex]={percentage:percentage,courseId:courseId,courseName:courseName,week:week,day:day,videoindex:videoindex};
-		const updatedUser=await User.findOneAndUpdate({_id:userId},{courseprogress:courseprogress},{new:true});
-		return res.json(updatedUser);
-	// }
-
-
-
-
-});
-
-//Get course progress
-router.get("/getcourseprogress", isUser, async (req, res) => {
-	// try{
-	const user=await User.findOne({_id:req.auth.user._id});
-	const courseProgress=user.courseprogress;
-	console.log(courseProgress)
-
-	courseProgress.forEach(async(object) => {
-		//DEBUG
-		console.log("inside for each");
-		const program = await Program.findOne({ _id: object.courseId });
-		const totalduration=parseInt(program.duration);
-		const intweek=parseInt(object.week);
-		const intday=parseInt(object.day);
-		object.percentage = (((intweek * 7)+intday) / (totalduration*7)) * 100;
-		console.log(object.percentage);
-		await User.updateOne({_id: object.courseId}, {$set: {percentage: object.percentage}})
-		
-	  });
-	  
-	  res.status(200).send({
-		message: "Course progress fetched successfully",
-		success: true,
-		data: courseProgress
-	  });
-	// }
-	// catch(error){
-	// 	res.status(500).send({
-	// 		message: "Error fetching course progress",
-	// 		success: false,
-	// 		error,
-	// 	  });
-	// }
-	  
-});
-
-	
-
-
 
 
 //Display all the doctors
@@ -160,7 +102,7 @@ router.get("/get-all-approved-doctors", isUser, async (req, res) => {
 
 //Book appointments
   router.post("/book-appointment", isUser, async (req, res) => {
-	// try {
+	try {
 	  req.body.status = "pending";
 	  req.body.date = moment(req.body.date, "DD-MM-YYYY").toISOString();
 	  req.body.time = moment(req.body.time, "HH:mm").toISOString();
@@ -170,15 +112,18 @@ router.get("/get-all-approved-doctors", isUser, async (req, res) => {
 		message: "Appointment booked successfully",
 		success: true,
 	  });
-	// } catch (error) {
-	//   console.log(error);
-	//   res.status(500).send({
-	// 	message: "Error booking appointment",
-	// 	success: false,
-	// 	error,
-	//   });
-	// }
+	} catch (error) {
+	  console.log(error);
+	  res.status(500).send({
+		message: "Error booking appointment",
+		success: false,
+		error,
+	  });
+	}
   });
+
+
+
 //Check Availability
   router.post("/check-booking-avilability", isUser, async (req, res) => {
 	try {
@@ -263,8 +208,54 @@ router.get("/get-all-approved-doctors", isUser, async (req, res) => {
 	});
 
 					
+//Get course progress
+router.get("/getcourseprogress", isUser, async (req, res) => {
+	
+	  
+});
 
 
+//Update course progress
+router.get("/updatecourseprogress", isUser, async (req, res) => {
+	
+	  
+});
+
+//Add to interested course
+router.post("/addtointerestedcourse", isUser, async (req, res) => {
+	const userId=req.auth.user._id;
+	const courseId=req.body.courseId;
+	const foundUser=await User.findOne({_id:userId});
+	var courseprogress=foundUser.courseprogress;
+	courseprogress.push({
+					courseId:courseId,
+					progress:[]
+				})
+	const user = await User.findByIdAndUpdate(
+		userId,
+		{ courseprogress: courseprogress },{new:true}
+	);
+	res.status(200).send({
+		message: "Course added to interested course",
+		success: true,
+		data: user,
+	});
+
+	  
+});
+
+
+router.get("/fetchinterestedcourse", isUser, async (req, res) => {
+	const userId=req.auth.user._id;
+	const foundUser= await User.findOne({_id:userId});
+	var foundCourseIds=[];
+	var courseprogress=foundUser.courseprogress;
+	courseprogress.forEach(course => {
+		foundCourseIds.push(course.courseId);
+	});
+	const fetchedObjects = await Program.find({ _id: { $in: foundCourseIds } });
+	res.json(fetchedObjects);
+});
 
   
 

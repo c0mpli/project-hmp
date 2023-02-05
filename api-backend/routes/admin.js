@@ -75,22 +75,20 @@ router.post("/addtoexistingcourse",isAdmin , async (req, res) => {
 //changecoursedetails
 router.post("/changecoursedetails",isAdmin , async (req, res) => {
     try {
-      //COMPLETE IT
       const coursetitle=req.body.coursetitle;
       const duration=req.body.duration;
       const description=req.body.description;
       const id=req.body.id;
-      const courseBeforeupdate=await Program.findOne({_id:id});
-      var videos=courseBeforeupdate.videos;
-      console.log(videos.length)
-      var diff=duration-videos.length;
+      var courseBeforeupdate=await Program.findOne({_id:id});
+      var videos =courseBeforeupdate.videos;
+      var diff=parseInt(duration) -videos.length;
       var tobeaddedarray=new Array(diff).fill({day:[[],[],[],[],[],[],[]]});
-      videos+=tobeaddedarray;
-      console.log(tobeaddedarray.length)
-      
+      videos = videos.concat(tobeaddedarray);
+   
       const updatedCourse=await Program.findByIdAndUpdate(id, { $set: {videos:videos, progamname : coursetitle,duration:duration,description:description } }, { new: true });
 
-      res.json(updatedCourse.videos.length);
+      res.json(updatedCourse);
+
 
 
     } catch (error) {
@@ -145,5 +143,16 @@ router.post("/deletehealthp", isAdmin, async (req, res) => {
   }
 });
 
-
+//get course details
+router.get("/getcoursedetails",isAdmin , async (req, res) => {
+    try {
+      res.json(await Program.find({}));
+    } catch (error) {
+      res.send({
+        message: error.message,
+        success: false,
+        data: null,
+      });
+    }
+  });
   module.exports = router;
