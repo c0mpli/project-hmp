@@ -211,10 +211,20 @@
 }
 
 .landing-footer{
-    padding: 0 12%;
+    padding: 0 20%;
     background-color:#D9D9D9;
     width: auto;
-    height: 30rem;
+    height: auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+.landing-footer h1{
+    margin: 0 auto;
 }
 .landing-testimonials{
     margin: 10rem 0;
@@ -230,12 +240,23 @@
     flex-wrap: wrap;
 }
 
-
-
+.footer-content p{
+    text-align: justify;
+    
+} 
+.footer-content{
+    margin-right: 2rem;
+}
+.footer-icons{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    gap: 0.5rem;
+}
 
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 
-form { max-width:420px; margin:50px auto; }
+form { max-width:420px; margin:3rem auto; }
 
 .feedback-input {
   color:black;
@@ -280,6 +301,7 @@ textarea {
 
 
 @media screen and (max-width: 1200px) {
+   
     .landing{
         margin: 0 5%;
         width: auto;
@@ -310,6 +332,11 @@ textarea {
 
 
 @media screen and (max-width: 765px) {
+    .landing-footer{
+        display: block;
+        padding: 10% 5%;
+    }
+    
     .landing{
         margin: 0;
         padding: 0 5%;
@@ -328,5 +355,8 @@ textarea {
     .landing-trendingPrograms{
         text-align: center;
     }
-    
+    form{
+        margin: 0;
+        margin-top: 1rem;
+    }
 }

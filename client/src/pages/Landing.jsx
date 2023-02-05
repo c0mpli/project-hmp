@@ -20,6 +20,8 @@ import TestimonialIcon from '../imgs/TestimonialIcon.svg'
 import TestimonialCard from '../components/Landing/Testimonials/TestimonialCard'
 import ServiceCard from '../components/ServiceCard'
 import PricingCard from '../components/PricingCard'
+import emailImg from '../imgs/email.png'
+import phoneImg from '../imgs/phone-call.png'
 
 function Landing() {
   const navigate = useNavigate()
@@ -129,7 +131,17 @@ function Landing() {
         </div>
       </div>
         <div className="landing-footer" ref={contactusRef}>
+          <div className='footer-content'>
+
           <h1>Contact Us</h1>
+          <p>
+            Heath Matthews Physio brings you better health and fitness through technology and expertise.
+            Everyone from Olympians to weekend warriors can benefit from Heath Matthews Physio to heal faster, perform better and feel their best.
+          </p>
+          <div className='footer-icons'><img src={emailImg} style={{width:"1rem",height:"1rem"}}/><p>support@heathmatthewsphysio.com</p></div>
+          
+          <div className='footer-icons'><img src={phoneImg} style={{width:"1rem",height:"1rem"}}/><p>+91 8928444854</p></div>
+          </div>
         <form>      
           <input name="name" type="text" class="feedback-input" placeholder="Name" />   
           <input name="email" type="text" class="feedback-input" placeholder="Email" />
