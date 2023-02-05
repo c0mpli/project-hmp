@@ -131,11 +131,11 @@ function Landing() {
         <div className="landing-footer" ref={contactusRef}>
           <h1>Contact Us</h1>
         <form>      
-  <input name="name" type="text" class="feedback-input" placeholder="Name" />   
-  <input name="email" type="text" class="feedback-input" placeholder="Email" />
-  <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
-  <input type="submit" value="SUBMIT"/>
-</form>
+          <input name="name" type="text" class="feedback-input" placeholder="Name" />   
+          <input name="email" type="text" class="feedback-input" placeholder="Email" />
+          <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
+          <input type="submit" value="SUBMIT"/>
+        </form>
         </div>
     </>
   )
