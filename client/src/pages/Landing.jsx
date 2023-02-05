@@ -99,7 +99,7 @@ function Landing() {
               <ServiceCard title="Strength & Conditioning" message="Relax, unwind and let our therapists work the tension away." side='left' image={therapyBadge}/>
               <ServiceCard title="Deep Tissue Massage" message="Relax, unwind and let our therapists work the tension away." side='right' image={therapyBadge}/>
             </div>
-            <button>Book an appointment</button>
+            <button onClick={contactusScroll}>Book an appointment</button>
           </div>
         </div>
         <div className="landing-pricing">

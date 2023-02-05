@@ -63,7 +63,7 @@ const Sidebar = () => {
         <div className="menuItem">
           <UilSignOutAlt />
           <span onClick={()=>{
-            localStorage.removeItem('token')
+            localStorage.removeItem('name')
             dispatch({type:'LOGOUT'})
             navigate('../')
           }}>Logout</span>

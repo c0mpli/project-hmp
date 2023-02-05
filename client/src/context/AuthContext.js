@@ -19,7 +19,7 @@ export function AuthContextProvider({children}){
         user:null
     })
     useEffect(()=>{
-        const isUser = localStorage.getItem('token')
+        const isUser = localStorage.getItem('name')
         if(isUser){
             console.log("User exists")
             dispatch({type:'LOGIN',payload:isUser})

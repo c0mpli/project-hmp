@@ -23,7 +23,7 @@ function Login() {
             //console.log(response.data);
             setErrorMessage("");
             dispatch({type:"LOGIN",payload: response.data}) 
-            localStorage.setItem("token",response.data.token)
+            localStorage.setItem("name",response.data.firstname)
             navigate('../dashboard')       
         })
         .catch((err) => {console.log(err.message);setErrorMessage("Incorrect details")});

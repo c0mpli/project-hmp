@@ -6,6 +6,7 @@ import './ProfileHeader.css'
 
 function ProfileHeader(props) {
     const {theme, toggleTheme} = useTheme()
+    const name = localStorage.getItem('name')
   return (
     <div className='AppGlass3 ProfileHeader'>
         <div className='HeaderContent'>
@@ -15,7 +16,7 @@ function ProfileHeader(props) {
         <div className="profile">
             <img src={ProfileImage}/>
             <div className="profile-info">
-                <h2>Azeem</h2>
+                <h2>{name}</h2>
                 <div className="profileRectLine"></div>
                 <p>Subscriber</p>
             </div>
