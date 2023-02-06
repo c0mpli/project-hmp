@@ -63,9 +63,13 @@
         grid-template-columns: 4rem auto 6rem;
         grid-auto-flow: row;
     }
+    .deleteButton{
+        display: block !important;
+    }
     .HMPProgramWrapper button{
         display: none;
     }
+    
     .HMPProgramWrapper img{
         width: 4rem;
         height: 4rem;

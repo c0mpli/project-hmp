@@ -44,12 +44,12 @@ export const SidebarData = [
     heading: "HMP Programs",
     link:"/hmpprograms",
   },
-  {
-    key:4,
-    icon: UilPackage,
-    heading: 'My Account',
-    link:"/myaccount",
-  },
+  // {
+  //   key:4,
+  //   icon: UilPackage,
+  //   heading: 'My Account',
+  //   link:"/myaccount",
+  // },
   {
     key:5,
     icon: UilUser,

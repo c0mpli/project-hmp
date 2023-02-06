@@ -11,6 +11,9 @@ const Appointment=require("../models/Appointment");
   router.post("/loginhealthp", async (req, res) => {
     try {
       const userExists = await Partner.findOne({ email: req.body.email });
+      const firstname=userExists.firstname;
+      const lastname=userExists.lastname;
+      usertype="healthpartner"
       if (!userExists) {
         return res.send({
           message: "User does not exist",
@@ -36,11 +39,7 @@ const Appointment=require("../models/Appointment");
         expiresIn: "1d",
       });
   
-      res.send({
-        message: "User logged in successfully",
-        success: true,
-        data: token,
-      });
+      res.json({ token,usertype,firstname,lastname });
     } catch (error) {
       res.send({
         message: error.message,

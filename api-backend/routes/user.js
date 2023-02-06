@@ -33,6 +33,7 @@ router.post("/userregister", async (req, res) => {
 	// add user
 	bcrypt.hash(password, saltRounds, async function(err, hash) {
 		const newUser = new User({password:hash, firstname,lastname,email,mobilenum,admin,superadmin });
+		console.log("user created")
 		return res.json(await newUser.save());
 	});
 	

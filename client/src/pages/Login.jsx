@@ -22,7 +22,8 @@ function Login() {
         .then(response => {
             console.log(response.data);
             setErrorMessage("");
-            dispatch({type:"LOGIN",payload: response.data}) 
+            dispatch({type:"LOGIN",payload: response.data})
+            localStorage.setItem("token",response.data.token) 
             localStorage.setItem("name",response.data.firstname)
             localStorage.setItem("role",response.data.usertype)
             navigate('../dashboard')       

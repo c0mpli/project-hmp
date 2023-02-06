@@ -14,8 +14,8 @@ app.use(require("./middlewares/auth"));
 // mongoose.connect("mongodb://localhost:27017/docDb",{useNewUrlParser:true},()=>{
 //     console.log("Connected to Database");
 // });
- mongoose.connect("mongodb+srv://admin:admin@cluster0.bphure6.mongodb.net/?retryWrites=true&w=majority",{useNewUrlParser:true},()=>{
-     console.log("Connected to Database");
+mongoose.connect("mongodb+srv://admin:admin@cluster0.bphure6.mongodb.net/?retryWrites=true&w=majority",{useNewUrlParser:true},()=>{
+    console.log("Connected to Database");
 });
 
 app.use("/user", require("./routes/user"));

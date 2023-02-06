@@ -8,8 +8,10 @@ import { useAuthContext } from '../hooks/useAuthContext';
 function ProfileHeader(props) {
     const {theme, toggleTheme} = useTheme()
     const {user} = useAuthContext()
-    const name = user["firstname"]
-    let role = user["usertype"]
+    //const name = user["firstname"]
+    //let role = user["usertype"]
+    const name = localStorage.getItem('name')
+    let role = localStorage.getItem('role')
     console.log()
     
     if(role==='user'){role='Subscriber'}

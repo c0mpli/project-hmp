@@ -115,4 +115,39 @@ router.post("/deleteadmin", isSuperAdmin, async (req, res) => {
       res.status(500).send({ success: false, message: error.message });
     }
   });
+
+  //get all admins
+  router.get("/getadmins", isSuperAdmin, async (req, res) => {
+    try {
+      const admins = await User.findOne({
+        $and: [{ admin: true }, { superadmin: false }],
+      });
+      return res.status(200).send({
+        success: true,
+        message: "Admins fetched successfully",
+        data: admins,
+      });
+    } catch (error) {
+      res.status(500).send({ success: false, message: error.message });
+    }
+  });
+
+  //get all users
+  router.get("/getusers", isSuperAdmin, async (req, res) => {
+    try {
+      const users = await User.find({
+        $and: [{ admin: false }, { superadmin: false }],
+      });
+      return res.status(200).send({
+        success: true,
+        message: "Users fetched successfully",
+        data: users,
+      });
+    } catch (error) {
+      res.status(500).send({ success: false, message: error.message });
+    }
+  });
+
+  
+
   module.exports = router;

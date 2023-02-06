@@ -19,15 +19,19 @@ export function AuthContextProvider({children}){
         user:null
     })
     useEffect(()=>{
-        const isUser = localStorage.getItem('name')
-        const role = localStorage.getItem('role')
-        if(isUser){
-            console.log("User exists")
-            dispatch({type:'LOGIN',payload:{
-                firstname:isUser,
-                usertype:role
-            }})
+        async function fetchDetails(){
+            const isUser = await localStorage.getItem('name')
+            const role = await localStorage.getItem('role')
+            console.log(role)
+            if(isUser){
+                console.log("User exists")
+                dispatch({type:'LOGIN',payload:{
+                    firstname:isUser,
+                    usertype:role
+                }})
+            }
         }
+        fetchDetails()
     },[])
     console.log("AuthContextState: ",state)
 
