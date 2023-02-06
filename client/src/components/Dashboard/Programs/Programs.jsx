@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -7,7 +7,7 @@ import './Programs.css';
 import { dataDigitalBestSeller } from '../../../Data/Data';
 import imgGirl from '../../../imgs/img1.png';
 import { useNavigate } from 'react-router-dom';
-
+import axios from 'axios'
 function Programs() {
   const navigate = useNavigate()
   const [defaultImage, setDefaultImage] = useState({});
@@ -47,6 +47,16 @@ function Programs() {
     ],
   };
 
+  const [programs,setPrograms] = useState();
+  
+  useEffect(()=>{
+    axios.get('http://localhost:5000/user/fetchallcourses',{headers:{"token":localStorage.getItem('token')}})
+    .then(response=>{
+      //console.log(response.data)
+      setPrograms(response.data)
+    })
+  })
+
   const handleErrorImage = (data) => {
     setDefaultImage((prev) => ({
       ...prev,
@@ -58,24 +68,21 @@ function Programs() {
   return (
     <div className="Programs">
       <Slider {...settings}>
-        {dataDigitalBestSeller.map((item) => (
+
+        {programs && programs.map((item) => (
           <div className="card">
             <div className="card-top">
               <img
-                src={
-                  defaultImage[item.title] === item.title
-                    ? defaultImage.linkDefault
-                    : item.linkImg
-                }
-                alt={item.title}
+                src={item.image}
+                alt={item.programname}
                 onError={handleErrorImage}
               />
-              <h1>{item.title}</h1>
+              <h1>{item.programname}</h1>
               
               <div className='programsRectLine'></div>
             </div>
             <div className="card-bottom">
-              <p>{item.price}</p>
+              <p>{item.description}</p>
               <button onClick={()=>navigate('/hmpprograms')}>View More</button>
             </div>
           </div>

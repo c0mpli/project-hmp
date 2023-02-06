@@ -33,7 +33,6 @@ router.post("/userregister", async (req, res) => {
 	// add user
 	bcrypt.hash(password, saltRounds, async function(err, hash) {
 		const newUser = new User({password:hash, firstname,lastname,email,mobilenum,admin,superadmin });
-		console.log("user created")
 		return res.json(await newUser.save());
 	});
 	
@@ -209,9 +208,9 @@ router.get("/get-all-approved-doctors", isUser, async (req, res) => {
 	});
 
 					
-//Get course progress
+//Get course progress in percentage
 router.get("/getcourseprogress", isUser, async (req, res) => {
-	
+		
 	  
 });
 
@@ -257,6 +256,13 @@ router.get("/fetchinterestedcourse", isUser, async (req, res) => {
 	const fetchedObjects = await Program.find({ _id: { $in: foundCourseIds } });
 	res.json(fetchedObjects);
 });
+
+//Fetch all the courses in the database
+router.get("/fetchallcourses", isUser, async (req, res) => {
+	const fetchedObjects = await Program.find();
+	res.json(fetchedObjects);
+});
+
 
   
 

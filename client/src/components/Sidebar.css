@@ -5,9 +5,14 @@
   position: relative;
   padding-top: 4rem;
   transition: all 300ms ease;
-  height: max(auto,100vh);
+  height: max(100vh,auto);
   padding-bottom: 10rem;
+  -ms-overflow-style: none;  
+  scrollbar-width: none
 } 
+.sidebar::-webkit-scrollbar{
+  display: none;
+}
 
 #dark .sidebar{
   background-color: #15151F;

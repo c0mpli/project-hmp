@@ -26,7 +26,8 @@ function Login() {
             localStorage.setItem("token",response.data.token) 
             localStorage.setItem("name",response.data.firstname)
             localStorage.setItem("role",response.data.usertype)
-            navigate('../dashboard')       
+            if(response.data.usertype==="user") navigate('../dashboard')
+            else navigate('../hmpprograms')       
         })
         .catch((err) => {console.log(err.message);setErrorMessage("Incorrect details")});
         await axios.post('http://localhost:5000/user/userlogin',{

@@ -21,7 +21,9 @@
   --DarkBG:#000010;
   
 }
-
+html:{
+  height: 100%;
+}
 .App{
   margin: 0;
   padding: 0;
@@ -29,7 +31,6 @@
   font-family: 'Inter', sans-serif;
   width: 100%;
   height: 100%;
-  
 }
 
 .AppGlass,.AppGlass2,.AppGlass3 {
@@ -47,7 +48,7 @@
   grid-template-columns: auto 20rem;
 }
 
-#dark .AppGlass,#dark .AppGlass2,#dark .AppGlass3{
+#dark .AppGlass,#dark .AppGlass2,#dark .AppGlass3,#dark .App{
   background-color:#000010;
 }
 

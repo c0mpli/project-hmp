@@ -119,7 +119,7 @@ router.post("/deleteadmin", isSuperAdmin, async (req, res) => {
   //get all admins
   router.get("/getadmins", isSuperAdmin, async (req, res) => {
     try {
-      const admins = await User.findOne({
+      const admins = await User.find({
         $and: [{ admin: true }, { superadmin: false }],
       });
       return res.status(200).send({

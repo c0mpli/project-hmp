@@ -21,10 +21,10 @@ const Sidebar = () => {
   let role = localStorage.getItem('role')
   let data =[]
   if(role==='user'){
-    data=SidebarData.slice(0,4)
+    data=SidebarData.slice(0,3)
   }
   if(role==='superadmin'){
-    data=SidebarData
+    data=SidebarData.slice(0,5)
   }
   if(role==='admin'){
     data=SidebarData.slice(0,5)
@@ -71,15 +71,16 @@ const Sidebar = () => {
           );
         })}
         {/* signoutIcon */}
-        <div className="menuItem">
-          <UilSignOutAlt />
-          <span onClick={()=>{
+        <div className="menuItem" onClick={()=>{
             localStorage.removeItem('name')
             localStorage.removeItem('role')
             localStorage.removeItem('token')
             dispatch({type:'LOGOUT'})
             navigate('../')
-          }}>Logout</span>
+          }}>
+          <UilSignOutAlt />
+          <span 
+          >Logout</span>
         </div>
       </div>
     </motion.div>

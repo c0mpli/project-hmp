@@ -45,7 +45,7 @@ router.post("/addnewcourse",isAdmin , async (req, res) => {
 
   //add to existing course
 router.post("/addtoexistingcourse",isAdmin , async (req, res) => {
-    try {
+    // try {
       const coursetitle=req.body.coursetitle;
       var week=req.body.week;
       week=parseInt(week)-1;
@@ -63,13 +63,13 @@ router.post("/addtoexistingcourse",isAdmin , async (req, res) => {
           data: updatedCourse,
         });
 
-    } catch (error) {
-      res.send({
-        message: error.message,
-        success: false,
-        data: null,
-      });
-    }
+    // } catch (error) {
+    //   res.send({
+    //     message: error.message,
+    //     success: false,
+    //     data: null,
+    //   });
+    // }
   });
 
 //changecoursedetails

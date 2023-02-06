@@ -16,6 +16,9 @@ const programSchema=new mongoose.Schema({
     videos:{
         type:Array,
     },
+    image:{
+        type:String,
+    },
     
 });
 

@@ -15,20 +15,18 @@ function MyPrograms() {
   
   return (
     <div className='AppGlass2'>
-        <Sidebar /> 
-        <div className='ContentWrapper'>
-          <div>
-            <ProfileHeader title="My Programs"/>
-            <div className='AppGlass3'>
+            <Sidebar />
+            <div className='ContentWrapper'>
+                <ProfileHeader title={'My programs'}/>
+                <div className='AppGlass3'>
                 <MainDash />
                 <RightSide />
                 </div>
-          </div>
-          <div>
-
-          </div>
+            </div>
+            
+            
+            
         </div>
-    </div>
   )
 }
 

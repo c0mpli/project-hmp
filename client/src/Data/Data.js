@@ -53,12 +53,6 @@ export const SidebarData = [
   {
     key:5,
     icon: UilUser,
-    heading: 'Manage Users',
-    link:"/manageusers",
-  },
-  {
-    key:6,
-    icon: UilUser,
     heading: 'Manage Admins',
     link:"/manageadmins",
   },
