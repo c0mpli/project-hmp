@@ -1,7 +1,7 @@
 .HMPProgramWrapper{
     display: grid;
     margin: 2rem 3rem;
-    grid-template-columns: 8rem auto 8rem 4rem 10rem;
+    grid-template-columns: 8rem auto 8rem 4rem;
     gap: 1rem;
     align-items: center;
 }

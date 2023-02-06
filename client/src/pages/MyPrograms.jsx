@@ -17,18 +17,21 @@ function MyPrograms() {
             <Sidebar />
             <div className='ContentWrapper'>
                 <ProfileHeader title={'My programs'}/>
-                <div>
+                <div className='AppGlass3'>
+                  <div>
                 {programs && programs.map((program,key)=>{
-          return(
+                  return(
             <div id={key} >
             <HMPProgram 
               image={program.image}
               title={program.programname}
               description={program.description}
               duration={program.duration}
-            />
+              myprogram="true"
+              />
             </div>
         )})}
+        </div>
                 </div>
             </div>
             

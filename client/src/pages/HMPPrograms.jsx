@@ -35,18 +35,21 @@ function HMPPrograms() {
           
             <ProfileHeader title={'HMP Programs'}/>
           
-          <div>
+          <div className='AppGlass3'>
+            <div>
+
           {programs && programs.map((program,key)=>{
-          return(
-            <div id={key} onClick={()=>handleClick(key)}>
+            return(
+              <div id={key} onClick={()=>handleClick(key)}>
             <HMPProgram 
               image={program.image}
               title={program.programname}
               description={program.description}
               duration={program.duration}
-            />
+              />
             </div>
         )})}
+        </div>
             
           </div>
         </div>

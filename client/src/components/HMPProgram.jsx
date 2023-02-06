@@ -15,7 +15,10 @@ function HMPProgram(props) {
             <h3 style={{"color": "#FFB800","fontSize":"3rem"}}>{props.duration}</h3>
             <h3 style={{"color": "#013765"}}>days</h3>
         </div>
-        <button>+</button>    
+        {
+          props.myprogram==="true"?<></>:<button>+</button>
+        }
+            
     </div>
   )
 }

@@ -17,7 +17,10 @@
     align-items: center;
     justify-content: space-between;
 }
-
+.mainContent{
+    align-items: start;
+    height: 100%;
+}
 /* Tablets */
 @media screen and (max-width: 1200px) {
     .hmpProgramsHeader{

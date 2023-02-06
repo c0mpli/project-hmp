@@ -37,9 +37,11 @@ function ManageAdmin() {
         <Sidebar />
         <div className='ContentWrapper'>
           
-            <ProfileHeader title={'Manage admins'}/>
+          <ProfileHeader title={'Manage Admins'}/>
           
+          <div className='AppGlass3'>
           <div>
+
           {
             
             admins && admins.map((user,key)=>{
@@ -58,6 +60,8 @@ function ManageAdmin() {
               )
             })
           }
+          </div>
+          <div><h1>Test</h1></div>
           
             
           </div>

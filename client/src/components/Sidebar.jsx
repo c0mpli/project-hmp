@@ -13,7 +13,7 @@ const Sidebar = () => {
   const [selected, setSelected] = useState(0);
 
   const [expanded, setExpaned] = useState(false)
-
+  
   const navigate = useNavigate();
   const {dispatch,user} = useAuthContext()
   //console.log(JSON.stringify(user))
@@ -24,7 +24,7 @@ const Sidebar = () => {
     data=SidebarData.slice(0,3)
   }
   if(role==='superadmin'){
-    data=SidebarData.slice(0,7)
+    data=SidebarData.slice(2,7)
   }
   if(role==='admin'){
     data=SidebarData.slice(0,5)
