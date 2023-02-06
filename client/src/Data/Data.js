@@ -50,8 +50,21 @@ export const SidebarData = [
   //   heading: 'My Account',
   //   link:"/myaccount",
   // },
+  
   {
     key:5,
+    icon: UilUser,
+    heading: 'Manage Courses',
+    link:"/managecourses",
+  },
+  {
+    key:6,
+    icon: UilUser,
+    heading: 'Manage Messages',
+    link:"/managemessages",
+  },
+  {
+    key:7,
     icon: UilUser,
     heading: 'Manage Admins',
     link:"/manageadmins",

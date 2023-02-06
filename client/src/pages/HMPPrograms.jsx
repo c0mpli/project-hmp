@@ -11,6 +11,16 @@ function HMPPrograms() {
   const {theme,toggleTheme} = useTheme();
   const [programs,setPrograms] = useState();
   
+  function handleClick(key){
+    axios.post('http://localhost:5000/user/addtointerestedcourse',{
+      userId:localStorage.getItem('token'),
+      courseId: programs[key]._id
+    },{headers:{"token":localStorage.getItem('token')}})
+    .then(response=>{
+      console.log(response.data.message)
+    })
+  }
+
   useEffect(()=>{
     axios.get('http://localhost:5000/user/fetchallcourses',{headers:{"token":localStorage.getItem('token')}})
     .then(response=>{
@@ -22,20 +32,20 @@ function HMPPrograms() {
     <div className='AppGlass2'>
         <Sidebar />
         <div className='ContentWrapper'>
-          <div>
+          
             <ProfileHeader title={'HMP Programs'}/>
-          </div>
+          
           <div>
-          {programs && programs.map((program)=>{
+          {programs && programs.map((program,key)=>{
           return(
-            <>
+            <div id={key} onClick={()=>handleClick(key)}>
             <HMPProgram 
               image={program.image}
               title={program.programname}
               description={program.description}
               duration={program.duration}
             />
-            </>
+            </div>
         )})}
             
           </div>

@@ -1,16 +1,15 @@
-import React, {useEffect} from 'react'
+import React, {useEffect,useState} from 'react'
 import ProfileHeader from '../components/ProfileHeader'
 import Sidebar from '../components/Sidebar'
 import axios from 'axios'
-import RightSide from '../components/Dashboard/RightSide/RightSide';
-import MainDash from '../components/Dashboard/MainDash/MainDash';
+import HMPProgram from '../components/HMPProgram'
 
 function MyPrograms() {
+  const [programs,setPrograms] = useState();
   useEffect(() => {
-    const data = axios.get('http://localhost:5000/user/getcourseprogress',{headers:{
-      'token':localStorage.getItem('token')
-    }})  
-    console.log(data)
+    axios.get('http://localhost:5000/user/fetchinterestedcourse',{headers:{"token":localStorage.getItem('token')},auth:{"user":{"_id":localStorage.getItem('token')}}})  
+    .then(response=>{setPrograms(response.data)})
+    .catch(error=>{console.log(error)})
   }, [])
   
   return (
@@ -18,9 +17,18 @@ function MyPrograms() {
             <Sidebar />
             <div className='ContentWrapper'>
                 <ProfileHeader title={'My programs'}/>
-                <div className='AppGlass3'>
-                <MainDash />
-                <RightSide />
+                <div>
+                {programs && programs.map((program,key)=>{
+          return(
+            <div id={key} >
+            <HMPProgram 
+              image={program.image}
+              title={program.programname}
+              description={program.description}
+              duration={program.duration}
+            />
+            </div>
+        )})}
                 </div>
             </div>
             

@@ -11,9 +11,9 @@ import Signup from './pages/Signup';
 import { ThemeContext } from './context/ThemeContext';
 import ScrollToTop from './components/ScrollToTop';
 import { useAuthContext } from './hooks/useAuthContext';
-import ManageUsers from './pages/ManageUsers';
+import ManageCourses from './pages/ManageCourses';
 import ManageAdmin from './pages/ManageAdmin';
-
+import ManageMessages from './pages/ManageMessages'
 
 
 function App() {
@@ -45,8 +45,10 @@ function App() {
         <Route path='/hmpprograms' element={user?<HMPPrograms />:<Login />}></Route>
         <Route path='/myaccount' element={user?<MyAccount />:<Login />}></Route>
         
-        <Route path='/manageusers' element={role==='admin' || role==='superadmin'?<ManageUsers/>:user?<Dashboard/>:<Login/>}></Route>
-        <Route path='/manageadmins' element={role==='admin' || role==='superadmin'?<ManageAdmin/>:user?<Dashboard/>:<Login/>}></Route>
+        <Route path='/manageadmins' element={role==='superadmin'?<ManageAdmin/>:user?<HMPPrograms/>:<Login/>}></Route>
+        <Route path='/managecourses' element={role==='admin' || role==='superadmin'?<ManageCourses/>:user?<Dashboard/>:<Login/>}></Route>
+        <Route path='/managemessages' element={role==='admin' || role==='superadmin'?<ManageMessages/>:user?<Dashboard/>:<Login/>}></Route>
+
 
         <Route path='/' element={<Landing />}></Route>
       </Routes>
