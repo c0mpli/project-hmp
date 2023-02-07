@@ -25,7 +25,7 @@ function ManageMessages() {
   }
 
   function handleSend(){
-    axios.post('https://docwebsite.adityasurve1.repl.co/sadmin/brodcastmsg',{
+    axios.post('https://docwebsite.adityasurve1.repl.co/sadmin/broadcastmsg',{
       message:inputMessage
     },{headers:{"token":localStorage.getItem('token')}})
     .then(response=>{
