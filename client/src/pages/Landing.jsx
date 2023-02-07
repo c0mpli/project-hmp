@@ -143,9 +143,9 @@ function Landing() {
           <div className='footer-icons'><img src={phoneImg} style={{width:"1rem",height:"1rem"}}/><p>+91 8928444854</p></div>
           </div>
         <form>      
-          <input name="name" type="text" class="feedback-input" placeholder="Name" />   
-          <input name="email" type="text" class="feedback-input" placeholder="Email" />
-          <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
+          <input name="name" type="text" className="feedback-input" placeholder="Name" />   
+          <input name="email" type="text" className="feedback-input" placeholder="Email" />
+          <textarea name="text" className="feedback-input" placeholder="Comment"></textarea>
           <input type="submit" value="SUBMIT"/>
         </form>
         </div>
