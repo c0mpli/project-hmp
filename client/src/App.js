@@ -14,6 +14,7 @@ import { useAuthContext } from './hooks/useAuthContext';
 import ManageCourses from './pages/ManageCourses';
 import ManageAdmin from './pages/ManageAdmin';
 import ManageMessages from './pages/ManageMessages'
+import ScheduleAppointment from './pages/ScheduleAppointment';
 
 
 function App() {
@@ -44,7 +45,8 @@ function App() {
         <Route path='/myprograms' element={user?<MyPrograms/>:<Login />}></Route>
         <Route path='/hmpprograms' element={user?<HMPPrograms />:<Login />}></Route>
         <Route path='/myaccount' element={user?<MyAccount />:<Login />}></Route>
-        
+        <Route path='/scheduleappointment' element={user?<ScheduleAppointment />:<Login />}></Route>
+
         <Route path='/manageadmins' element={role==='superadmin'?<ManageAdmin/>:user?<HMPPrograms/>:<Login/>}></Route>
         <Route path='/managecourses' element={role==='admin' || role==='superadmin'?<ManageCourses/>:user?<Dashboard/>:<Login/>}></Route>
         <Route path='/managemessages' element={role==='admin' || role==='superadmin'?<ManageMessages/>:user?<Dashboard/>:<Login/>}></Route>

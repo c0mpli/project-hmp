@@ -27,6 +27,7 @@ function HMPPrograms() {
       //console.log(response.data)
       setPrograms(response.data)
     })
+    .catch(error=>{console.log(error)})
   })
   return (
     <div className='AppGlass2'>

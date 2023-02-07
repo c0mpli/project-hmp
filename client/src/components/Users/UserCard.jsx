@@ -15,7 +15,9 @@ function UserCard(props) {
     }
   return (
     <div className='HMPProgramWrapper'>
-        <img src={props.image}/>
+      {
+        props.isImage==="yes"?<img src={props.image}/>:<></>
+      }
         <div className='ProgramContent'>
             <h3>{props.name}</h3>
             <div className='ProgramRectLine'></div>

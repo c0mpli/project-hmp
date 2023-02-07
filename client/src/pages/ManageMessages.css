@@ -1,0 +1,8 @@
+.sendMessageWrapper{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.sendMessageWrapper input{
+    width: 20rem;
+}

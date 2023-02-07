@@ -2,14 +2,13 @@ import React from "react";
 import "./RightSide.css";
 import { UpdatesData } from "../../../Data/Data";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios'
 
 const RightSide = () => {
   const navigate = useNavigate()
+  axios.post('',{})
   return (
     <div className="RightSide">
-
-      
-
     <div> 
     <h3>HMP Messages</h3>
       <div className="Updates">
@@ -55,7 +54,7 @@ const RightSide = () => {
           })}
       </div>*/}
       <div className="add-program">
-          <button onClick={()=>{navigate('../myprograms')}}>Schedule an appoinment</button>
+          <button onClick={()=>{navigate('../scheduleappointment')}}>Schedule an appoinment</button>
       </div>
     </div>
       </div>
