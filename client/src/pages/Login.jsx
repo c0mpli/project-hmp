@@ -15,7 +15,7 @@ function Login() {
     async function handleSubmit(event) {
         event.preventDefault()
         console.log("Clicked")
-        axios.post('http://localhost:5000/user/userlogin',{
+        axios.post('https://docwebsite.adityasurve1.repl.co/user/userlogin',{
             "email":email,
             "password":password
         })
@@ -30,7 +30,7 @@ function Login() {
             else navigate('../hmpprograms')       
         })
         .catch((err) => {console.log(err.message);setErrorMessage("Incorrect details")});
-        await axios.post('http://localhost:5000/user/userlogin',{
+        await axios.post('https://docwebsite.adityasurve1.repl.co/user/userlogin',{
             "email":email,
             "password":password
         })

@@ -10,7 +10,7 @@ import deleteIcon from '../imgs/delete.png'
 function ManageAdmin() {
   const [admins,setAdmins] = useState()
     useEffect(()=>{
-      axios.get('http://localhost:5000/sadmin/getadmins',{headers:{"token":localStorage.getItem('token')}})
+      axios.get('https://docwebsite.adityasurve1.repl.co/sadmin/getadmins',{headers:{"token":localStorage.getItem('token')}})
       .then(response=>{
         setAdmins(response.data.data)
         //console.log(admins)
@@ -21,7 +21,7 @@ function ManageAdmin() {
     function handleDelete(key){
       //console.log("Clicked by "+key)
       //console.log(admins[key]._id)
-      axios.post('http://localhost:5000/sadmin/deleteadmin',{
+      axios.post('https://docwebsite.adityasurve1.repl.co/sadmin/deleteadmin',{
         _id:admins[key]._id
       },{headers:{"token":localStorage.getItem('token')}})
       .then(response=>{

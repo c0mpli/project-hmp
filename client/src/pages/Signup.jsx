@@ -18,7 +18,7 @@ function Signup() {
         e.preventDefault();
         const names = name.split(' ')
         
-        axios.post('http://localhost:5000/user/userregister',{
+        axios.post('https://docwebsite.adityasurve1.repl.co/user/userregister',{
             "firstname":names[0],
             "lastname":names[names.length-1],
             "email":email,

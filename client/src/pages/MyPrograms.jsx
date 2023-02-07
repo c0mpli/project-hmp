@@ -7,7 +7,7 @@ import HMPProgram from '../components/HMPProgram'
 function MyPrograms() {
   const [programs,setPrograms] = useState();
   useEffect(() => {
-    axios.get('http://localhost:5000/user/fetchinterestedcourse',{headers:{"token":localStorage.getItem('token')},auth:{"user":{"_id":localStorage.getItem('token')}}})  
+    axios.get('https://docwebsite.adityasurve1.repl.co/user/fetchinterestedcourse',{headers:{"token":localStorage.getItem('token')},auth:{"user":{"_id":localStorage.getItem('token')}}})  
     .then(response=>{setPrograms(response.data)})
     .catch(error=>{console.log(error)})
   }, [])

@@ -12,7 +12,7 @@ function HMPPrograms() {
   const [programs,setPrograms] = useState();
   
   function handleClick(key){
-    axios.post('http://localhost:5000/user/addtointerestedcourse',{
+    axios.post('https://docwebsite.adityasurve1.repl.co/user/addtointerestedcourse',{
       userId:localStorage.getItem('token'),
       courseId: programs[key]._id
     },{headers:{"token":localStorage.getItem('token')}})
@@ -22,7 +22,7 @@ function HMPPrograms() {
   }
 
   useEffect(()=>{
-    axios.get('http://localhost:5000/user/fetchallcourses',{headers:{"token":localStorage.getItem('token')}})
+    axios.get('https://docwebsite.adityasurve1.repl.co/user/fetchallcourses',{headers:{"token":localStorage.getItem('token')}})
     .then(response=>{
       //console.log(response.data)
       setPrograms(response.data)

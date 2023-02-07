@@ -11,7 +11,7 @@ import userImage from '../imgs/img2.png'
 function ManageUsers() {
     const [users,setUsers] = useState()
     useEffect(()=>{
-      axios.get('http://localhost:5000/sadmin/getusers',{headers:{"token":localStorage.getItem('token')}})
+      axios.get('https://docwebsite.adityasurve1.repl.co/sadmin/getusers',{headers:{"token":localStorage.getItem('token')}})
       .then(response=>{
         setUsers(response.data.data)
         console.log(users)
