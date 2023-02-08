@@ -24,7 +24,7 @@ const Sidebar = () => {
     data=SidebarData.slice(0,3)
   }
   if(role==='superadmin'){
-    data=SidebarData.slice(2,7)
+    data=SidebarData.slice(3,7)
   }
   if(role==='admin'){
     data=SidebarData.slice(0,5)

@@ -13,7 +13,7 @@ const RightSide = () => {
 ];
   const navigate = useNavigate()
   axios.get('https://docwebsite.adityasurve1.repl.co/user/getmessages',{headers:{"token":localStorage.getItem('token')}})
-  .then(response=>{setMessages(response.data.data);})
+  .then(response=>{setMessages((response.data.data).reverse())})
   .catch(error=>{console.log(error)})
 
   axios.get('https://docwebsite.adityasurve1.repl.co/user/get-appointments-by-user-id',{headers:{"token":localStorage.getItem('token')}})
@@ -28,6 +28,7 @@ const RightSide = () => {
     <h3>HMP Messages</h3>
       <div className="Updates">
         {messages && messages.map((message,key) => {
+          if(key<3)
           return (
             <>
             <div className="update" key={key}>

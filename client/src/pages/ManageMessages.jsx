@@ -19,7 +19,7 @@ function ManageMessages() {
       _id:messages[key]._id
     },{headers:{"token":localStorage.getItem('token')}})
     .then(response=>{
-      console.log(response.data.message)
+      alert(response.data.message)
     })
     .catch((error)=>{console.log(error)})
   }
@@ -29,7 +29,7 @@ function ManageMessages() {
       message:inputMessage
     },{headers:{"token":localStorage.getItem('token')}})
     .then(response=>{
-      console.log(response.data.message)
+      alert(response.data.message)
     })
     .catch((error)=>{console.log(error)})
   }
@@ -46,7 +46,7 @@ function ManageMessages() {
             <input placeholder='Send a message' onChange={e => setInputMessage(e.target.value)} />
             <button onClick={handleSend}>Send</button>
           </div>
-          <div>
+          <div className='messagesWrapper'>
             <h1>Messages</h1>
             <div>
               {

@@ -8,6 +8,12 @@ import deleteIcon from '../imgs/delete.png'
 
 
 function ManageAdmin() {
+  const [email, setEmail] = useState();
+   const [password, setPassword] = useState();
+   const [name, setName] = useState();
+   const [errorMessage, setErrorMessage] = useState("");
+   const [number, setNumber] = useState();
+
   const [admins,setAdmins] = useState()
     useEffect(()=>{
       axios.get('https://docwebsite.adityasurve1.repl.co/sadmin/getadmins',{headers:{"token":localStorage.getItem('token')}})
@@ -25,12 +31,27 @@ function ManageAdmin() {
         _id:admins[key]._id
       },{headers:{"token":localStorage.getItem('token')}})
       .then(response=>{
-        console.log(response.data.message)
-        //window.location.reload(false);
+        alert(JSON.stringify(response.data.message))
       })
       .catch((error)=>{console.log(error)})
     }
 
+    function handleSubmit(e){
+      const split = name.split(' ')
+      e.preventDefault()
+      axios.post('https://docwebsite.adityasurve1.repl.co/sadmin/addadmin',{
+        email:email,
+        password:password,
+        firstname:split[0],
+        lastname:split[split.length-1],
+        mobilenum:number
+      },{headers:{"token":localStorage.getItem('token')}})
+      .then(response=>{
+        setErrorMessage("ok")
+        //window.location.reload(false);
+      })
+      .catch((error)=>{setErrorMessage(error)})
+    }
 
   return (
     <div className='AppGlass2'>
@@ -61,8 +82,44 @@ function ManageAdmin() {
             })
           }
           </div>
-          <div><h1>Test</h1></div>
+          <div>
+
+          <form className='login-form addAdmin'>
+                <h1>Add admin</h1>
+                <input 
+                    type="text" 
+                    placeholder="Full Name" 
+                    onChange={e => setName(e.target.value)} 
+                    required
+                />
+                <input 
+                    type="email" 
+                    placeholder="Email" 
+                    onChange={e => setEmail(e.target.value)} 
+                    required
+                />
+                <input 
+                    type="number" 
+                    placeholder="Mobile number" 
+                    onChange={e => setNumber(e.target.value)} 
+                    required
+                />
+                <input 
+                    type="password" 
+                    placeholder="Password" 
+                    onChange={e => setPassword(e.target.value)} 
+                    required
+                    />
+                <p style={{color:errorMessage==="ok"?"lightgreen":"lightred",display:!errorMessage?"ok":""}}>
+                  {errorMessage==="ok"?"Added":errorMessage}
+                </p>
+                
+                <button value='submit' onClick={e=>handleSubmit(e)}>
+                    Add
+                </button>
+            </form>
           
+            </div>
             
           </div>
         </div>

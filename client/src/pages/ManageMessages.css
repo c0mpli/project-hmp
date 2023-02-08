@@ -24,3 +24,10 @@ border-radius: 8px;
     justify-content: center;
     align-items: center;
 }
+.messagesWrapper{
+    margin-left: 5%;
+}
+.addAdmin{
+    height: auto !important;
+    margin: 1rem;
+}
