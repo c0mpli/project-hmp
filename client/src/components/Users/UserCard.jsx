@@ -5,7 +5,7 @@ function UserCard(props) {
     //console.log(props.name)
     function handleDelete(){
       console.log("Clicked by "+props.email)
-      axios.post('http://localhost:5000/sadmin/deleteadmin',{
+      axios.post('https://docwebsite.adityasurve1.repl.co/sadmin/deleteadmin',{
         id:props._id
       },{headers:{"token":localStorage.getItem('token')}})
       .then(response=>{
