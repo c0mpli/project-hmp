@@ -14,7 +14,7 @@ const RightSide = () => {
   .catch(error=>{console.log(error)})
 
   axios.get('https://docwebsite.adityasurve1.repl.co/user/get-appointments-by-user-id',{headers:{"token":localStorage.getItem('token')}})
-  .then(response=>{setAppointments(response.data.data);})
+  .then(response=>{setAppointments(response.data.data);console.log(appoinments)})
   .catch(error=>{console.log(error)})
   return (
     <div className="RightSide">
