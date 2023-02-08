@@ -87,7 +87,8 @@ function Landing() {
           </div>
         </div>
         <div className="landing-aboutus" ref={aboutusRef}>
-
+            <h1>About us</h1>
+            <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
         </div>
           <img src={bgImage2} className='bgImage secondBgImage' alt='bgImage'/>
         <div className="landing-services">
