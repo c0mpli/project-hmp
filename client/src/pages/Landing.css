@@ -188,7 +188,9 @@
 
 .landing-aboutus{
     width: 100%;
-    
+    justify-content:center;
+    align-items:center;
+    text-align:center;
     height: 30rem;
 }
 .landing-pricing{
