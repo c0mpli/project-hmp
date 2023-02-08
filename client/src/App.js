@@ -15,6 +15,7 @@ import ManageCourses from './pages/ManageCourses';
 import ManageAdmin from './pages/ManageAdmin';
 import ManageMessages from './pages/ManageMessages'
 import ScheduleAppointment from './pages/ScheduleAppointment';
+import Course from './pages/Course';
 
 
 function App() {
@@ -46,6 +47,8 @@ function App() {
         <Route path='/hmpprograms' element={user?<HMPPrograms />:<Login />}></Route>
         <Route path='/myaccount' element={user?<MyAccount />:<Login />}></Route>
         <Route path='/scheduleappointment' element={user?<ScheduleAppointment />:<Login />}></Route>
+        <Route path='/viewcourse' element={user?<Course />:<Login />}></Route>
+
 
         <Route path='/manageadmins' element={role==='superadmin'?<ManageAdmin/>:user?<HMPPrograms/>:<Login/>}></Route>
         <Route path='/managecourses' element={role==='admin' || role==='superadmin'?<ManageCourses/>:user?<Dashboard/>:<Login/>}></Route>

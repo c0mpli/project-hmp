@@ -4,17 +4,22 @@ import { UpdatesData } from "../../../Data/Data";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios'
 import profileIcon from '../../../imgs/img2.png'
+import calendarIcon from '../../../imgs/calendar.png'
 const RightSide = () => {
   const [messages, setMessages] = useState()
   const [appoinments,setAppointments] = useState()
-  
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
   const navigate = useNavigate()
   axios.get('https://docwebsite.adityasurve1.repl.co/user/getmessages',{headers:{"token":localStorage.getItem('token')}})
   .then(response=>{setMessages(response.data.data);})
   .catch(error=>{console.log(error)})
 
   axios.get('https://docwebsite.adityasurve1.repl.co/user/get-appointments-by-user-id',{headers:{"token":localStorage.getItem('token')}})
-  .then(response=>{setAppointments(response.data.data);console.log(appoinments)})
+  .then(response=>{
+    setAppointments(response.data.data);
+    })
   .catch(error=>{console.log(error)})
   return (
     <div className="RightSide">
@@ -47,10 +52,21 @@ const RightSide = () => {
         <div>
           {
             appoinments?.map((appoinment,key)=>{
+              const split = appoinment.time.split('-')
+              const date = split[split.length-1].slice(0,2)
+              const month = split[1]
+              
+              const year = split[0]
+              const time = split[split.length-1].slice(3,8)
+              
               return(
-                <div key={key}>
-                  <p>{appoinment.date}</p>
+                <div key={key} className='appointmentWrapper'>
+                  <img src={calendarIcon}/>
+                  <div className="appointmentContent">
+                    <h3>{`${date} ${monthNames[Number(month)-1]}, ${year}`}</h3>
+                    <p>{`At HMP Office, Khar @${time}`}</p>
                   </div>
+                </div>
               )
             })
           }

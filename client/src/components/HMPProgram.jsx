@@ -1,7 +1,9 @@
 import React from 'react'
+import { useNavigate } from 'react-router'
 import './HMPProgram.css'
 
 function HMPProgram(props) {
+  
   return (
     <div className='HMPProgramWrapper'>
         <img src={props.image}/>
