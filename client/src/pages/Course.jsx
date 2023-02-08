@@ -13,7 +13,6 @@ function Course() {
   const [weekInput,setWeekInput] = useState()
   const [isLoading,setIsLoading] = useState(true)
   const [percent,setPercent] = useState()
-  const [courseArr,setCourseArr] = useState([])
   const [flag,setFlag] = useState(false)
   let arr = []
 
@@ -117,7 +116,7 @@ function Course() {
               </select>
               <div>
                       <CourseLinks  
-                        data={course.videos}
+                        data={course}
                         day={parseInt(courseDay,10)-1}
                         week={courseWeek}
                         /> 
