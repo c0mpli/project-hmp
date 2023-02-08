@@ -19,6 +19,7 @@ const RightSide = () => {
   axios.get('https://docwebsite.adityasurve1.repl.co/user/get-appointments-by-user-id',{headers:{"token":localStorage.getItem('token')}})
   .then(response=>{
     setAppointments(response.data.data);
+    //console.log(response.data.data)
     })
   .catch(error=>{console.log(error)})
   return (
@@ -52,7 +53,7 @@ const RightSide = () => {
         <div>
           {
             appoinments?.map((appoinment,key)=>{
-              const split = appoinment.time.split('-')
+              const split = appoinment.date.split('-')
               const date = split[split.length-1].slice(0,2)
               const month = split[1]
               
@@ -63,7 +64,7 @@ const RightSide = () => {
                 <div key={key} className='appointmentWrapper'>
                   <img src={calendarIcon}/>
                   <div className="appointmentContent">
-                    <h3>{`${date} ${monthNames[Number(month)-1]}, ${year}`}</h3>
+                    <h3>{`${date} ${monthNames[Number(month)]}, ${year}`}</h3>
                     <p>{`At HMP Office, Khar @${time}`}</p>
                   </div>
                 </div>
