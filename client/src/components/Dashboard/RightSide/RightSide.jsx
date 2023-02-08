@@ -1,29 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import "./RightSide.css";
 import { UpdatesData } from "../../../Data/Data";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios'
-
+import profileIcon from '../../../imgs/img2.png'
 const RightSide = () => {
+  const [messages, setMessages] = useState()
+  const [appoinments,setAppointments] = useState()
+  
   const navigate = useNavigate()
-  axios.post('',{})
+  axios.get('https://docwebsite.adityasurve1.repl.co/user/getmessages',{headers:{"token":localStorage.getItem('token')}})
+  .then(response=>{setMessages(response.data.data);})
+  .catch(error=>{console.log(error)})
+
+  axios.get('https://docwebsite.adityasurve1.repl.co/user/get-appointments-by-user-id',{headers:{"token":localStorage.getItem('token')}})
+  .then(response=>{setAppointments(response.data.data);})
+  .catch(error=>{console.log(error)})
   return (
     <div className="RightSide">
     <div> 
     <h3>HMP Messages</h3>
       <div className="Updates">
-        {UpdatesData.map((update) => {
+        {messages && messages.map((message,key) => {
           return (
             <>
-            <div className="update" key={update}>
-              <img src={update.img} alt="profile" />
-              <div className="noti" key={update}>
+            <div className="update" key={key}>
+              <img src={profileIcon} alt="profile" />
+              <div className="noti" key={key}>
                 <div  style={{marginBottom: '0.5rem'}}>
-                  <span>{update.name}</span>
+                  <span>Heath Matthews</span>
                   <br/>
-                  <span> {update.noti}</span>
+                  <span> {message.message}</span>
                 </div>
-                  <span className="notificationTime">{update.time}</span>
+                  <span className="notificationTime"></span>
               </div>
             </div>
             <div className="messagesRectLine"></div>
@@ -36,6 +45,15 @@ const RightSide = () => {
       <div>
         <h3>Upcoming Appointments</h3>
         <div>
+          {
+            appoinments?.map((appoinment,key)=>{
+              return(
+                <div key={key}>
+                  <p>{appoinment.date}</p>
+                  </div>
+              )
+            })
+          }
       {/*<div className="active-programs">
         {cardsData.map((card) => {
           return (

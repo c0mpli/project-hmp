@@ -23,6 +23,7 @@ function Login() {
             console.log(response.data);
             setErrorMessage("");
             dispatch({type:"LOGIN",payload: response.data})
+            localStorage.setItem('user',JSON.stringify(response.data))
             localStorage.setItem("token",response.data.token) 
             localStorage.setItem("name",response.data.firstname)
             localStorage.setItem("role",response.data.usertype)

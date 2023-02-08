@@ -50,7 +50,7 @@ function Programs() {
   const [programs,setPrograms] = useState();
   
   useEffect(()=>{
-    axios.get('http://localhost:5000/user/fetchallcourses',{headers:{"token":localStorage.getItem('token')}})
+    axios.get('https://docwebsite.adityasurve1.repl.co/user/fetchallcourses',{headers:{"token":localStorage.getItem('token')}})
     .then(response=>{
       //console.log(response.data)
       setPrograms(response.data)
@@ -69,8 +69,8 @@ function Programs() {
     <div className="Programs">
       <Slider {...settings}>
 
-        {programs && programs.map((item) => (
-          <div className="card">
+        {programs && programs.map((item,key) => (
+          <div className="card" key={key}>
             <div className="card-top">
               <img
                 src={item.image}

@@ -3,9 +3,13 @@ import "./Cards.css";
 import { cardsData } from "../../../Data/Data";
 import { useNavigate } from "react-router-dom";
 import Card from "../Card/Card";
+import axios from "axios";
 
 const Cards = () => {
   const navigate = useNavigate()
+  axios.get('https://docwebsite.adityasurve1.repl.co/user/getcourseprogress',{headers:{"token":localStorage.getItem('token')}})
+  .then(response=>{console.log(response.data)})
+  .catch(error=>{console.log(error)})
   return (
     <>
     <div className="Cards">

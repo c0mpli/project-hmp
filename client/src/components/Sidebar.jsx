@@ -75,6 +75,7 @@ const Sidebar = () => {
             localStorage.removeItem('name')
             localStorage.removeItem('role')
             localStorage.removeItem('token')
+            localStorage.removeItem('user')
             dispatch({type:'LOGOUT'})
             navigate('../')
           }}>

@@ -21,7 +21,7 @@ function MyPrograms() {
                   <div>
                 {programs && programs.map((program,key)=>{
                   return(
-            <div id={key} >
+            <div id={key}>
             <HMPProgram 
               image={program.image}
               title={program.programname}

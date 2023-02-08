@@ -4,6 +4,11 @@
     grid-template-columns: 8rem auto 8rem 4rem;
     gap: 1rem;
     align-items: center;
+    cursor: pointer;
+}
+.HMPProgramWrapper:hover{
+    transform: scale(1.05);
+    transition: 0.3s ease;
 }
 .HMPProgramWrapper img{
     width: 8rem;
