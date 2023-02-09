@@ -2,8 +2,9 @@ import React from 'react'
 import axios from 'axios'
 
 function CourseLinks(props) {
-    const videos = props.data.videos
-    const courseArr = videos[props.week].day[props.day]
+    const videos = props.data
+    const courseArr = props.data[props.day]
+    console.log(courseArr)
     //console.log(props.day,courseArr)
 
     function handleClick(key,value){

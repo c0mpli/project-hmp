@@ -10,10 +10,13 @@ function Course() {
   const [course,setCourse] = useState()
   const [courseDay,setCourseDay] = useState(1)
   const [courseWeek,setCourseWeek] = useState(0)
-  const [weekInput,setWeekInput] = useState()
+  const [weekInput,setWeekInput] = useState(null)
   const [isLoading,setIsLoading] = useState(true)
   const [percent,setPercent] = useState()
   const [flag,setFlag] = useState(false)
+  const [weekData,setWeekData] = useState()
+
+
   let arr = []
 
   function getCourseDetails(){
@@ -21,19 +24,8 @@ function Course() {
     axios.get('https://docwebsite.adityasurve1.repl.co/user/fetchinterestedcourse',{headers:{"token":localStorage.getItem('token')},auth:{"user":{"_id":localStorage.getItem('token')}}})  
     .then(response=>{
       //console.log('Fetched')
-      setIsLoading(false)
       setCourse(response.data[courseKey])
-
-      if(!isLoading){
-
-        for(var i=0;i<course.duration;i++){
-          arr.push(i.toString())
-          //console.log(arr)
-      }
-      
-      //console.log(arr)
-      //console.log(response.data[courseKey])
-    }
+      setIsLoading(false)
     })
     .catch(error=>{console.log(error)})
   }
@@ -65,12 +57,18 @@ function Course() {
       let day = (decimal*100)/(100/7)
       if(day==0) day=1
       if(!flag){
+        for(var i=0;i<course.duration;i++){
+          arr.push(i.toString())
+          //console.log(arr)
+        }
         setCourseDay(Math.round(day))
         setCourseWeek(Math.floor(week))
         setWeekInput(arr)
         setFlag(true)
         //updateData()
       }
+      //console.log(course.videos)
+      setWeekData(course.videos[courseWeek].day)
         
       //console.log(course.videos[courseWeek].day)
     }
@@ -85,7 +83,7 @@ function Course() {
       
       <div className='AppGlass3'>
         {
-          course?
+          course && weekInput?
           <>
             <div>
               <h1>{course.programname}</h1>
@@ -94,16 +92,19 @@ function Course() {
               <h3>WEEK:</h3>
               {
                 
-              }
-              <select value={courseWeek} onChange={(event) => {setCourseWeek(event.target.value);}}>
-                {
-                  weekInput?.map((value,key)=>{
+              weekInput?
+              <select value={courseWeek} onChange={(event) => {
+                setCourseWeek(event.target.value);
+                setWeekData(course.videos[event.target.value].day)
+                }}>
+                
+                  {weekInput.map((value,key)=>{
                     return(
                       <option value={value}>{value}</option>
                     )
-                  })
-                }
-              </select>
+                  })}
+                  </select>:<></>
+              }
               <h3>DAY:</h3>
               <select value={courseDay} onChange={(event) => {setCourseDay(parseInt(event.target.value,10));}}>
                 <option value="1">1</option>
@@ -114,13 +115,17 @@ function Course() {
                 <option value="6">6</option>
                 <option value="7">7</option>
               </select>
-              <div>
+              
+                <div>
+                
                       <CourseLinks  
-                        data={course}
+                        data={weekData}
                         day={parseInt(courseDay,10)-1}
                         week={courseWeek}
                         /> 
-              </div>
+               
+                </div>
+              
         </div>
           </>
           :
