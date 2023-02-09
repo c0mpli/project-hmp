@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-between;
     color: #005AA7;
+    max-width: 60%;
 }
 #dark .courseProgressWrapper{
     color: #95CEFF;
@@ -18,7 +19,7 @@
 .courseInputWrapper{
     display: flex;
     padding-left: 1rem;
-    gap:10rem;
+    gap:25%;
     background-color: #ECF5FC;
 }
 #dark .courseInputWrapper{
@@ -45,7 +46,9 @@
 .linksWrapper{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    max-width: 70%;
+    padding-left: 1rem;
     padding-top: 1rem;
     gap:3rem;
 }
@@ -65,12 +68,18 @@
 #dark .videoWrapper a{
     color: #95CEFF;
 }
+@media screen and (max-width:1200px) {
+    .courseProgressWrapper{
+        max-width: 90%;
+    }
+}
 @media screen and (max-width: 765px) {
     .courseWrapper{
         padding: 0 3%;
     }
     .courseProgressWrapper{
         display: block;
+        max-width: 100%;
     }
     .courseInputWrapper{
         gap:3rem;

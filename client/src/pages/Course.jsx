@@ -82,7 +82,7 @@ function Course() {
       
         <ProfileHeader title={'My programs'}/>
       
-      <div className='AppGlass3'>
+      <div className=''>
         {
           course && weekInput?
           <>
