@@ -1,0 +1,33 @@
+.courseProgressWrapper{
+    display: flex;
+    justify-content: space-between;
+    color: #005AA7;
+}
+
+.courseWrapper{
+    padding: 0 5%;
+}
+.courseWrapper h1{
+    color:#013765;
+
+}   
+.courseInputWrapper{
+    display: flex;
+    
+    gap:10rem;
+    background-color: #ECF5FC;
+}
+.selectWrapper{
+    display: flex;
+    gap:1rem;
+    align-items: center;
+    text-align: center;
+}
+.selectWrapper select{
+    width: 4rem;
+    height: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #FFEDCB;
+    border: none;
+}

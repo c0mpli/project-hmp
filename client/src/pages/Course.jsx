@@ -4,6 +4,7 @@ import ProfileHeader from '../components/ProfileHeader'
 import Sidebar from '../components/Sidebar'
 import axios from 'axios'
 import CourseLinks from '../components/CourseLinks'
+import './Course.css'
 
 function Course() {
   const {search} = useLocation()
@@ -85,26 +86,34 @@ function Course() {
         {
           course && weekInput?
           <>
-            <div>
+            <div className='courseWrapper'>
               <h1>{course.programname}</h1>
+              <div className='courseProgressWrapper'>
+
               <h5>Total Duration: {course.duration} weeks ({(course.duration)*7} days)</h5>
               <h5>Current Progress: {courseWeek} weeks ({courseDay} days)</h5>
+              </div>
+              <div className='courseInputWrapper'>
+            <div className='selectWrapper'>
+
               <h3>WEEK:</h3>
               {
-                
-              weekInput?
+                weekInput?
               <select value={courseWeek} onChange={(event) => {
                 setCourseWeek(event.target.value);
                 setWeekData(course.videos[event.target.value].day)
-                }}>
+              }}>
                 
                   {weekInput.map((value,key)=>{
                     return(
                       <option value={value}>{value}</option>
-                    )
-                  })}
+                      )
+                    })}
                   </select>:<></>
               }
+              </div>
+              <div className='selectWrapper'>
+
               <h3>DAY:</h3>
               <select value={courseDay} onChange={(event) => {setCourseDay(parseInt(event.target.value,10));}}>
                 <option value="1">1</option>
@@ -115,6 +124,8 @@ function Course() {
                 <option value="6">6</option>
                 <option value="7">7</option>
               </select>
+              </div>
+              </div>
               
                 <div>
                 
