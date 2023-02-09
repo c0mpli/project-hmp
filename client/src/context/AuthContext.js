@@ -22,7 +22,7 @@ export function AuthContextProvider({children}){
         async function fetchDetails(){
             const isUser = await localStorage.getItem('name')
             const role = await localStorage.getItem('role')
-            console.log(role)
+            //console.log(role)
             if(isUser){
                 console.log("User exists")
                 dispatch({type:'LOGIN',payload:{
@@ -33,7 +33,7 @@ export function AuthContextProvider({children}){
         }
         fetchDetails()
     },[])
-    console.log("AuthContextState: ",state)
+    //console.log("AuthContextState: ",state)
 
     return(
         <AuthContext.Provider value={{...state,dispatch}}>

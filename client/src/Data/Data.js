@@ -60,11 +60,17 @@ export const SidebarData = [
   {
     key:6,
     icon: UilUser,
+    heading: 'Manage Doctors',
+    link:"/managedoctors",
+  },
+  {
+    key:7,
+    icon: UilUser,
     heading: 'Manage Messages',
     link:"/managemessages",
   },
   {
-    key:7,
+    key:8,
     icon: UilUser,
     heading: 'Manage Admins',
     link:"/manageadmins",

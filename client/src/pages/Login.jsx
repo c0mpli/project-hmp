@@ -28,7 +28,7 @@ function Login() {
             localStorage.setItem("name",response.data.firstname)
             localStorage.setItem("role",response.data.usertype)
             if(response.data.usertype==="user") navigate('../dashboard')
-            else navigate('../hmpprograms')       
+            else navigate('../managecourses')       
         })
         .catch((err) => {console.log(err.message);setErrorMessage("Incorrect details")});
         await axios.post('https://docwebsite.adityasurve1.repl.co/user/userlogin',{
