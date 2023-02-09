@@ -90,8 +90,12 @@ function Course() {
               <h1>{course.programname}</h1>
               <div className='courseProgressWrapper'>
 
-              <h5>Total Duration: {course.duration} weeks ({(course.duration)*7} days)</h5>
-              <h5>Current Progress: {courseWeek} weeks ({courseDay} days)</h5>
+              <div style={{display:"flex",gap:"3px"}}>
+                <h4>Total Duration: {course.duration} weeks</h4><h4 style={{color:"#FFB800"}}>({(course.duration)*7} days)</h4>
+              </div>
+              <div style={{display:"flex",gap:"3px"}}>
+                <h4>Current Progress: {courseWeek} weeks </h4><h4 style={{color:"#FFB800"}}>({courseDay} days)</h4>
+              </div>
               </div>
               <div className='courseInputWrapper'>
             <div className='selectWrapper'>

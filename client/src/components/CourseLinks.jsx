@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import sample from '../imgs/sampleProgram.png'
 
 function CourseLinks(props) {
     const videos = props.data
@@ -20,12 +21,15 @@ function CourseLinks(props) {
         .catch(error=>{console.log(error)})
     }
   return (
-    <div>
+    <div className='linksWrapper'>
     {
         courseArr?.map((value,key)=>{
             return(
-                <div>
-                    <a href={value} target="_blank" onClick={()=>handleClick(key,value)}>Video {key+1}</a>
+                <div className='videoWrapper'>
+                    <a href={value} target="_blank" onClick={()=>handleClick(key,value)}>
+                    <img src={sample}/>
+                        WORKOUT {key+1}
+                    </a>
                 </div>
             )
         })
