@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Cards.css";
-import { cardsData } from "../../../Data/Data";
 import { useNavigate } from "react-router-dom";
 import Card from "../Card/Card";
 import axios from "axios";
 
 const Cards = () => {
-  const navigate = useNavigate()
+  const [cardsData,setCardsData] = useState()
+   const navigate = useNavigate()
   axios.get('https://docwebsite.adityasurve1.repl.co/user/getcourseprogress',{headers:{"token":localStorage.getItem('token')}})
-  .then(response=>{console.log(response.data)})
+  .then(response=>{
+    setCardsData(response.data)
+    console.log(response.data)
+  })
   .catch(error=>{console.log(error)})
   return (
     <>
@@ -17,9 +20,9 @@ const Cards = () => {
         return (
           <div className="parentContainer" key={id}>
             <Card
-              title={card.title}
+              title={card.courseName}
               color={card.color}
-              barValue={card.barValue}
+              barValue={card.percentage}
               value={card.value}
             />
           </div>
