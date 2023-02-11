@@ -75,7 +75,6 @@ function Programs() {
               <img
                 src={item.image}
                 alt={item.programname}
-                onError={handleErrorImage}
               />
               <h1>{item.programname}</h1>
               

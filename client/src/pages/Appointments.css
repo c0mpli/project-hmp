@@ -1,6 +1,19 @@
 .inputWrapper{
     display: flex;
-    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    gap:5rem;
+}
+.bookAppointmentWrapper{
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.appointmentButtons{
+    display: flex;
+    gap: 5rem;
+}
+#dark .inputWrapper{
+    color: #ECF5FC;
 }

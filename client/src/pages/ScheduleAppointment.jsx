@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ProfileHeader from '../components/ProfileHeader'
 import Sidebar from '../components/Sidebar'
 import DatePicker from 'react-datepicker'
@@ -12,9 +12,11 @@ function ScheduleAppointment() {
   const [selectedHP,setSelectedHP] = useState()
   const [isAvail,setIsAvail] = useState('')
 
-  axios.get('https://docwebsite.adityasurve1.repl.co/user/get-all-approved-doctors',{headers:{"token":localStorage.getItem('token')}})
-  .then(response=>{setHealthP(response.data.data);})
-  .catch(error=>{console.log(error)})
+  useEffect(()=>{
+    axios.get('https://docwebsite.adityasurve1.repl.co/user/get-all-approved-doctors',{headers:{"token":localStorage.getItem('token')}})
+    .then(response=>{setHealthP(response.data.data);})
+    .catch(error=>{console.log(error)})
+  },[])
 
 
 
@@ -57,7 +59,7 @@ function ScheduleAppointment() {
         <div className='ContentWrapper'>
           <ProfileHeader title={'Schedule Appointment'}/>
           <div className='AppGlass3'>
-            <div>
+            <div className='bookAppointmentWrapper'>
               <div className='inputWrapper'>
                 <h4>Select Health Partner</h4>
                 <select value={selectedHP} onChange={(event) => {setSelectedHP(event.target.value);}}>
@@ -92,8 +94,11 @@ function ScheduleAppointment() {
                 </select>
               </div>
               <p>{isAvail}</p>
-              <button onClick={checkAvailabilty}>Check availaibilty</button>
-              <button onClick={handleBook}>Book appointment</button>
+              <div className="appointmentButtons">
+
+                <button onClick={checkAvailabilty}>Check availaibilty</button>
+                <button onClick={handleBook}>Book appointment</button>
+              </div>
           </div>
           </div>
         </div>
