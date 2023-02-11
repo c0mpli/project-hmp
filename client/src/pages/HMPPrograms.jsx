@@ -27,7 +27,6 @@ function HMPPrograms() {
   useEffect(()=>{
     let role = localStorage.getItem('role')
     if(role==='superadmin') role="sadmin"
-
     axios.get(`https://docwebsite.adityasurve1.repl.co/${role}/fetchallcourses`,{headers:{"token":localStorage.getItem('token')}})
     .then(response=>{
       //console.log(response.data)
