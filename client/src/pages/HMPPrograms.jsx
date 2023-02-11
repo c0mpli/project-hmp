@@ -6,19 +6,22 @@ import ProfileHeader from '../components/ProfileHeader';
 import HMPProgram from '../components/HMPProgram';
 import { dataDigitalBestSeller } from '../Data/Data';
 import axios from 'axios'
+import { useNavigate } from 'react-router';
 
 function HMPPrograms() {
   const {theme,toggleTheme} = useTheme();
   const [programs,setPrograms] = useState();
-  
+  const navigate = useNavigate()
   function handleClick(key){
     axios.post('https://docwebsite.adityasurve1.repl.co/user/addtointerestedcourse',{
       userId:localStorage.getItem('token'),
       courseId: programs[key]._id
     },{headers:{"token":localStorage.getItem('token')}})
     .then(response=>{
-      //console.log(response.data.message)
     })
+    .catch(error=>{console.log(error)})
+    
+    navigate({pathname:'/viewcourse',search:`?id=${[key]}`})
   }
 
   useEffect(()=>{

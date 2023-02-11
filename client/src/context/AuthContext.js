@@ -24,7 +24,7 @@ export function AuthContextProvider({children}){
             const role = await localStorage.getItem('role')
             //console.log(role)
             if(isUser){
-                console.log("User exists")
+                //console.log("User exists")
                 dispatch({type:'LOGIN',payload:{
                     firstname:isUser,
                     usertype:role

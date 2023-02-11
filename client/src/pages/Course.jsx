@@ -36,6 +36,7 @@ function Course() {
     axios.get('https://docwebsite.adityasurve1.repl.co/user/getcourseprogress',{headers:{"token":localStorage.getItem('token')},auth:{"user":{"_id":localStorage.getItem('token')}}})  
     .then(response=>{
       let percent = response.data[courseKey].percentage
+      console.log(percent)
       if(!isLoading){
         if(percent==0) percent=100/(course.duration*7)
       }
