@@ -19,7 +19,7 @@ const RightSide = () => {
   axios.get('https://docwebsite.adityasurve1.repl.co/user/get-appointments-by-user-id',{headers:{"token":localStorage.getItem('token')}})
   .then(response=>{
     setAppointments(response.data.data);
-    //console.log(response.data.data)
+    console.log(response.data.data)
     })
   .catch(error=>{console.log(error)})
   return (
@@ -55,11 +55,11 @@ const RightSide = () => {
           {
             appoinments?.map((appoinment,key)=>{
               const split = appoinment.date.split('-')
+              const tsplit = appoinment.time.split('-')
               const date = split[split.length-1].slice(0,2)
               const month = split[1]
-              
               const year = split[0]
-              const time = split[split.length-1].slice(3,8)
+              const time = tsplit[tsplit.length-1].slice(3,8)
               
               return(
                 <div key={key} className='appointmentWrapper'>

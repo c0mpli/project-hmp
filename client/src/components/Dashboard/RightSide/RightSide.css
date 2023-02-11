@@ -138,8 +138,12 @@
     gap:1rem;
     justify-content: center;
     align-items: center;
-    background-color: lightcyan;
+    background-color: #FAF4E6;
+    margin-bottom: 0.5rem;
     border-radius: 20px;
+  }
+  #dark .appointmentWrapper{
+    background-color: #001629;
   }
   
   .appointmentWrapper img{
