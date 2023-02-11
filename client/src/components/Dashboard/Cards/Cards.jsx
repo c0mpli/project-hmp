@@ -20,16 +20,19 @@ const Cards = () => {
     <>
     <div className="Cards">
       {cardsData?.map((card, id) => {
-        return (
-          <div className="parentContainer" key={id}>
-            <Card
-              title={card.courseName}
-              color={card.color}
-              barValue={card.percentage}
-              value={card.value}
-            />
-          </div>
-        );
+        if(card.percentage!=0){
+          return (
+            <div className="parentContainer" key={id}>
+              
+              <Card
+                title={card.courseName}
+                color={card.color}
+                barValue={Math.round(card.percentage)}
+                value={card.value}
+              />
+            </div>
+          );
+        }
       })}
     </div>
     <div className="card-button">
