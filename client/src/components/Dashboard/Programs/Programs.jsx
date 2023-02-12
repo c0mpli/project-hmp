@@ -4,13 +4,10 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import './Programs.css';
-import { dataDigitalBestSeller } from '../../../Data/Data';
-import imgGirl from '../../../imgs/img1.png';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 function Programs() {
   const navigate = useNavigate()
-  const [defaultImage, setDefaultImage] = useState({});
   const settings = {
     dots: false,
     infinite: true,
@@ -57,13 +54,7 @@ function Programs() {
     })
   })
 
-  const handleErrorImage = (data) => {
-    setDefaultImage((prev) => ({
-      ...prev,
-      [data.target.alt]: data.target.alt,
-      linkDefault: imgGirl,
-    }));
-  };
+  
 
   return (
     <div className="Programs">

@@ -23,7 +23,6 @@ import PricingCard from '../components/PricingCard'
 import emailImg from '../imgs/email.png'
 import phoneImg from '../imgs/phone-call.png'
 import Slider from 'react-slick'
-import {aboutusImg} from '../Data/Data'
 
 import about1 from '../imgs/about/1.jpg'
 import about2 from '../imgs/about/about1.jpeg'
@@ -121,6 +120,9 @@ function Landing() {
                 if(index<programCount){
                   return(<PopularPrograms title={program.title} image={program.linkImg} />)
                 }
+                else{
+                  return(<></>)
+                }
               }) 
             }
             </div>
@@ -139,11 +141,11 @@ function Landing() {
      <div className='aboutUsSlider'>
       <Slider {...settings}>
         
-          <img src={about1}/>
-          <img src={about2}/>
-          <img src={about3}/>
-          <img src={about4}/>
-          <img src={about5}/>
+          <img src={about1} alt='About 1'/>
+          <img src={about2} alt='About 2'/>
+          <img src={about3} alt='About 3'/>
+          <img src={about4} alt='About 4'/>
+          <img src={about5} alt='About 5'/>
       </Slider>
 
      </div>
@@ -162,7 +164,7 @@ function Landing() {
           </div>
         </div>
         <div className="landing-pricing">
-        <img src={promo}/>
+        <img src={promo} alt="pricing icon"/>
           <h1>Our Plans</h1>
           <p>Pick a plan that suits you the best</p>
           <div className='landingPricingWrapper'>
@@ -182,7 +184,7 @@ function Landing() {
         <div className="landing-testimonials">
           <div className="testimonialsHeader">
 
-        <img src={TestimonialIcon}/>
+        <img src={TestimonialIcon} alt="testimonial icon"/>
           <h1>What They Say About Us</h1>
           <p>See their testimonials</p>
           </div>
@@ -197,9 +199,9 @@ function Landing() {
             Heath Matthews Physio brings you better health and fitness through technology and expertise.
             Everyone from Olympians to weekend warriors can benefit from Heath Matthews Physio to heal faster, perform better and feel their best.
           </p>
-          <div className='footer-icons'><img src={emailImg} style={{width:"1rem",height:"1rem"}}/><p>support@heathmatthewsphysio.com</p></div>
+          <div className='footer-icons'><img src={emailImg} alt="email icon" style={{width:"1rem",height:"1rem"}}/><p>support@heathmatthewsphysio.com</p></div>
           
-          <div className='footer-icons'><img src={phoneImg} style={{width:"1rem",height:"1rem"}}/><p>+91 8928444854</p></div>
+          <div className='footer-icons'><img src={phoneImg} alt="phone icon" style={{width:"1rem",height:"1rem"}}/><p>+91 8928444854</p></div>
           </div>
         <form>      
           <input name="name" type="text" className="feedback-input" placeholder="Name" />   
