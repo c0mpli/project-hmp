@@ -22,6 +22,14 @@ import ServiceCard from '../components/ServiceCard'
 import PricingCard from '../components/PricingCard'
 import emailImg from '../imgs/email.png'
 import phoneImg from '../imgs/phone-call.png'
+import Slider from 'react-slick'
+import {aboutusImg} from '../Data/Data'
+
+import about1 from '../imgs/about/1.jpg'
+import about2 from '../imgs/about/about1.jpeg'
+import about3 from '../imgs/about/about4.jpeg'
+import about4 from '../imgs/about/more2.jpg'
+import about5 from '../imgs/about/5.jpg'
 
 function Landing() {
   const navigate = useNavigate()
@@ -36,7 +44,42 @@ function Landing() {
     contactusRef.current.scrollIntoView()
   }
 
-  
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    initialSlide: 0,
+    autoplay: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          infinite: true,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
 
   const {width} = useWindowDimensions()
   let programCount = 3
@@ -88,7 +131,22 @@ function Landing() {
         </div>
         <div className="landing-aboutus" ref={aboutusRef}>
             <h1>About us</h1>
-            <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
+            <p>Our goal is to help you recover from injuries and perform your best. Access elite
+       level fitness and rehab programs designed by Sports Physiotherapist Heath Matthews,
+       for independent training and recovery or book a consultation. We aim to optimise
+       mobility, strength and flexibility to bridge the gap between rehab and fitness.
+     </p>
+     <div className='aboutUsSlider'>
+      <Slider {...settings}>
+        
+          <img src={about1}/>
+          <img src={about2}/>
+          <img src={about3}/>
+          <img src={about4}/>
+          <img src={about5}/>
+      </Slider>
+
+     </div>
         </div>
           <img src={bgImage2} className='bgImage secondBgImage' alt='bgImage'/>
         <div className="landing-services">

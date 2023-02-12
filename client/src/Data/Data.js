@@ -24,6 +24,13 @@ import akshayKumar from '../imgs/akshay.png'
 import viratKohli from '../imgs/virat.png'
 import sachinTendulkar from '../imgs/sachin.png'
 
+//aboutUs imports
+import about1 from '../imgs/about/1.jpg'
+import about2 from '../imgs/about/about1.jpeg'
+import about3 from '../imgs/about/about4.jpeg'
+import about4 from '../imgs/about/more2.jpg'
+import about5 from '../imgs/about/5.jpg'
+
 // Sidebar Data
 export const SidebarData = [
   {
@@ -118,6 +125,28 @@ export const UpdatesData = [
   },
 ];
 
+export const aboutusImg =[
+  {
+    id:1,
+    img:about1
+  },
+  {
+    id:2,
+    img:about2
+  },
+  {
+    id:3,
+    img:about3
+  },
+  {
+    id:4,
+    img:about4
+  },
+  {
+    id:5,
+    img:about5
+  },
+];
 
 export const dataDigitalBestSeller = [
   //HMP Programs data
