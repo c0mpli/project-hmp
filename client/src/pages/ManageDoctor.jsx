@@ -13,6 +13,10 @@ function ManageDoctor() {
    const [password, setPassword] = useState();
    const [name, setName] = useState();
     const [number, setNumber] = useState();
+    const [address , setAddress] = useState("mumbai");
+    const [specialization, setSpecialization] = useState("eye");
+    const [experience, setExperience] = useState("5");
+    const [fees, setFees] = useState(499);
 
     const [doctors,setDoctors] = useState()
     useEffect(()=>{
@@ -45,7 +49,11 @@ function ManageDoctor() {
           password:password,
           firstname:split[0],
           lastname:split[split.length-1],
-          mobilenum:number
+          mobilenum:number,
+          address:address,
+          specialization:specialization,
+          experience:experience,
+          feePerConsultation:fees,
         },{headers:{"token":localStorage.getItem('token')}})
         .then(response=>{
           alert("added")
@@ -109,7 +117,25 @@ function ManageDoctor() {
                     onChange={e => setPassword(e.target.value)} 
                     required
                     />
-                
+                  
+                <input 
+                    type="text" 
+                    placeholder="Address" 
+                    onChange={e => setAddress(e.target.value)} 
+                    required
+                />
+                <input 
+                    type="text" 
+                    placeholder="Specialization" 
+                    onChange={e => setSpecialization(e.target.value)} 
+                    required
+                />
+                <input 
+                    type="text" 
+                    placeholder="Experience" 
+                    onChange={e => setExperience(e.target.value)} 
+                    required
+                />
                 
                 <button value='submit' onClick={e=>handleSubmit(e)}>
                     Add

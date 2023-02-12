@@ -22,7 +22,7 @@ function ManageAdmin() {
         //console.log(admins)
         //console.log("admins "+Object.entries(admins))
       })
-    })
+    },[])
 
     function handleDelete(key){
       //console.log("Clicked by "+key)
