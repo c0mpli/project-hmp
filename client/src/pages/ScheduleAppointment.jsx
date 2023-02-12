@@ -94,7 +94,7 @@ function ScheduleAppointment() {
                 </select>
               </div>
               <p>{isAvail}</p>
-              <div className="appointmentButtons">
+              <div className="appointmentButtons card-button">
 
                 <button onClick={checkAvailabilty}>Check availaibilty</button>
                 <button onClick={handleBook}>Book appointment</button>
