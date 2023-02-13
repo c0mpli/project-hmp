@@ -16,7 +16,7 @@ function ManageDoctor() {
     const [address , setAddress] = useState("mumbai");
     const [specialization, setSpecialization] = useState("eye");
     const [experience, setExperience] = useState("5");
-    const [fees, setFees] = useState("499");
+    const [fees, setFees] = useState(499);
 
     const [doctors,setDoctors] = useState()
     useEffect(()=>{
@@ -57,7 +57,14 @@ function ManageDoctor() {
         },{headers:{"token":localStorage.getItem('token')}})
         .then(response=>{
           alert("added")
-          //window.location.reload(false);
+          setAddress("")
+          setEmail("")
+          setExperience("")
+          setName("")
+          setFees("")
+          setNumber()
+          setPassword("")
+          setSpecialization("")
         })
         .catch((error)=>{alert(error)})
       }
@@ -91,7 +98,7 @@ function ManageDoctor() {
             })
         }
         </div>
-        <form className='login-form addAdmin'>
+        <form className='login-form '>
                 <h1>Add Health Partner</h1>
                 <input 
                     type="text" 
@@ -118,6 +125,12 @@ function ManageDoctor() {
                     required
                     />
                   
+                  <input 
+                    type="text" 
+                    placeholder="Address" 
+                    onChange={e => setAddress(e.target.value)} 
+                    required
+                />
                 
                 <input 
                     type="text" 
@@ -137,9 +150,7 @@ function ManageDoctor() {
                     onChange={e => setFees(e.target.value)} 
                     required
                 />
-                <button value='submit' onClick={e=>handleSubmit(e)}>
-                    Add
-                </button>
+                <button  onClick={e=>handleSubmit(e)} >Add</button>
             </form>
           
             
