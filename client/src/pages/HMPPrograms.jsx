@@ -39,7 +39,7 @@ function HMPPrograms() {
         <Sidebar />
         <div className='ContentWrapper'>
           
-            <ProfileHeader title={'HMP Programs'}/>
+            <ProfileHeader title={'HMP Templates'}/>
           
           <div className='AppGlass3'>
             <div>

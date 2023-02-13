@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ProfileHeader from '../components/ProfileHeader'
 import Sidebar from '../components/Sidebar'
+import axios from 'axios'
+
 function ManageCourses() {
+  const [courses, setCourses] = useState();
+
+  useEffect(()=>{
+    axios.get('')
+  })
   return (
     <div className='AppGlass2'>
     <Sidebar />
@@ -11,7 +18,7 @@ function ManageCourses() {
       </div>
       <div>
       
-        
+
         
       </div>
     </div>

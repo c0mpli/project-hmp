@@ -54,22 +54,33 @@ const RightSide = () => {
         <div>
           {
             appoinments?.map((appoinment,key)=>{
+              const today = new Date()
+              
               const split = appoinment.date.split('-')
               const tsplit = appoinment.time.split('-')
               const date = split[split.length-1].slice(0,2)
-              const month = split[1]
+              const month = Number(split[1])
               const year = split[0]
               const time = tsplit[tsplit.length-1].slice(3,8)
               
-              return(
-                <div key={key} className='appointmentWrapper'>
+              //checking if expired or not
+              if(today.getFullYear()<=parseInt(year,10) && today.getMonth()<=month){
+                if(today.getDate()<=parseInt(date,10)){
+
+                  return(
+                    <div key={key} className='appointmentWrapper'>
                   <img src={calendarIcon}/>
                   <div className="appointmentContent">
-                    <h3>{`${date} ${monthNames[Number(month)]}, ${year}`}</h3>
+                    <h3>{`${date} ${monthNames[month]}, ${year}`}</h3>
                     <p>{`At HMP Office, Khar @${time}`}</p>
                   </div>
                 </div>
               )
+            }  
+            }
+            else{
+              return(<></>)
+            }
             })
           }
       {/*<div className="active-programs">

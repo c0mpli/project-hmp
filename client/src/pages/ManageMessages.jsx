@@ -11,7 +11,7 @@ function ManageMessages() {
   const [inputMessage,setInputMessage] = useState()
   
   axios.get('https://docwebsite.adityasurve1.repl.co/sadmin/getmessages',{headers:{"token":localStorage.getItem('token')}})
-  .then(response=>{setMessages(response.data.data)})
+  .then(response=>{setMessages((response.data.data).reverse())})
   .catch(error=>{console.log(error)})
 
   function handleDelete(key){

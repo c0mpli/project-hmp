@@ -7,10 +7,9 @@ import './Appointments.css'
 import axios from 'axios';
 function ScheduleAppointment() {
   const [startDate, setStartDate] = useState(new Date());
-  const [timeValue, setTimeValue] = useState()
+  const [timeValue, setTimeValue] = useState("")
   const [healthP,setHealthP] = useState([])
-  const [selectedHP,setSelectedHP] = useState()
-  const [isAvail,setIsAvail] = useState('')
+  const [selectedHP,setSelectedHP] = useState("")
 
   useEffect(()=>{
     axios.get('https://docwebsite.adityasurve1.repl.co/user/get-all-approved-doctors',{headers:{"token":localStorage.getItem('token')}})
@@ -30,7 +29,7 @@ function ScheduleAppointment() {
     },{headers:{"token":localStorage.getItem('token')}})
   .then(response=>{
     if(response.data.success){
-      setIsAvail('Slot Available')
+      alert('Slot Available')
     }
   })
   .catch(error=>{console.log(error)})
@@ -47,7 +46,7 @@ function ScheduleAppointment() {
   .then(response=>{
     console.log(response.data)
     if(response.data.success){
-      setIsAvail('Booked')
+      alert('Booked, Waiting for confirmation from health partner.')
     }
   })
   .catch(error=>{console.log(error)})
@@ -66,7 +65,7 @@ function ScheduleAppointment() {
                   {
                     healthP?.map((partner,key)=>{
                       return(
-                        <option key={key} value={partner._id}>{partner.email}</option>
+                        <option key={key} value={partner._id}>{`${partner.firstname} ${partner.lastname}`}</option>
                       )
                     })
                   }
@@ -93,7 +92,6 @@ function ScheduleAppointment() {
 
                 </select>
               </div>
-              <p>{isAvail}</p>
               <div className="appointmentButtons card-button">
 
                 <button onClick={checkAvailabilty}>Check availaibilty</button>

@@ -138,6 +138,7 @@ function Course() {
                         data={weekData}
                         day={parseInt(courseDay,10)-1}
                         week={courseWeek}
+                        id={course._id}
                         /> 
                
                 </div>

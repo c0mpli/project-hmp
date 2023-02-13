@@ -16,7 +16,7 @@ function ManageDoctor() {
     const [address , setAddress] = useState("mumbai");
     const [specialization, setSpecialization] = useState("eye");
     const [experience, setExperience] = useState("5");
-    const [fees, setFees] = useState(499);
+    const [fees, setFees] = useState("499");
 
     const [doctors,setDoctors] = useState()
     useEffect(()=>{
@@ -118,12 +118,7 @@ function ManageDoctor() {
                     required
                     />
                   
-                <input 
-                    type="text" 
-                    placeholder="Address" 
-                    onChange={e => setAddress(e.target.value)} 
-                    required
-                />
+                
                 <input 
                     type="text" 
                     placeholder="Specialization" 
@@ -136,7 +131,12 @@ function ManageDoctor() {
                     onChange={e => setExperience(e.target.value)} 
                     required
                 />
-                
+                <input 
+                    type="text" 
+                    placeholder="Fees" 
+                    onChange={e => setFees(e.target.value)} 
+                    required
+                />
                 <button value='submit' onClick={e=>handleSubmit(e)}>
                     Add
                 </button>
