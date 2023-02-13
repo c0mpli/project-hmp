@@ -14,10 +14,18 @@ function UserCard(props) {
       })
     }
     function handleDelete2(){
-
+      axios.post('https://docwebsite.adityasurve1.repl.co/admin/deletecourse',{
+        courseId:props.id
+      },{headers:{"token":localStorage.getItem('token')}})
+      .then(response=>{
+        alert("Course Deleted")
+        //window.location.reload(false);
+      })
+      
+      //console.log("handleDelete2")
     }
   return (
-    <div className='HMPProgramWrapper'>
+    <div className='HMPProgramWrapper' id={props.key}>
       {
         props.isImage==="yes"?<img src={props.image}/>:<></>
       }
@@ -26,7 +34,7 @@ function UserCard(props) {
             <div className='ProgramRectLine'></div>
             <p>{props.description}</p>
         </div>
-        <button className='deleteButton' onClick={props.del===2?handleDelete2:handleDelete}><img src={deleteIcon} style={{height:"1.5rem",width:"1.5rem",paddingBottom:"0.3rem"}}/></button>    
+        <button className='deleteButton' onClick={props.del==="2"?handleDelete2:handleDelete}><img src={deleteIcon} style={{height:"1.5rem",width:"1.5rem",paddingBottom:"0.3rem"}}/></button>    
     </div>
   )
 }
