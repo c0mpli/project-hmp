@@ -64,9 +64,7 @@ const RightSide = () => {
               const time = tsplit[tsplit.length-1].slice(3,8)
               
               //checking if expired or not
-              if(today.getFullYear()<=parseInt(year,10) && today.getMonth()<=month){
-                if(today.getDate()<=parseInt(date,10)){
-
+              if(today.getFullYear()<=parseInt(year,10) && today.getMonth()<=month && today.getDate()<=parseInt(date,10)){
                   return(
                     <div key={key} className='appointmentWrapper'>
                   <img src={calendarIcon}/>
@@ -76,7 +74,6 @@ const RightSide = () => {
                   </div>
                 </div>
               )
-            }  
             }
             else{
               return(<></>)
