@@ -49,7 +49,7 @@ function AddCourses() {
         axios.post('https://docwebsite.adityasurve1.repl.co/admin/addnewcourse',formData,{headers:{"token":localStorage.getItem('token')}})
         .then(response=>{
             console.log((response.data));
-            alert(response.data.message)
+            alert("Course added")
           })
           .catch(error=>{console.log(error)})
     }
@@ -74,7 +74,7 @@ function AddCourses() {
       <div>
         <ProfileHeader title={'Add Course'}/>
       </div>
-      <div className='AppGlass3' style={{height:"auto"}}>
+      <div >
         <div>
 
         <form className='login-form'>

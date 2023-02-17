@@ -53,30 +53,29 @@ function Programs() {
       setPrograms(response.data)
     })
   })
-
   
-
   return (
     <div className="Programs">
       <Slider {...settings}>
-
-        {programs && programs.map((item,key) => (
-          <div className="card" key={key}>
-            <div className="card-top">
-              <img
-                src={item.image}
-                alt={item.programname}
-              />
-              <h1>{item.programname}</h1>
-              
-              <div className='programsRectLine'></div>
+        {programs?.map((item,key) => {
+          return(
+            <div className="card" key={key}>
+              <div className="card-top">
+                <img
+                  src={item.image}
+                  alt={item.programname}
+                  />
+                <h1>{item.programname}</h1>
+                
+                <div className='programsRectLine'></div>
+              </div>
+              <div className="card-bottom">
+                <p>{item.description}</p>
+                <button onClick={()=>navigate('/hmpprograms')}>View More</button>
+              </div>
             </div>
-            <div className="card-bottom">
-              <p>{item.description}</p>
-              <button onClick={()=>navigate('/hmpprograms')}>View More</button>
-            </div>
-          </div>
-        ))}
+          )
+          })}
       </Slider>
     </div>
   );
