@@ -19,16 +19,7 @@ const Sidebar = () => {
   //console.log(JSON.stringify(user))
   //let role = user["usertype"]
   let role = localStorage.getItem('role')
-  let data =[]
-  if(role==='user'){
-    data=SidebarData.slice(0,3)
-  }
-  if(role==='superadmin'){
-    data=SidebarData.slice(3,8)
-  }
-  if(role==='admin'){
-    data=SidebarData.slice(3,5)
-  }
+  
   
   const sidebarVariants = {
     true: {
@@ -54,7 +45,8 @@ const Sidebar = () => {
       </div>
 
       <div className="menu">
-        {data.map((item, index) => {
+        {SidebarData.map((item, index) => {
+          if(item.role.includes(role))
           return (
             <div
               className={window.location.pathname === item.link ? "menuItem active" : "menuItem"}

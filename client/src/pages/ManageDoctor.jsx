@@ -98,7 +98,7 @@ function ManageDoctor() {
             })
         }
         </div>
-        <form className='login-form '>
+        <form className='login-form addAdmin '>
                 <h1>Add Health Partner</h1>
                 <input 
                     type="text" 

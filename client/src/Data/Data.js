@@ -38,18 +38,21 @@ export const SidebarData = [
     icon: UilEstate,
     heading: "Dashboard",
     link:"/dashboard",
+    role:['user']
   },
   {
     key:2,
     icon: UilDumbbell,
     heading: "My Programs",
     link:"/myprograms",
+    role:['user']
   },
   {
     key:3,
     icon: UilUsersAlt,
-    heading: "HMP Programs",
+    heading: "HMP Templates",
     link:"/hmpprograms",
+    role:['user']
   },
   // {
   //   key:4,
@@ -63,24 +66,28 @@ export const SidebarData = [
     icon: UilUser,
     heading: 'Manage Courses',
     link:"/managecourses",
+    role:['admin','superadmin']
   },
   {
     key:6,
     icon: UilUser,
     heading: 'Manage Doctors',
     link:"/managedoctors",
+    role:['admin','superadmin']
   },
   {
     key:7,
     icon: UilUser,
     heading: 'Manage Messages',
     link:"/managemessages",
+    role:['superadmin']
   },
   {
     key:8,
     icon: UilUser,
     heading: 'Manage Admins',
     link:"/manageadmins",
+    role:['superadmin']
   },
 ];
 

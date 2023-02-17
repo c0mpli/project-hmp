@@ -24,7 +24,7 @@ function ManageCourses() {
       </div>
       <div className='AppGlass3'>
         <div>
-
+        <button>Add course</button>
         {
           courses?.map((value,key)=>{
             return(
