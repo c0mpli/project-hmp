@@ -24,10 +24,33 @@ border-radius: 8px;
     justify-content: center;
     align-items: center;
 }
+#dark .sendMessageWrapper input{
+    background-color: var(--DarkBG);
+    border: 1px solid var(--HMPBlue);
+    color: #ECF5FC;
+}
+#dark .sendMessageWrapper input::placeholder{
+    color: #ECF5FC;
+}
 .messagesWrapper{
     margin-left: 5%;
+}
+#dark .messagesWrapper{
+    color: #ECF5FC;
 }
 .addAdmin{
     height: auto !important;
     margin: 1rem;
+}
+#dark .addAdmin{
+    color: #ECF5FC;
+    background-color: var(--DarkBG);
+}
+#dark .addAdmin input{
+    background-color: var(--DarkBG);
+    border: 1px solid var(--HMPBlue);
+    color: #ECF5FC;
+}
+#dark .addAdmin input::placeholder{
+    color: #ECF5FC;
 }

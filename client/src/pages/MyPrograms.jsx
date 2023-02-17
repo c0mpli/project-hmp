@@ -51,7 +51,7 @@ function MyPrograms() {
                 <div className='ProgramDurationWrapper' >
                     <h3 style={{"color": "#4AA9FA"}}>DURATION</h3>
                     <h3 style={{"color": "#FFB800","fontSize":"3rem"}}>{program.duration}</h3>
-                    <h3 style={{"color": "#013765"}}>days</h3>
+                    <h3 style={{"color": "#013765"}}>weeks</h3>
                 </div>  
               </div>
             </div>
