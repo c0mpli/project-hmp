@@ -4,6 +4,6 @@
 }
 
 .ContentWrapper{
-    display: grid;
     grid-template-rows: auto auto;
+    height: 100vh;
 }

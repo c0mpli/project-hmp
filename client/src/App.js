@@ -17,6 +17,7 @@ import ManageMessages from './pages/ManageMessages'
 import ScheduleAppointment from './pages/ScheduleAppointment';
 import Course from './pages/Course';
 import ManageDoctor from './pages/ManageDoctor';
+import AddCourses from './pages/AddCourses';
 
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
         <Route path='/managecourses' element={role==='admin' || role==='superadmin'?<ManageCourses/>:user?<Dashboard/>:<Login/>}></Route>
         <Route path='/managemessages' element={role==='admin' || role==='superadmin'?<ManageMessages/>:user?<Dashboard/>:<Login/>}></Route>
         <Route path='/managedoctors' element={role==='admin' || role==='superadmin'?<ManageDoctor/>:user?<Dashboard/>:<Login/>}></Route>
+        <Route path='/addcourse' element={role==='admin' || role==='superadmin'?<AddCourses/>:user?<Dashboard/>:<Login/>}></Route>
 
 
         <Route path='/' element={<Landing />}></Route>
