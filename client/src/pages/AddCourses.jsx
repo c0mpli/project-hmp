@@ -75,9 +75,9 @@ function AddCourses() {
         <ProfileHeader title={'Add Course'}/>
       </div>
       <div >
-        <div>
+        <div className=''>
 
-        <form className='login-form'>
+        <form className='login-form addAdmin' >
             {
                 formStep === 0 && (
                     <section>

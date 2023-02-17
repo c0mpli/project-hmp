@@ -48,7 +48,7 @@ function EditCourses() {
           <div >
             <div>
     
-            <form className='login-form'>
+            <form className='login-form addAdmin'>
                 {
                     formStep === 0 && (
                         <section>
