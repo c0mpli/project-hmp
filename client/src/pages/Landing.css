@@ -98,7 +98,7 @@
     margin: 10rem 0;
 }
 
-.landing-trendingPrograms h1,.landing-pricing h1,.landing-pricing p{
+.landing-trendingPrograms h1,.landing-pricing h1,.landing-pricing p,.landing-aboutus h1{
     margin: 0;
     padding: 0;
 }
@@ -267,9 +267,9 @@ form { max-width:420px; margin:3rem auto; }
 
 .feedback-input {
   color:black;
-  font-family: Helvetica, Arial, sans-serif;
   font-weight:500;
-  font-size: 18px;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
   border-radius: 5px;
   line-height: 22px;
   background-color: transparent;
@@ -280,6 +280,10 @@ form { max-width:420px; margin:3rem auto; }
   width:100%;
   box-sizing: border-box;
   outline:0;
+}
+.nthInput{
+    height: 7rem !important;
+    text-align: left !important;
 }
 
 .feedback-input:focus { border:2px solid var(--HMPLogoYellow); }
@@ -304,7 +308,11 @@ textarea {
   margin-top:-4px;
   font-weight:700;
 }
-[type="submit"]:hover { background:var(--HMPLogoYellow); }
+[type="submit"]:hover { 
+    background:var(--HMPLogoYellow);
+    transition: 0.3s ease;
+    transform: scale(1.05); 
+}
 
 
 @media screen and (max-width: 1200px) {

@@ -22,6 +22,7 @@ import ServiceCard from '../components/ServiceCard'
 import PricingCard from '../components/PricingCard'
 import emailImg from '../imgs/email.png'
 import phoneImg from '../imgs/phone-call.png'
+import heart from '../imgs/Heart.png'
 import Slider from 'react-slick'
 
 import about1 from '../imgs/about/1.jpg'
@@ -132,6 +133,7 @@ function Landing() {
           </div>
         </div>
         <div className="landing-aboutus" ref={aboutusRef}>
+            <img src={heart} alt="Heart Icon"/>
             <h1>About us</h1>
             <p>Our goal is to help you recover from injuries and perform your best. Access elite
        level fitness and rehab programs designed by Sports Physiotherapist Heath Matthews,
@@ -207,7 +209,7 @@ function Landing() {
           <input name="name" type="text" className="feedback-input" placeholder="Name" />   
           <input name="email" type="text" className="feedback-input" placeholder="Email" />
           <textarea name="text" className="feedback-input" placeholder="Comment"></textarea>
-          <input type="submit" value="SUBMIT"/>
+          <input type="submit" value="Submit"/>
         </form>
         </div>
     </>
