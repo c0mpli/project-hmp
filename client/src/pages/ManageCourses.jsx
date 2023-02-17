@@ -60,6 +60,7 @@ function ManageCourses() {
               del="2"
               id={value._id}
               key={key}
+              edit="yes"
               />
               )
             })

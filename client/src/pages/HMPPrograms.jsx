@@ -21,7 +21,7 @@ function HMPPrograms() {
     })
     .catch(error=>{console.log(error)})
     
-    navigate({pathname:'/viewcourse',search:`?id=${[key]}`})
+    navigate({pathname:'/myprograms'})
   }
 
   useEffect(()=>{
