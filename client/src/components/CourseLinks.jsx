@@ -7,20 +7,27 @@ function CourseLinks(props) {
     //console.log(props.id)
     //console.log(props.day,courseArr)
 
-    function handleClick(key,value){
-        const ticks = axios.post('https://docwebsite.adityasurve1.repl.co/user/updatecourseprogress',{headers:{"token":localStorage.getItem('token')},auth:{"user":{"_id":localStorage.getItem('token')}}})
-
+    async function handleClick(key,value){
+        let ticks = await axios.post('https://docwebsite.adityasurve1.repl.co/user/getticks',{
+            courseId:props.id
+        },{headers:{"token":localStorage.getItem('token')},auth:{"user":{"_id":localStorage.getItem('token')}}})
+        ticks=ticks.data
         //console.log(props.data)
-        //console.log(ticks)
-        axios.post('https://docwebsite.adityasurve1.repl.co/user/updatecourseprogress',{
-            userId:localStorage.getItem('token'),
-            courseId:props.id,
-            link:value
-        },{headers:{"token":localStorage.getItem('token')},auth:{"user":{"_id":localStorage.getItem('token')}}})  
-        .then(response=>{
-            console.log(response.data)
-        })
-        .catch(error=>{console.log(error)})
+        console.log(ticks)
+        if(!((ticks).includes(value))){
+            axios.post('https://docwebsite.adityasurve1.repl.co/user/updatecourseprogress',{
+                userId:localStorage.getItem('token'),
+                courseId:props.id,
+                link:value
+            },{headers:{"token":localStorage.getItem('token')},auth:{"user":{"_id":localStorage.getItem('token')}}})  
+            .then(response=>{
+                console.log("Progress updated")
+            })
+            .catch(error=>{console.log(error)})
+        }
+        else{
+            console.log("Video already watched")
+        }
     }
   return (
     <div className='linksWrapper'>
