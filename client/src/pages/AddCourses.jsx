@@ -74,7 +74,9 @@ function AddCourses() {
       <div>
         <ProfileHeader title={'Add Course'}/>
       </div>
-      <div style={{margin:"0 5%"}}>
+      <div className='AppGlass3' style={{height:"auto"}}>
+        <div>
+
         <form className='login-form'>
             {
                 formStep === 0 && (
@@ -87,7 +89,7 @@ function AddCourses() {
                             onChange={handleInput} 
                             value={formData.programname} 
                             required
-                        />
+                            />
                         <input 
                             placeholder='Enter course duration' 
                             type='number' 
@@ -103,7 +105,7 @@ function AddCourses() {
                             onChange={handleInput} 
                             value={formData.description} 
                             required
-                        />
+                            />
                         <input 
                             placeholder='Enter course image URL' 
                             type='text' 
@@ -111,7 +113,7 @@ function AddCourses() {
                             onChange={handleInput} 
                             value={formData.image} 
                             required
-                        />
+                            />
                     </section>
                 )
             }
@@ -119,78 +121,77 @@ function AddCourses() {
             {
                 formStep>0 && formStep<=formData.duration && (
                     <section>
-
-                        <h1>Week {formStep}</h1>
-                        <input 
-                            type='text'
-                            placeholder='Day 1'
-                            name="day1"
-                            onChange={handleInput2} 
-                            value={videoData.day1}
-                        />
-                        <input 
-                            type='text'
-                            placeholder='Day 2'
-                            name="day2"
-                            onChange={handleInput2} 
-                            value={videoData.day2}
-                        />
-                        <input 
-                            type='text'
-                            placeholder='Day 3'
-                            name="day3"
-                            onChange={handleInput2} 
-                            value={videoData.day3}
-                        />
-                        <input 
-                            type='text'
-                            placeholder='Day 4'
-                            name="day4"
-                            onChange={handleInput2} 
-                            value={videoData.day4}
-                        />
-                        <input 
-                            type='text'
-                            placeholder='Day 5'
-                            name="day5"
-                            onChange={handleInput2} 
+                    
+                    <h1>Week {formStep}</h1>
+                    <input 
+                    type='text'
+                    placeholder='Day 1'
+                    name="day1"
+                    onChange={handleInput2} 
+                    value={videoData.day1}
+                    />
+                    <input 
+                    type='text'
+                    placeholder='Day 2'
+                    name="day2"
+                    onChange={handleInput2} 
+                    value={videoData.day2}
+                    />
+                    <input 
+                    type='text'
+                    placeholder='Day 3'
+                    name="day3"
+                    onChange={handleInput2} 
+                    value={videoData.day3}
+                    />
+                    <input 
+                    type='text'
+                    placeholder='Day 4'
+                    name="day4"
+                    onChange={handleInput2} 
+                    value={videoData.day4}
+                    />
+                    <input 
+                    type='text'
+                    placeholder='Day 5'
+                    name="day5"
+                    onChange={handleInput2} 
                             value={videoData.day5}
                         />
                         <input 
-                            type='text'
-                            placeholder='Day 6'
-                            name="day6"
-                            onChange={handleInput2} 
-                            value={videoData.day6}
+                        type='text'
+                        placeholder='Day 6'
+                        name="day6"
+                        onChange={handleInput2} 
+                        value={videoData.day6}
                         />
                         <input 
-                            type='text'
-                            placeholder='Day 7'
-                            name="day7"
-                            onChange={handleInput2} 
-                            value={videoData.day7}
+                        type='text'
+                        placeholder='Day 7'
+                        name="day7"
+                        onChange={handleInput2} 
+                        value={videoData.day7}
                         />
-                    </section>
-                )
-            }
-            
-            {
-                (formStep!=formData.duration+1 || formStep===0) && (
-
-                    <button onClick={completeFormStep} type='button'>Next</button>
-                )
-            }
-            {
-                formStep === formData.duration+1 && formStep > 0 && (
-                    <button onClick={submitForm} type='button'>Submit</button>
-                )
-            }
-            */}
+                        </section>
+                        )
+                    }
+                    
+                    {
+                        (formStep!=formData.duration+1 || formStep===0) && (
+                            
+                            <button onClick={completeFormStep} type='button'>Next</button>
+                            )
+                        }
+                        {
+                            formStep === formData.duration+1 && formStep > 0 && (
+                                <button onClick={submitForm} type='button'>Submit</button>
+                                )
+                            }
+                        */}
             <button onClick={submitForm} type='button'>Submit</button>
         </form>
-        
-        <div>
         </div>
+        
       </div>
     </div>
     </div>

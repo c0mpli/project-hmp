@@ -44,7 +44,10 @@ function ManageCourses() {
       </div>
       <div className='AppGlass3'>
         <div>
+          <div className="card-button">
+
         <button onClick={()=>{navigate('../addcourse')}}>Add course</button>
+          </div>
         {
           courses?.map((value,key)=>{
             return(
