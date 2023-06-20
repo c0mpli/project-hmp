@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import React, { useState, useEffect } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-import './Programs.css';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios'
+import "./Programs.css";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 function Programs() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const settings = {
     dots: false,
     infinite: true,
@@ -44,38 +44,40 @@ function Programs() {
     ],
   };
 
-  const [programs,setPrograms] = useState();
-  
-  useEffect(()=>{
-    axios.get('https://docwebsite.adityasurve1.repl.co/user/fetchallcourses',{headers:{"token":localStorage.getItem('token')}})
-    .then(response=>{
-      //console.log(response.data)
-      setPrograms(response.data)
-    })
-  })
-  
+  const [programs, setPrograms] = useState();
+
+  useEffect(() => {
+    axios
+      .get("https://docwebsite.adityasurve1.repl.co/user/fetchallcourses", {
+        headers: { token: localStorage.getItem("token") },
+      })
+      .then((response) => {
+        //console.log(response.data)
+        setPrograms(response.data);
+      });
+  }, []);
+
   return (
     <div className="Programs">
       <Slider {...settings}>
-        {programs?.map((item,key) => {
-          return(
+        {programs?.map((item, key) => {
+          return (
             <div className="card" key={key}>
               <div className="card-top">
-                <img
-                  src={item.image}
-                  alt={item.programname}
-                  />
+                <img src={item.image} alt={item.programname} />
                 <h1>{item.programname}</h1>
-                
-                <div className='programsRectLine'></div>
+
+                <div className="programsRectLine"></div>
               </div>
               <div className="card-bottom">
                 <p>{item.description}</p>
-                <button onClick={()=>navigate('/hmpprograms')}>View More</button>
+                <button onClick={() => navigate("/hmpprograms")}>
+                  View More
+                </button>
               </div>
             </div>
-          )
-          })}
+          );
+        })}
       </Slider>
     </div>
   );
