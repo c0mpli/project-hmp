@@ -5,25 +5,34 @@ import Card from "../Card/Card";
 import axios from "axios";
 
 const Cards = () => {
-  const [cardsData,setCardsData] = useState()
-   const navigate = useNavigate()
-   useEffect(()=>{
-    axios.get('https://docwebsite.adityasurve1.repl.co/user/getcourseprogress',{headers:{"token":localStorage.getItem('token')}})
-    .then(response=>{
-      setCardsData(response.data)
-      console.log(response.data)
-    })
-    .catch(error=>{console.log(error)})
-
-  },[])
+  const [cardsData, setCardsData] = useState();
+  const navigate = useNavigate();
+  useEffect(() => {
+    axios
+      .get("https://docwebsite.adityasurve1.repl.co/user/getcourseprogress", {
+        headers: { token: localStorage.getItem("token") },
+      })
+      .then((response) => {
+        const t = response.data;
+        t.sort(function (a, b) {
+          return a.percentage - b.percentage;
+        });
+        t.reverse();
+        setCardsData(t);
+        console.log(t);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+  console.log(cardsData);
   return (
     <>
-    <div className="Cards">
-      {cardsData?.map((card, id) => {
-        if(card.percentage!=0){
+      <div className="Cards">
+        {cardsData?.map((card, id) => {
+          if (id > 2) return null;
           return (
             <div className="parentContainer" key={id}>
-              
               <Card
                 title={card.courseName}
                 color={card.color}
@@ -32,13 +41,13 @@ const Cards = () => {
               />
             </div>
           );
-        }
-      })}
-    </div>
-    <div className="card-button">
-
-      <button onClick={()=>navigate('/myprograms')}>{'VIEW ALL ->'} </button>
-    </div>
+        })}
+      </div>
+      <div className="card-button">
+        <button onClick={() => navigate("/myprograms")}>
+          {"VIEW ALL ->"}{" "}
+        </button>
+      </div>
     </>
   );
 };
