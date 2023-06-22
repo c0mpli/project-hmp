@@ -4,7 +4,7 @@ import Sidebar from "../components/Sidebar";
 import "./Appointments.css";
 import axios from "axios";
 function ScheduleAppointment() {
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState();
   const [timeValue, setTimeValue] = useState("");
   const [healthP, setHealthP] = useState([]);
   const [selectedHP, setSelectedHP] = useState("");
@@ -24,7 +24,8 @@ function ScheduleAppointment() {
   }, []);
 
   function checkAvailabilty() {
-    const date = `${startDate.getDate()}/${startDate.getMonth()}/${startDate.getFullYear()}`;
+    const t = startDate.split("-");
+    const date = `${t[2]}/${t[1]}/${t[0]}`;
     console.log(selectedHP, date, timeValue);
     axios
       .post(
@@ -42,12 +43,14 @@ function ScheduleAppointment() {
         }
       })
       .catch((error) => {
-        console.log(error);
+        alert(error);
       });
   }
 
   function handleBook() {
-    const date = `${startDate.getDate()}/${startDate.getMonth()}/${startDate.getFullYear()}`;
+    const t = startDate.split("-");
+
+    const date = `${t[2]}/${t[1]}/${t[0]}`;
     axios
       .post(
         "https://docwebsite.adityasurve1.repl.co/user/book-appointment",
@@ -101,7 +104,7 @@ function ScheduleAppointment() {
                 type="date"
                 showIcon
                 selected={startDate}
-                onChange={(date) => setStartDate(date)}
+                onChange={(date) => setStartDate(date.target.value)}
               />
             </div>
             <div className="inputWrapper">

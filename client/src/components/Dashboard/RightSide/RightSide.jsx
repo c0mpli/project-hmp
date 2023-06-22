@@ -99,7 +99,8 @@ const RightSide = () => {
             if (
               today.getFullYear() <= parseInt(year, 10) &&
               today.getMonth() <= month &&
-              today.getDate() <= parseInt(date, 10)
+              today.getDate() <= parseInt(date, 10) &&
+              appoinment.status === "approved"
             ) {
               return (
                 <div key={key} className="appointmentWrapper">

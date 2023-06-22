@@ -15,24 +15,23 @@ function ManageAppointments() {
         }
       )
       .then((response) => {
-        setAppointments(response.data);
+        setAppointments(response.data.data);
+        console.log(response.data.data);
       })
       .catch((error) => {
         alert(error);
       });
   }
-  useEffect(() => {}, []);
+  useEffect(() => {
+    getAppointments();
+  }, []);
   return (
     <div className="AppGlass2">
       <Sidebar />
       <div className="ContentWrapper">
         <ProfileHeader title={"Approve Appointments"} />
 
-        <div className="AppGlass3">
-          {appointments.map((appointment) => {
-            <h1>{appointment}</h1>;
-          })}
-        </div>
+        <div className="AppGlass3"></div>
       </div>
     </div>
   );

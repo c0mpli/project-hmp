@@ -7,9 +7,34 @@ function EditHealthPartner() {
   const [profileData, setProfileData] = useState({});
 
   function handleOnChange(e) {
+    if (e.target.name === "timings") {
+      var t = e.target.value.split(",");
+      t = t.filter((val) => val !== "");
+      setProfileData({ ...profileData, [e.target.name]: t });
+      return;
+    }
     setProfileData({ ...profileData, [e.target.name]: e.target.value });
   }
-  function handleSubmit() {}
+  function handleSubmit() {
+    console.log(profileData);
+    axios
+      .post(
+        "https://docwebsite.adityasurve1.repl.co/healthp/update-doctor-profile",
+        {
+          userId: localStorage.getItem("token"),
+          data: profileData,
+        },
+        { headers: { token: localStorage.getItem("token") } }
+      )
+      .then((response) => {
+        if (response.data.success) {
+          alert("Data updated.");
+        }
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  }
   function getProfileData() {
     axios
       .get(
@@ -21,7 +46,6 @@ function EditHealthPartner() {
       )
       .then((response) => {
         setProfileData(response.data.data);
-        console.log(response.data);
       })
       .catch((error) => {
         alert(error);
@@ -44,11 +68,10 @@ function EditHealthPartner() {
       value: profileData?.feePerConsultation,
     },
     {
-      labeltitle: "",
-      labelID: "email",
-      value: profileData?.feePerConsultation,
+      labeltitle: "Timings",
+      labelID: "timings",
+      value: profileData?.timings,
     },
-    { labeltitle: "Email", labelID: "email", value: profileData?.email },
   ];
   return (
     <div className="AppGlass2">
@@ -57,26 +80,30 @@ function EditHealthPartner() {
         <ProfileHeader title={"Edit Profile"} />
 
         <div className="AppGlass3">
-          <div className="EditProfileWrapper">
-            <div className="EditProfileinputWrapper">
-              {ProfileInputsData.map((data) => {
-                return (
-                  <div className="EditProfileinput">
-                    <label for={data.labelID} id={data.labelID}>
-                      {data.labeltitle}
-                    </label>
-                    <input
-                      name={data.labelID}
-                      id={data.labelID}
-                      value={data.value}
-                      onChange={handleOnChange}
-                    />
-                  </div>
-                );
-              })}
-              <div className="card-bottom">
-                <button onClick={handleSubmit}>Edit data</button>
-              </div>
+          <div className="bookAppointmentWrapper" style={{ gap: "1rem" }}>
+            {ProfileInputsData.map((data) => {
+              return (
+                <div className="inputWrapper">
+                  <label
+                    for={data.labelID}
+                    id={data.labelID}
+                    style={{ width: "10rem" }}
+                  >
+                    {data.labeltitle}
+                  </label>
+                  <input
+                    name={data.labelID}
+                    id={data.labelID}
+                    value={data.value}
+                    onChange={handleOnChange}
+                    style={{ width: "10rem" }}
+                  />
+                </div>
+              );
+            })}
+
+            <div className="appointmentButtons card-button">
+              <button onClick={handleSubmit}>Submit changes</button>
             </div>
           </div>
         </div>
