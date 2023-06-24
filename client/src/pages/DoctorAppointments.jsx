@@ -4,6 +4,7 @@ import Sidebar from "../components/Sidebar";
 import axios from "axios";
 import calendarIcon from "../imgs/calendar.png";
 import "./Appointments.css";
+import useWindowDimensions from "../components/useWindowDimensions";
 function DoctorAppointments() {
   const [appointments, setAppointments] = useState([]);
   const monthNames = [
@@ -37,6 +38,7 @@ function DoctorAppointments() {
         alert(error);
       });
   }
+  const { width } = useWindowDimensions();
   useEffect(() => {
     getAppointments();
   }, []);
@@ -61,7 +63,7 @@ function DoctorAppointments() {
                     alignItems: "center",
                   }}
                 >
-                  <img src={calendarIcon} />
+                  {width > 768 ? <img src={calendarIcon} /> : <></>}
                   <h3>User Aneesh</h3>
                   <div className="appointmentContent">
                     <h3>{`${date} ${monthNames[month]}, ${year}`}</h3>

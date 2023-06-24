@@ -3,6 +3,7 @@ import ProfileHeader from "../components/ProfileHeader";
 import Sidebar from "../components/Sidebar";
 import axios from "axios";
 import calendarIcon from "../imgs/calendar.png";
+import useWindowDimensions from "../components/useWindowDimensions";
 
 function ManageAppointments() {
   const [appointments, setAppointments] = useState([]);
@@ -20,6 +21,8 @@ function ManageAppointments() {
     "November",
     "December",
   ];
+  const { width } = useWindowDimensions();
+
   function getAppointments() {
     axios
       .get(
@@ -87,7 +90,8 @@ function ManageAppointments() {
                       alignItems: "center",
                     }}
                   >
-                    <img src={calendarIcon} />
+                    {width > 768 ? <img src={calendarIcon} /> : <></>}
+
                     <h3>User Aneesh</h3>
                     <div className="appointmentContent">
                       <h3>{`${date} ${monthNames[month]}, ${year}`}</h3>
@@ -99,6 +103,7 @@ function ManageAppointments() {
                       display: "flex",
                       gap: "2rem",
                       alignItems: "center",
+                      flexDirection: width > 768 ? "row" : "column",
                     }}
                   >
                     <button

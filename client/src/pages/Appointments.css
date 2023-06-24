@@ -52,4 +52,7 @@
   .appointmentButtons {
     gap: 2rem;
   }
+  .ManageAppointmentsWrapper {
+    width: 90%;
+  }
 }
