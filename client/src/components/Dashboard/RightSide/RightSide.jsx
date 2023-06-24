@@ -33,7 +33,7 @@ const RightSide = () => {
         setMessages(response.data.data.reverse());
       })
       .catch((error) => {
-        console.log(error);
+        alert(error);
       });
 
     axios
@@ -46,7 +46,7 @@ const RightSide = () => {
         //console.log(response.data.data)
       })
       .catch((error) => {
-        console.log(error);
+        alert(error);
       });
   }
 

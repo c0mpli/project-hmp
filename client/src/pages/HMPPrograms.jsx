@@ -24,7 +24,7 @@ function HMPPrograms() {
       )
       .then((response) => {})
       .catch((error) => {
-        console.log(error);
+        alert(error);
       });
 
     navigate({ pathname: "/myprograms" });
@@ -41,7 +41,7 @@ function HMPPrograms() {
         setPrograms(response.data);
       })
       .catch((error) => {
-        console.log(error);
+        alert(error);
       });
   }, []);
   return (

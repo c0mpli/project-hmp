@@ -19,7 +19,7 @@ function ScheduleAppointment() {
         setHealthP(response.data.data);
       })
       .catch((error) => {
-        console.log(error);
+        alert(error);
       });
   }, []);
 

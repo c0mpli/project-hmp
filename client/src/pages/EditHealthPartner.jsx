@@ -16,7 +16,6 @@ function EditHealthPartner() {
     setProfileData({ ...profileData, [e.target.name]: e.target.value });
   }
   function handleSubmit() {
-    console.log(profileData);
     axios
       .post(
         "https://docwebsite.adityasurve1.repl.co/healthp/update-doctor-profile",

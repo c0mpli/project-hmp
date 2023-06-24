@@ -41,7 +41,7 @@ function ManageAdmin() {
         alert(JSON.stringify(response.data.message));
       })
       .catch((error) => {
-        console.log(error);
+        alert(error);
       });
   }
 

@@ -19,10 +19,9 @@ const Cards = () => {
         });
         t.reverse();
         setCardsData(t);
-        console.log(t);
       })
       .catch((error) => {
-        console.log(error);
+        alert(error);
       });
   }, []);
   console.log(cardsData);
