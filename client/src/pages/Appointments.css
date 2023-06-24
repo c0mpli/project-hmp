@@ -13,6 +13,16 @@
   justify-content: center;
   align-items: center;
 }
+.ManageAppointmentsWrapper {
+  width: 60%;
+  padding: 0 5%;
+}
+.SpecialAppointments {
+  justify-content: space-between !important;
+}
+#dark .SpecialAppointments {
+  color: white;
+}
 .inputWrapper select,
 .inputWrapper input {
   width: 10rem;

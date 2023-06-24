@@ -91,13 +91,20 @@ export const SidebarData = [
   },
   {
     key: 9,
+    icon: UilUser,
+    heading: "View Appointments",
+    link: "/viewdoctorappointments",
+    role: ["healthpartner"],
+  },
+  {
+    key: 10,
     icon: UilUsersAlt,
     heading: "Manage Appointments",
     link: "/manageappointments",
     role: ["healthpartner"],
   },
   {
-    key: 10,
+    key: 11,
     icon: UilSetting,
     heading: "Edit Profile",
     link: "/editprofile",

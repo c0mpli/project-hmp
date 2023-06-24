@@ -21,6 +21,7 @@ import AddCourses from "./pages/AddCourses";
 import EditCourses from "./pages/EditCourses";
 import ManageAppointments from "./pages/ManageAppointments";
 import EditHealthPartner from "./pages/EditHealthPartner";
+import DoctorAppointments from "./pages/DoctorAppointments";
 
 function App() {
   const [theme, setTheme] = useState(JSON.parse(localStorage.getItem("theme")));
@@ -168,6 +169,18 @@ function App() {
               element={
                 role === "healthpartner" ? (
                   <EditHealthPartner />
+                ) : user ? (
+                  <Dashboard />
+                ) : (
+                  <Login />
+                )
+              }
+            ></Route>
+            <Route
+              path="/viewdoctorappointments"
+              element={
+                role === "healthpartner" ? (
+                  <DoctorAppointments />
                 ) : user ? (
                   <Dashboard />
                 ) : (
