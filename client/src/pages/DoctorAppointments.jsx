@@ -62,7 +62,7 @@ function DoctorAppointments() {
                   }}
                 >
                   <img src={calendarIcon} />
-                  <h2></h2>
+                  <h3>User Aneesh</h3>
                   <div className="appointmentContent">
                     <h3>{`${date} ${monthNames[month]}, ${year}`}</h3>
                     <p>{`At HMP Office, Khar @${time}`}</p>
