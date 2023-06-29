@@ -90,6 +90,18 @@ function Landing() {
     else setProgramCount(3);
   }, [width]);
 
+  function staggerAnimate() {
+    gsap.from(".stagger1", {
+      opacity: 0,
+      y: 100,
+      duration: 0.8,
+      stagger: 0.3,
+    });
+  }
+  useEffect(() => {
+    staggerAnimate();
+  }, []);
+
   return (
     <>
       <div className="landing">
@@ -101,29 +113,29 @@ function Landing() {
         <div className="landing-section1">
           <div></div>
           <div className="content">
-            <h1>
+            <h1 className="stagger1">
               Restoring <img src={fire} alt="Fire Icon" />
               <br />
               your movement with physiotherapy
             </h1>
             <div className="subContent">
-              <p>
+              <p className="stagger1">
                 <b>
                   Develop, Maintain and Restore your body’s movement and
                   function with the world’s best physiotherapist
                 </b>
               </p>
             </div>
-            <div className="section1-buttons">
+            <div className="section1-buttons ">
               <button
-                className="startNowButton"
+                className="startNowButton stagger1"
                 onClick={() => {
                   navigate("/dashboard");
                 }}
               >
                 <b>Start now</b>
               </button>
-              <div className="howItWorks">
+              <div className="howItWorks stagger1">
                 <div className="playButtonCircle">
                   <div className="playButtonTriangle"></div>
                 </div>
