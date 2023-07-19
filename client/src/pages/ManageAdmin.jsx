@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import ProfileHeader from "../components/ProfileHeader";
 import Sidebar from "../components/Sidebar";
 import axios from "axios";
-import UserCard from "../components/Users/UserCard";
 import userImage from "../imgs/img2.png";
 import deleteIcon from "../imgs/delete.png";
 
@@ -14,7 +13,7 @@ function ManageAdmin() {
   const [number, setNumber] = useState();
 
   const [admins, setAdmins] = useState();
-  useEffect(() => {
+  useLayoutEffect(() => {
     axios
       .get("https://docwebsite.adityasurve1.repl.co/sadmin/getadmins", {
         headers: { token: localStorage.getItem("token") },

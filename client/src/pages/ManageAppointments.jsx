@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import ProfileHeader from "../components/ProfileHeader";
 import Sidebar from "../components/Sidebar";
 import axios from "axios";
@@ -62,7 +62,7 @@ function ManageAppointments() {
         alert(error);
       });
   }
-  useEffect(() => {
+  useLayoutEffect(() => {
     getAppointments();
   }, []);
   return (

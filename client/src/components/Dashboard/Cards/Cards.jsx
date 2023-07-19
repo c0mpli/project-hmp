@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import "./Cards.css";
 import { useNavigate } from "react-router-dom";
 import Card from "../Card/Card";
@@ -7,7 +7,7 @@ import axios from "axios";
 const Cards = () => {
   const [cardsData, setCardsData] = useState();
   const navigate = useNavigate();
-  useEffect(() => {
+  useLayoutEffect(() => {
     axios
       .get("https://docwebsite.adityasurve1.repl.co/user/getcourseprogress", {
         headers: { token: localStorage.getItem("token") },
@@ -24,7 +24,6 @@ const Cards = () => {
         alert(error);
       });
   }, []);
-  console.log(cardsData);
   return (
     <>
       <div className="Cards">

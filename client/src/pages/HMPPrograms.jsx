@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import Sidebar from "../components/Sidebar";
 import "./HMPPrograms.css";
 import { useTheme } from "../context/ThemeContext";
@@ -30,7 +30,7 @@ function HMPPrograms() {
     navigate({ pathname: "/myprograms" });
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     let role = localStorage.getItem("role");
     if (role === "superadmin") role = "sadmin";
     axios

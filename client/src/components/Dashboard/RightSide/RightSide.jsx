@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import "./RightSide.css";
 import { UpdatesData } from "../../../Data/Data";
 import { useNavigate } from "react-router-dom";
@@ -50,7 +50,7 @@ const RightSide = () => {
       });
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     getUserData();
   }, []);
 

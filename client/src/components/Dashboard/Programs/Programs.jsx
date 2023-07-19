@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -46,7 +46,7 @@ function Programs() {
 
   const [programs, setPrograms] = useState();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     axios
       .get("https://docwebsite.adityasurve1.repl.co/user/fetchallcourses", {
         headers: { token: localStorage.getItem("token") },

@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import ProfileHeader from "../components/ProfileHeader";
 import Sidebar from "../components/Sidebar";
 import axios from "axios";
-import HMPProgram from "../components/HMPProgram";
 import SpecificCourse from "../components/SpecificCourse";
 import { useNavigate } from "react-router";
 
@@ -12,7 +11,7 @@ function MyPrograms() {
   const [isCourse, setIsCourse] = useState(false);
   const [courseKey, setCourseKey] = useState();
   const [loading, setLoading] = useState(true);
-  useEffect(() => {
+  useLayoutEffect(() => {
     axios
       .get(
         "https://docwebsite.adityasurve1.repl.co/user/fetchinterestedcourse",
